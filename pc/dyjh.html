@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+		<meta name="format-detection" content="email=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>易房助手-答疑解惑</title>
+		<meta name="Keywords" content="易房助手-答疑解惑">
+		<meta name="Description" content="易房助手-答疑解惑">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/style.css" rel="stylesheet" type="text/css">
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl.js"></script>
+		<script src="../images/js/video/TcPlayer-2.3.2.js" charset="utf-8"></script>
+	</head>
+
+	<body style="">
+		<div id="wrap">
+			<div class="top_box">
+				<div class="w1200 w12001 oh">
+					<a href="index.html" class="logo fl">
+						<img src="../images/logo.png" alt="">
+					</a>
+					<div class="sj_btn">
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+					<a class="go_my fr" href="./my.html">
+						<img src="../images/my.png" alt="">
+					</a>
+					<div class="nav_box fr oh">
+						<a href="index.html" id="active0">首&nbsp;&nbsp;&nbsp;页</a>
+
+						<a href="fwlb.html" id="active1">服务类别</a>
+						
+						<a href="dyjh.html" id="active2" class="active">答疑解惑</a>
+						
+						<a href="jyzs.html" id="active4">交易知识</a>
+						<a href="fwal.html" id="active5">服务案例</a>
+						<a href="sfcs.html" id="active6">税费测算</a>
+
+					</div>
+					<div class="pc_tel fr">
+						<img src="../images/pc_tel.png" alt="">400-690-5050
+					</div>
+				</div>
+			</div>
+			<!-- banner -->
+			<div class="dyjh_banner  w1200 w12001">
+				<div class="dyjh_banner_b dis_flex ju_b aic"  style="background-image: url(../images/dyjh_banner_03.jpg);">
+					<div class="dyjh_b_l dis_flex_c ju_b">
+						<div class="dyjh_b_l1">居间服务</div>
+						<div class="dyjh_b_l2">居间人向委托人报告订立合同的机会或者提供订立合同的媒介服务</div>
+					</div>
+					<a href="###" class="dyjh_buy_btn dis_flex aic ju_c">立即购买</a>
+				</div>
+			</div>
+			<div class="fwlb_h_tit">
+				<div class="w1200 w12001 fwlb_h_tit1 dis_flex aic" ><a href="index.html">易房助手</a>＞答疑解惑</div>
+			</div>
+			<div class="index_box3 clearfix"  style="margin-top: 0;padding-top: 0;">
+				<div class="  w1200 w12001">
+				
+					<div class="index4_b index4_b_dyjh">
+						<div class="in4b_b dis_flex ju_b" style="border-bottom: 0;">
+							<div class="in4b_bl">
+								<div class="dis_flex ju_b in4b_bl_t">
+									<div class="rd_list dis_flex aic">
+										<div class="rd_li cur">默认排序</div>
+										<div class="rd_li">问答分类 
+											<div class="wdfl">
+												<div :class="rd_cur==0?'cur':''" @click="rd_fuc(0)">全部</div>
+												<div :class="rd_cur==1?'cur':''" @click="rd_fuc(1)">买卖过户</div>
+												<div :class="rd_cur==2?'cur':''" @click="rd_fuc(2)">继承过户</div>
+												<div :class="rd_cur==3?'cur':''" @click="rd_fuc(3)">赠与过户</div>
+											</div>
+										</div>
+									</div>
+									<a class="fw_more  dis_flex aic" href="###">更多热点<img src="../images/more01.png" alt=""></a>
+								</div>
+								<div class="rdxx_list" v-if="rd_cur==0">
+									<a href="dyjh_details.html" class="rdxx_li dyjh_li dis_flex" v-for="item in 6">
+										<div class="dyjh_l dis_flex aic ju_c">
+											问
+										</div>
+										<div class="flex_1 rdxx_li_msg dis_flex_c ju_b">
+											<div class="dis_flex ju_b rdxx_li_d1">
+												<div class="flex_1 rdxx_li_tit">北京的二手房交易流程是什么？二都有哪些？1</div>
+											</div>
+											<div class="rdxx_li_d2 oh1">审核买方购房资质，网签，网上审税，网上预约缴税过户。费用需要根据...</div>
+											<div class="dis_flex  ju_b  dy_hf_btn_li">
+												<div class="dy_hf_btn dis_flex aic">1位咨询顾问回复</div>
+												<div class="dy_time">2020-02-06</div>
+											</div>
+										</div>
+									</a>
+									<div class="zz_page_box dis_flex aic ju_c">
+										<a class="cur" href="###">1</a>
+										<a href="###">2</a>
+										<a href="###">3</a>
+										<a href="###">下一页</a>
+										<a href="###">尾页</a>
+									</div>
+								</div>
+								<div class="rdxx_list" v-if="rd_cur==1">
+									<a href="###" class="rdxx_li dyjh_li dis_flex" v-for="item in 6">
+										<div class="dyjh_l dis_flex aic ju_c">
+											问
+										</div>
+										<div class="flex_1 rdxx_li_msg dis_flex_c ju_b">
+											<div class="dis_flex ju_b rdxx_li_d1">
+												<div class="flex_1 rdxx_li_tit">北京的二手房交易流程是什么？二都有哪些？2</div>
+											</div>
+											<div class="rdxx_li_d2 oh1">审核买方购房资质，网签，网上审税，网上预约缴税过户。费用需要根据...</div>
+											<div class="dis_flex  ju_b  dy_hf_btn_li">
+												<div class="dy_hf_btn dis_flex aic">1位咨询顾问回复</div>
+												<div class="dy_time">2020-02-06</div>
+											</div>
+										</div>
+									</a>
+									<div class="zz_page_box dis_flex aic ju_c">
+										<a class="cur" href="###">1</a>
+										<a href="###">2</a>
+										<a href="###">3</a>
+										<a href="###">下一页</a>
+										<a href="###">尾页</a>
+									</div>
+								</div>
+								<div class="rdxx_list" v-if="rd_cur==2">
+									<a href="###" class="rdxx_li dyjh_li dis_flex" v-for="item in 6">
+										<div class="dyjh_l dis_flex aic ju_c">
+											问
+										</div>
+										<div class="flex_1 rdxx_li_msg dis_flex_c ju_b">
+											<div class="dis_flex ju_b rdxx_li_d1">
+												<div class="flex_1 rdxx_li_tit">北京的二手房交易流程是什么？二都有哪些？3</div>
+											</div>
+											<div class="rdxx_li_d2 oh1">审核买方购房资质，网签，网上审税，网上预约缴税过户。费用需要根据...</div>
+											<div class="dis_flex  ju_b  dy_hf_btn_li">
+												<div class="dy_hf_btn dis_flex aic">1位咨询顾问回复</div>
+												<div class="dy_time">2020-02-06</div>
+											</div>
+										</div>
+									</a>
+									<div class="zz_page_box dis_flex aic ju_c">
+										<a class="cur" href="###">1</a>
+										<a href="###">2</a>
+										<a href="###">3</a>
+										<a href="###">下一页</a>
+										<a href="###">尾页</a>
+									</div>
+								</div>
+								<div class="rdxx_list" v-if="rd_cur==3">
+									<a href="###" class="rdxx_li dyjh_li dis_flex" v-for="item in 6">
+										<div class="dyjh_l dis_flex aic ju_c">
+											问
+										</div>
+										<div class="flex_1 rdxx_li_msg dis_flex_c ju_b">
+											<div class="dis_flex ju_b rdxx_li_d1">
+												<div class="flex_1 rdxx_li_tit">北京的二手房交易流程是什么？二都有哪些？4</div>
+											</div>
+											<div class="rdxx_li_d2 oh1">审核买方购房资质，网签，网上审税，网上预约缴税过户。费用需要根据...</div>
+											<div class="dis_flex  ju_b  dy_hf_btn_li">
+												<div class="dy_hf_btn dis_flex aic">1位咨询顾问回复</div>
+												<div class="dy_time">2020-02-06</div>
+											</div>
+										</div>
+									</a>
+									<div class="zz_page_box dis_flex aic ju_c">
+										<a class="cur" href="###">1</a>
+										<a href="###">2</a>
+										<a href="###">3</a>
+										<a href="###">下一页</a>
+										<a href="###">尾页</a>
+									</div>
+								</div>
+							</div>
+							<div class="in4b_br">
+								<div class="in4b_br_box">
+									<div class="dis_flex in4b_br_tit">我要提问</div>
+									<form class="tw_form" action="">
+										<div class="dyjh_tw_content">
+											<textarea name="content" placeholder="请描述您的问题（至少6字）" v-model="content" maxlength="100"></textarea>
+											<div class="tw_cnum">{{content.length}}/100</div>
+										</div>
+										
+										<div class="dis_flex ju_b">
+											<div></div>
+											<input type="submit" class="form_btn" value="发布提问">
+										</div>
+									</form>
+								</div>
+								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/dyjh_cs_07.jpg);"></a>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+			<div class="index_box6 clearfix">
+				<div class="w1200 w12001 dis_flex ju_b">
+					<div class="index6_list dis_flex ju_b">
+						<div class="index6_li">
+							<div class="index6_li_d1">公司信息</div>
+							<a class="index6_li_d1" href="###">关于我们</a>
+							<a class="index6_li_d1" href="###">用户协议</a>
+							<a class="index6_li_d1" href="###">隐私政策</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">服务咨询</div>
+							<a class="index6_li_d1">400-189-3038</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">商务合作</div>
+							<a class="index6_li_d1">1745843160</a>
+						</div>
+					</div>
+					<div class="gzh_box">
+						<img src="../images/index_bewm.png" alt="">
+						<div>关注公众号<br>获取更多过户知识</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<div class="footer tac">
+			<div class="w1200">
+				copyright 2003-2022 北京叁叁八五资讯有限公司 | 京ICP备18037428号-1 京公网安备 11010602100441号<br>
+				违法和不良信息举报电话：010-56319651 举报邮箱：jubao@3385.com
+			</div>
+		</div>
+		<!-- 加载中 -->
+		<div class="load_box" style="display: none;">
+			<img src="../images/load.gif" alt="">加载中...
+		</div>
+		<!-- 加载中 -->
+		<script>
+			//开启加载层
+			function openload() {
+				$(".load_box").fadeIn(500);
+			};
+			//关闭加载层
+			function closeload() {
+				$(".load_box").fadeOut(500);
+			};
+			//加载完成关闭
+			$(window).load(function() {
+				closeload();
+			});
+			$(function() {
+				// banner
+				$('.single-item').slick({
+					dots: true,
+					speed: 500,
+					arrows: true,
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					autoplay: true,
+					autoplaySpeed: 3000
+				});
+				//视频
+				var player = new TcPlayer('H_video', {
+					"m3u8": 'https://admin.igreen.org/upload/20191202/b14656e0cf8e07ce/1c158a3bd9425fc6.mp4', //请替换成实际可用的播放地址
+					"autoplay": false, //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+					"poster": 'images/play.png',
+					"width": '100%', //视频的显示宽度，请尽量使用视频分辨率宽度
+					"height": 'auto' //视频的显示高度，请尽量使用视频分辨率高度
+				});
+
+
+
+				if ($(window).width() > 768) {
+					var mySwiper = new Swiper('.swiper-container', {
+						// autoplay: true,//可选选项，自动滑动
+						loop: true,
+						slidesPerView: 4,
+						spaceBetween: 10,
+						// centeredSlides : true,
+						pagination: {
+							el: '.swiper-pagination',
+						},
+						navigation: {
+							nextEl: '.swiper-button-next1',
+							prevEl: '.swiper-button-prev1',
+						},
+					})
+				} else {
+					var mySwiper = new Swiper('.swiper-container', {
+						// autoplay: true,//可选选项，自动滑动
+						loop: true,
+						slidesPerView: 2,
+						spaceBetween: 5,
+						// centeredSlides : true,
+						navigation: {
+							nextEl: '.swiper-button-next1',
+							prevEl: '.swiper-button-prev1',
+						},
+					})
+				};
+
+			})
+
+
+
+			var vm = new Vue({
+				el: "#wrap",
+				data: {
+					rd_cur: 0, //热点分类
+					ss_type: 0,
+					content: '',
+
+				},
+				created: function() {},
+				methods: {}
+			});
+			function rd_fuc(num){
+				if(vm.rd_cur==num){
+					return
+				}
+				vm.rd_cur=num
+			}
+			
+		</script>
+
+
+	</body>
+</html>
