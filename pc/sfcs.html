@@ -1,0 +1,518 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+		<meta name="format-detection" content="email=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>易房助手-答疑解惑</title>
+		<meta name="Keywords" content="易房助手-答疑解惑">
+		<meta name="Description" content="易房助手-答疑解惑">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/style.css" rel="stylesheet" type="text/css">
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl.js"></script>
+		<script src="../images/js/video/TcPlayer-2.3.2.js" charset="utf-8"></script>
+	</head>
+
+	<body style="">
+		<div id="wrap">
+			<div class="top_box">
+				<div class="w1200 w12001 oh">
+					<a href="index.html" class="logo fl">
+						<img src="../images/logo.png" alt="">
+					</a>
+					<div class="sj_btn">
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+					<a class="go_my fr" href="./my.html">
+						<img src="../images/my.png" alt="">
+					</a>
+					<div class="nav_box fr oh">
+						<a href="index.html" id="active0">首&nbsp;&nbsp;&nbsp;页</a>
+
+						<a href="fwlb.html" id="active1">服务类别</a>
+						
+						<a href="dyjh.html" id="active2">答疑解惑</a>
+						
+						<a href="jyzs.html" id="active4">交易知识</a>
+						<a href="fwal.html" id="active5">服务案例</a>
+						<a href="sfcs.html" id="active6" class="active">税费测算</a>
+
+					</div>
+					<div class="pc_tel fr">
+						<img src="../images/pc_tel.png" alt="">400-690-5050
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="sfcs_zbox" style="background-image: url(../images/sfcs_bg_02.jpg);">
+				<div class="w1200 w12001 sfcs_n_box dis_flex ju_b">
+					<!-- 个人不动产转让税费计算器 -->
+					<form class="sfcs_n_l">
+						<div class="sfcs_n_tit">个人不动产转让税费计算器</div>
+						<div class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">转移方式：</div>
+							<input type="hidden" name="zhuanyi" v-model="zhuanyi">
+							<div class="flex_1 dis_flex">
+								<div class="select_li fz16" :class="zhuanyi==0?'cur':''" @click="rd_fuc(1,0)">买卖</div>
+								<div class="select_li fz16" :class="zhuanyi==1?'cur':''" @click="rd_fuc(1,1)">继承</div>
+								<div class="select_li fz16" :class="zhuanyi==2?'cur':''" @click="rd_fuc(1,2)">赠与</div>
+							</div>
+						</div>
+						<div class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">不动产类别：</div>
+							<input type="hidden" name="budongchang" v-model="budongchang">
+							<div class="flex_1 dis_flex">
+								<div class="select_li select_li1" :class="budongchang==0?'cur':''" @click="rd_fuc(2,0)">住宅(含住宅公寓)</div>
+								<div class="select_li select_li1" :class="budongchang==1?'cur':''" @click="rd_fuc(2,1)">车位</div>
+								<div class="select_li select_li1" :class="budongchang==2?'cur':''" @click="rd_fuc(2,2)">商铺/门面</div>
+								<div class="select_li select_li1" :class="budongchang==3?'cur':''" @click="rd_fuc(2,3)">写字楼(含商服类公寓）</div>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0&&budongchang==0" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">住房类型：</div>
+							<input type="hidden" name="zflx" v-model="zflx">
+							<div class="flex_1 dis_flex">
+								<div class="select_li  fz14" :class="zflx==0?'cur':''" @click="rd_fuc(3,0)">普通住宅</div>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0&&budongchang==0" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">住宅面积：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<input class="flex_1" type="number" name="zzmj" v-model="zzmj" placeholder="请输入住宅面积">
+								<span>平米</span>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0&&budongchang==0" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">住宅市场价格：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<input class="flex_1" type="number" name="zzscjg" v-model="zzscjg" placeholder="请输入不动产总价">
+								<span>万元</span>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0&&budongchang!=0 || zhuanyi==1|| zhuanyi==2" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">不动产市场价格：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<input class="flex_1" type="number" name="bdc_pri" v-model="bdc_pri" placeholder="请输入不动产总价">
+								<span>万元</span>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">上一手交易途径：</div>
+							<input type="hidden" name="prev_zhuanyi" v-model="prev_zhuanyi">
+							<div class="flex_1 dis_flex">
+								<div class="select_li fz14" :class="prev_zhuanyi==0?'cur':''" @click="rd_fuc(4,0)">买卖</div>
+								<div class="select_li fz14" :class="prev_zhuanyi==1?'cur':''" @click="rd_fuc(4,1)">继承</div>
+								<div class="select_li fz14" :class="prev_zhuanyi==2?'cur':''" @click="rd_fuc(4,2)">赠与</div>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">上一手交易价格：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<!-- <input class="flex_1" type="number" name="prev_pri" v-model="prev_pri" 
+								placeholder="请输入上一首交易总价，如上一手交易为继承,赠与，或者交易总价无法查明的，填写0"> -->
+								<textarea  class="flex_1"  name="prev_pri" v-model="prev_pri" placeholder="请输入上一首交易总价，如上一手交易为继承,赠与，或者交易总价无法查明的，填写0"></textarea>
+								<span>万元</span>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">卖方持有年数：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<input class="flex_1" type="number" name="to_year" v-model="to_year" placeholder="请输入卖方持有不动产的年数，取整数，如：3.7年填入3">
+								<span>年</span>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0&&budongchang==0" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">是否买房家庭唯一住址：</div>
+							<input type="hidden" name="is_only" v-model="is_only">
+							<div class="flex_1 dis_flex">
+								<div class="select_li fz14" :class="is_only==0?'cur':''" @click="rd_fuc(5,0)">是</div>
+								<div class="select_li fz14" :class="is_only==1?'cur':''" @click="rd_fuc(5,1)">否</div>
+							</div>
+						</div>
+						<div  v-if="zhuanyi==0&&budongchang==0" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">买方家庭已有住宅套数：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<!-- <input class="flex_1" type="number" name="prev_pri" v-model="prev_pri" 
+								placeholder="请输入上一首交易总价，如上一手交易为继承,赠与，或者交易总价无法查明的，填写0"> -->
+								<textarea  class="flex_1"  name="jy_num" v-model="jy_num" placeholder="输入买方家庭已有的住宅套数（买房家庭成员包括本人，配偶和未成年子女"></textarea>
+								<span>套</span>
+							</div>
+						</div>
+						
+						<div v-if="zhuanyi==1" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">继承方式：</div>
+							<input type="hidden" name="jcfs" v-model="jcfs">
+							<div class="flex_1">
+								<div class="select_li dis_flex fz14" :class="jcfs==0?'cur':''" @click="rd_fuc(6,0)">
+									<b>法定继承</b><span>(配偶，子女，父母，兄弟姐妹，祖父母，外祖父母)</span>
+								</div>
+								<div class="select_li  dis_flex fz14" :class="jcfs==1?'cur':''" @click="rd_fuc(6,1)" style="margin-left: 0;">
+									<b>非法定继承</b><span>(配偶，子女，父母，兄弟姐妹，祖父母，外祖父母范围之外的继承人)</span>
+								</div>
+							</div>
+						</div>
+						<div v-if="zhuanyi==2" class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">赠与双方关系：</div>
+							<input type="hidden" name="zygx" v-model="zygx">
+							<div class="flex_1">
+								<div class="select_li dis_flex fz14" :class="zygx==0?'cur':''" @click="rd_fuc(7,0)">
+									无偿赠与父母、子女、祖父母、外祖父母、孙子女、外孙子女、兄弟姐妹、
+									对其承担直接抚养或者赡养义务的抚养人或赡养人(三代以内直系亲属、兄弟姐妹、有抚养或赡养义务的当事人)
+								</div>
+								<div class="select_li  dis_flex fz14" :class="zygx==1?'cur':''" @click="rd_fuc(7,1)" style="margin-left: 0;">夫妻</div>
+								<div class="select_li  dis_flex fz14" :class="zygx==2?'cur':''" @click="rd_fuc(7,2)" style="margin-left: 0;">其他关系</div>
+							</div>
+						</div>
+						
+						<div class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">手机号：</div>
+							<div class="sfcs_n_li_srk sfcs_n_li_srk1 dis_flex aic">
+								<input class="flex_1" type="number" name="js_tel" v-model="js_tel" placeholder="请输入手机号">
+							</div>
+							<div  v-if="yzm_type==0" class="getcode"  @click="getCode">获取验证码</div>
+							<div  v-if="yzm_type==1" class="getcode">{{yztime}}s</div>
+						</div>
+						<div class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">验证码：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<input class="flex_1" type="number" name="jy_code" v-model="jy_code" placeholder="请输入验证码">
+							</div>
+						</div>
+						<div class="dis_flex ju_a aic comp_btns">
+							<div class="comp_btn " @click="jisuan">开始计算</div>
+							<div class="comp_btn comp_btn1"  @click="reset_data">清空重选</div>
+						</div>
+					</form>
+					<!-- 计算结果 -->
+					<div v-if="jisuan_jieguo==1" class="sfcs_n_r">
+						<div class="sfcs_n_tit">计算结果</div>
+						<img src="../images/js_null_03.jpg" alt="" style="width: 100%;">
+					</div>
+					<div v-if="jisuan_jieguo==2" class="sfcs_n_r">
+						<div class="sfcs_n_tit">计算结果</div>
+						<div class="dis_flex sfcs_n_li sfcs_n_li1">
+							<div class="sfcs_n_li_name" style="font-size: 16px;">交易双方应纳税总额为： </div>
+							<div class="sfcs_n_li_value flex_1">168421353元</div>
+						</div>
+						<div v-if="!jsjg_show" class="jsjg_btn dis_flex aic ju_c"  @click="jsjg_show=true">查看交易双方应纳税详情</div>
+						<div v-if="jsjg_show">
+							<div class="sfcs_n_tit1">转让方应纳税</div>
+							<div class="dis_flex sfcs_n_li sfcs_n_li1 sfcs_n_li2">
+								<div class="sfcs_n_li_name">个人所得税：</div>
+								<div class="sfcs_n_li_value flex_1">168421353元</div>
+							</div>
+							<div class="dis_flex sfcs_n_li sfcs_n_li1 sfcs_n_li2">
+								<div class="sfcs_n_li_name">增值税及附加：</div>
+								<div class="sfcs_n_li_value flex_1">168421353元</div>
+							</div>
+							<div class="dis_flex sfcs_n_li sfcs_n_li1 sfcs_n_li2">
+								<div class="sfcs_n_li_name">土地增值税：</div>
+								<div class="sfcs_n_li_value flex_1">168421353元</div>
+							</div>
+							<div class="dis_flex sfcs_n_li sfcs_n_li1 sfcs_n_li2">
+								<div class="sfcs_n_li_name">印花税：</div>
+								<div class="sfcs_n_li_value flex_1">168421353元</div>
+							</div>
+							<div class="sfcs_n_tit1">承受方应纳税</div>
+							<div class="dis_flex sfcs_n_li sfcs_n_li1 sfcs_n_li2">
+								<div class="sfcs_n_li_name">契税：</div>
+								<div class="sfcs_n_li_value flex_1">168421353元</div>
+							</div>
+							<div class="dis_flex sfcs_n_li sfcs_n_li1 sfcs_n_li2">
+								<div class="sfcs_n_li_name">印花税：</div>
+								<div class="sfcs_n_li_value flex_1">168421353元</div>
+							</div>
+						</div>
+						
+						<!-- 计算结果 推荐顾问 -->
+						<div  v-if="jsjg_show" class="sfcs_n_tit">推荐顾问</div>
+						<div  v-if="jsjg_show" class="tw_bb" style="margin-top: 0;">
+							<div  class="tw_bb_b dis_flex">
+								<div class="gw_twtx">
+									<div class="gw_tximg" style="background-image: url(../images/user_tx.png);"></div>
+									<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
+								</div>
+								<div class="gw_msg">
+									<div class="gw_msg_d1">李连号</div>
+									<div class="zx_user_tabs gw_user_tabs dis_flex">
+										<div class="zx_user_tab">继承过户</div>
+										<div class="zx_user_tab">买卖服务</div>
+										<div class="zx_user_tab">买卖服务</div>
+									</div>
+									<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div>
+									<a href="###" class="zx_user_telewn gw_user_telewn dis_flex aic">扫码打电话<img src="../images/tel_ewm_03.jpg" alt=""></a>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="index_box6 clearfix">
+				<div class="w1200 w12001 dis_flex ju_b">
+					<div class="index6_list dis_flex ju_b">
+						<div class="index6_li">
+							<div class="index6_li_d1">公司信息</div>
+							<a class="index6_li_d1" href="###">关于我们</a>
+							<a class="index6_li_d1" href="###">用户协议</a>
+							<a class="index6_li_d1" href="###">隐私政策</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">服务咨询</div>
+							<a class="index6_li_d1">400-189-3038</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">商务合作</div>
+							<a class="index6_li_d1">1745843160</a>
+						</div>
+					</div>
+					<div class="gzh_box">
+						<img src="../images/index_bewm.png" alt="">
+						<div>关注公众号<br>获取更多过户知识</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div class="tk_box">
+				<div class="tk_ccz">
+					<div class="zf_tk">
+						<div class="tk_off">
+							<div class="tk_off_btn"></div>
+						</div>
+						<div class="tk_inr">
+							<div class="zftk_tit">税费测算费用业务/支付完成即可查看<span>交易双方应纳税详情</span></div>
+							<div class="zftk_fs">支付方式</div>
+							<div class="zftk_box dis_flex">
+								<div class="zftk_box_l">
+									<a href="###" class="dis_flex aic ju_c cur">微信支付</a>
+									<a href="###" class="dis_flex aic ju_c">支付宝支付</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<div class="footer tac">
+			<div class="w1200">
+				copyright 2003-2022 北京叁叁八五资讯有限公司 | 京ICP备18037428号-1 京公网安备 11010602100441号<br>
+				违法和不良信息举报电话：010-56319651 举报邮箱：jubao@3385.com
+			</div>
+		</div>
+		<!-- 加载中 -->
+		<div class="load_box" style="display: none;">
+			<img src="../images/load.gif" alt="">加载中...
+		</div>
+		<!-- 加载中 -->
+		<script>
+			//开启加载层
+			function openload() {
+				$(".load_box").fadeIn(500);
+			};
+			//关闭加载层
+			function closeload() {
+				$(".load_box").fadeOut(500);
+			};
+			//加载完成关闭
+			$(window).load(function() {
+				closeload();
+			});
+			
+
+			var vm = new Vue({
+				el: "#wrap",
+				data: {
+					zhuanyi: 0, //转移方式
+					// 转移方式-买卖 0
+					budongchang: 0, //不动产类别：
+					zflx:0,     //住房类型：：
+					zzmj:'',     //住宅面积：
+					zzscjg:'',     //住宅市场价格：
+					bdc_pri:'',     //不动产市场价格：
+					prev_zhuanyi:0,   //上一首交易途径：
+					prev_pri:'',     //上一首交易价格：
+					to_year:'',      //卖房持有年数：
+					is_only:0,      //是否买房家庭唯一住址：
+					jy_num:'',       //买方家庭已有住宅套数：
+					
+					
+					jcfs:0,       //继承方式
+					zygx:0,       //赠与双方关系：
+					js_tel:'',
+					jy_code:'',
+					
+					yzm_type :0,
+					yztime:0,
+					
+					jsjg_show:false,
+					jisuan_jieguo:1,
+				},
+				created: function() {},
+				methods: {}
+			});
+			function rd_fuc(type,num){
+				if(type==1){
+					if(vm.zhuanyi==num){
+						return
+					}
+					vm.zhuanyi=num
+					 reset_data()
+				}
+				if(type==2){
+					if(vm.budongchang==num){
+						return
+					}
+					vm.budongchang=num
+				}
+				if(type==3){//zflx
+					if(vm.zflx==num){
+						return
+					}
+					vm.zflx=num
+				}
+				//prev_zhuanyi
+				if(type==4){//zflx
+					if(vm.prev_zhuanyi==num){
+						return
+					}
+					vm.prev_zhuanyi=num
+				}
+				//jcfs
+				if(type==6){
+					if(vm.jcfs==num){
+						return
+					}
+					vm.jcfs=num
+				}
+				if(type==7){
+					if(vm.zygx==num){
+						return
+					}
+					vm.zygx=num
+				}
+			}
+			function getCode() {
+			
+				if (vm.js_tel == '' || !(/^1\d{10}$/.test(vm.js_tel))) {
+					alert('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			function jisuan(){
+				
+				var datas={
+					zhuanyi:vm.zhuanyi,
+					budongchang:vm.budongchang,
+					zzmj:vm.zzmj,     //住宅面积：
+					zzscjg:vm.zzscjg,     //住宅市场价格
+					prev_zhuanyi:vm.prev_zhuanyi,//上一首交易途径：
+					prev_pri:vm.prev_pri,   //上一首交易价格：
+					to_year:vm.to_year,   //卖房持有年数：
+					is_only:vm.is_only,
+					js_tel:vm.js_tel,
+					jy_code:vm.jy_code,  //验证码：
+				}
+				if(vm.zhuanyi==0&&vm.budongchang!=0){
+					datas={
+						zhuanyi:vm.zhuanyi,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						prev_zhuanyi:vm.prev_zhuanyi,//上一首交易途径：
+						prev_pri:vm.prev_pri,   //上一首交易价格：
+						to_year:vm.to_year,   //卖房持有年数：
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				if(vm.zhuanyi==1){
+					datas={
+						zhuanyi:vm.zhuanyi,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						jcfs:vm.jcfs,
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				if(vm.zhuanyi==2){
+					datas={
+						zhuanyi:vm.zhuanyi,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						zygx:vm.zygx,
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				console.log(datas)
+				vm.jisuan_jieguo=2
+			}
+			function reset_data(){
+				// vm.zhuanyi= 0 //转移方式
+				// 转移方式-买卖 0
+				vm.budongchang= 0 //不动产类别：
+				vm.zflx=0     //住房类型：：
+				vm.zzmj=''     //住宅面积：
+				vm.zzscjg=''     //住宅市场价格：
+				vm.bdc_pri=''     //不动产市场价格：
+				vm.prev_zhuanyi=0   //上一首交易途径：
+				vm.prev_pri=''     //上一首交易价格：
+				vm.to_year=''      //卖房持有年数：
+				vm.is_only=0      //是否买房家庭唯一住址：
+				vm.jy_num=''       //买方家庭已有住宅套数：
+				
+				
+				vm.jcfs=0       //继承方式
+				vm.zygx=0       //赠与双方关系：
+				vm.js_tel=''
+				vm.jy_code=''
+				
+				vm.yzm_type =0
+				vm.yztime=0
+				
+				vm.jsjg_show=false
+				vm.jisuan_jieguo=1
+			}
+		</script>
+
+
+	</body>
+</html>
