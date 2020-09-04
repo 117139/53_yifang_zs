@@ -6,9 +6,9 @@
 		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 		<meta name="format-detection" content="email=no" />
 		<meta name="format-detection" content="telephone=no">
-		<title>易房助手-答疑解惑</title>
-		<meta name="Keywords" content="易房助手-答疑解惑">
-		<meta name="Description" content="易房助手-答疑解惑">
+		<title>易房助手-税费测算</title>
+		<meta name="Keywords" content="易房助手-税费测算">
+		<meta name="Description" content="易房助手-税费测算">
 		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../images/css/swiper.min.css">
 		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
@@ -207,7 +207,7 @@
 							<div class="sfcs_n_li_name" style="font-size: 16px;">交易双方应纳税总额为： </div>
 							<div class="sfcs_n_li_value flex_1">168421353元</div>
 						</div>
-						<div v-if="!jsjg_show" class="jsjg_btn dis_flex aic ju_c"  @click="jsjg_show=true">查看交易双方应纳税详情</div>
+						<div v-if="!jsjg_show" class="jsjg_btn dis_flex aic ju_c"  @click="ck_fuc">查看交易双方应纳税详情</div>
 						<div v-if="jsjg_show">
 							<div class="sfcs_n_tit1">转让方应纳税</div>
 							<div class="dis_flex sfcs_n_li sfcs_n_li1 sfcs_n_li2">
@@ -289,19 +289,60 @@
 			
 			
 			
-			<div class="tk_box">
+			<div class="tk_box" v-if="js_zf">
 				<div class="tk_ccz">
 					<div class="zf_tk">
 						<div class="tk_off">
-							<div class="tk_off_btn"></div>
+							<div class="tk_off_btn" @click="js_zf=false"></div>
+						</div>
+						<div class="tk_inr">
+							<div class="zftk_tit">税费测算费用业务/支付完成即可查看<span>税费总额</span></div>
+							<div class="zftk_fs">支付方式</div>
+							<div class="zftk_box dis_flex">
+								<div class="zftk_box_l">
+									<a href="###" class="dis_flex aic  cur"><i class="iconfont icon-weixinzhifu"></i>微信扫码</a>
+									<a href="###" class="dis_flex aic "><i class="iconfont icon-umidd17"></i>支付宝扫码</a>
+								</div>
+								<div class="zftk_box_c dis_flex_c aic">
+									<div class="zf_c_ewm">
+										<img src="../images/index_bewm.png" alt="">
+									</div>
+									<div class="zf_c_text">请打开微信扫描上方二维码</div>
+								</div>
+								<div class="zf_c_sx"></div>
+								<div class="zf_r_b dis_flex_c aic flex_1">
+									<div>应付金额</div>
+									<div><span>12</span>元</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tk_box" v-if="ck_zf">
+				<div class="tk_ccz">
+					<div class="zf_tk">
+						<div class="tk_off">
+							<div class="tk_off_btn" @click="ck_zf=false"></div>
 						</div>
 						<div class="tk_inr">
 							<div class="zftk_tit">税费测算费用业务/支付完成即可查看<span>交易双方应纳税详情</span></div>
 							<div class="zftk_fs">支付方式</div>
 							<div class="zftk_box dis_flex">
 								<div class="zftk_box_l">
-									<a href="###" class="dis_flex aic ju_c cur">微信支付</a>
-									<a href="###" class="dis_flex aic ju_c">支付宝支付</a>
+									<a href="###" class="dis_flex aic  cur"><i class="iconfont icon-weixinzhifu"></i>微信扫码</a>
+									<a href="###" class="dis_flex aic "><i class="iconfont icon-umidd17"></i>支付宝扫码</a>
+								</div>
+								<div class="zftk_box_c dis_flex_c aic">
+									<div class="zf_c_ewm">
+										<img src="../images/index_bewm.png" alt="">
+									</div>
+									<div class="zf_c_text">请打开微信扫描上方二维码</div>
+								</div>
+								<div class="zf_c_sx"></div>
+								<div class="zf_r_b dis_flex_c aic flex_1">
+									<div>应付金额</div>
+									<div><span>12</span>元</div>
 								</div>
 							</div>
 						</div>
@@ -363,6 +404,8 @@
 					
 					jsjg_show:false,
 					jisuan_jieguo:1,
+					js_zf:false,
+					ck_zf:false,
 				},
 				created: function() {},
 				methods: {}
@@ -483,7 +526,13 @@
 					}
 				}
 				console.log(datas)
+				if(vm.jisuan_jieguo==2) return
+				//打开弹框
+				vm.js_zf=true
+				
+				//显示内容
 				vm.jisuan_jieguo=2
+				
 			}
 			function reset_data(){
 				// vm.zhuanyi= 0 //转移方式
@@ -510,6 +559,17 @@
 				
 				vm.jsjg_show=false
 				vm.jisuan_jieguo=1
+			}
+			
+			
+			function ck_fuc(){
+				if(vm.jsjg_show) return
+				//打开弹框
+				vm.ck_zf=true
+				
+				
+				//显示内容
+				vm.jsjg_show=true
 			}
 		</script>
 
