@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+		<meta name="format-detection" content="email=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>易房助手</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/style.css" rel="stylesheet" type="text/css">
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		
+		<script src="../images/js/video/TcPlayer-2.3.2.js" charset="utf-8"></script>
+	</head>
+
+	<body style="">
+		<div id="wrap">
+			<div class="top_box">
+				<div class="w1200 w12001 oh">
+					<a href="index.html" class="logo fl">
+						<img src="../images/logo.png" alt="">
+					</a>
+					<div class="sj_btn">
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+					<a class="go_my fr" href="./my.html">
+						<img src="../images/my.png" alt="">
+					</a>
+					<div class="nav_box fr oh">
+						<a href="index.html" id="active0">首&nbsp;&nbsp;&nbsp;页</a>
+
+						<a href="fwlb.html" id="active1">服务类别</a>
+						
+						<a href="dyjh.html" id="active2">答疑解惑</a>
+						
+						<a href="jyzs.html" id="active4">交易知识</a>
+						<a href="fwal.html" id="active5">服务案例</a>
+						<a href="sfcs.html" id="active6">税费测算</a>
+
+					</div>
+					<div class="pc_tel fr">
+						<img src="../images/pc_tel.png" alt="">400-690-5050
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="sfcs_zbox" style="background: #F5F5F5;">
+				<div class="dis_flex  w1200 w12001" style="margin-bottom: 30px;">
+					<a href="pipei.html" class="zn_btn dis_flex aic ju_c" style="background-image: url(../images/zn_bg_03.jpg);">30秒发布匹配，智能匹配顾问</a>
+				</div>
+				<div class="w1200 w12001 sfcs_n_l"  style="width: 1200px;">
+					<div class="pipei_tabs dis_flex">
+						<div class="dis_flex aic ju_c flex_1" :class="pp_cur==0?'cur':''" @click="rd_fuc('p',0)">发布需求</div>
+						<div class="dis_flex aic ju_c flex_1" :class="pp_cur==1?'cur':''" @click="rd_fuc('p',1)">推荐客户</div>
+					</div>
+					<!-- 发布需求 -->
+					<form class="pp_box" v-if="pp_cur==0">
+						<div class="dis_flex sfcs_n_li sfcs_n_li_wt">1.您是房屋的转让方还是承受方？</div>
+						<div class="dis_flex sfcs_n_li">
+							<input type="hidden" name="zhuanyi" v-model="zhuanyi">
+							<div class="flex_1 dis_flex">
+								<div class="select_li fz14" :class="zhuanyi==0?'cur':''" @click="rd_fuc(1,0)">承受方</div>
+								<div class="select_li fz14" :class="zhuanyi==1?'cur':''" @click="rd_fuc(1,1)">转让方</div>
+							</div>
+						</div>
+						<div class="dis_flex sfcs_n_li sfcs_n_li_wt">2.您需要办理的房屋过户类型</div>
+						<div class="dis_flex sfcs_n_li">
+							<input type="hidden" name="gh_type" v-model="gh_type">
+							<div class="flex_1 dis_flex">
+								<div class="select_li fz14" :class="gh_type==0?'cur':''" @click="rd_fuc(2,0)">房屋买卖类</div>
+								<div class="select_li fz14" :class="gh_type==1?'cur':''" @click="rd_fuc(2,1)">房屋赠与类</div>
+								<div class="select_li fz14" :class="gh_type==2?'cur':''" @click="rd_fuc(2,2)">房屋继承类</div>
+								<div class="select_li fz14" :class="gh_type==3?'cur':''" @click="rd_fuc(2,3)">公证类</div>
+								<div class="select_li fz14" :class="gh_type==3?'cur':''" @click="rd_fuc(2,3)">其他类别</div>
+							</div>
+						</div>
+						<div class="dis_flex sfcs_n_li sfcs_n_li_wt">3.您打算什么时候开始办理</div>
+						<div class="dis_flex sfcs_n_li">
+							<input type="hidden" name="bl_time" v-model="bl_time">
+							<div class="flex_1 dis_flex">
+								<div class="select_li fz14" :class="bl_time==0?'cur':''" @click="rd_fuc(3,0)">一周内</div>
+								<div class="select_li fz14" :class="bl_time==1?'cur':''" @click="rd_fuc(3,1)">一个月内</div>
+								<div class="select_li fz14" :class="bl_time==2?'cur':''" @click="rd_fuc(3,2)">一个月以上</div>
+								<div class="select_li fz14" :class="bl_time==3?'cur':''" @click="rd_fuc(3,3)">不确定</div>
+							</div>
+						</div>
+						<div class="dis_flex sfcs_n_li sfcs_n_li_wt">4.补充其他详细需求（可不填）</div>
+						<div class="dis_flex sfcs_n_li pp_n_li_da">
+							<textarea name="buchong" v-model="buchong" placeholder="请输入内容"></textarea>
+						</div>
+						<div class="dis_flex sfcs_n_li sfcs_n_li_wt">5.留下您的联系方式以便顾问联系您</div>
+						<div class="dis_flex sfcs_n_li pp_n_li_da">
+							<input type="number" name="tel" id="" v-model="tel" placeholder="请输入您的联系方式"/>
+						</div>
+						<div class="dis_flex sfcs_n_li sfcs_n_li_wt">6.选择咨询顾问（不选择为默认第一人）</div>
+						<div class="dis_flex sfcs_n_li pp_n_li_da">
+							<input type="hidden" name="guwen" id="" v-model="guwen" />
+							<select name="guwen"  v-model="guwen">
+								<option value="顾问1">顾问1</option>
+								<option value="顾问2">顾问2</option>
+								<option value="顾问3">顾问3</option>
+								<option value="顾问4">顾问4</option>
+							</select>
+						</div>
+						
+						<div class="dis_flex ju_a aic comp_btns" >
+							<div class="comp_btn_fabu dis_flex aic ju_c" @click="jisuan">开始计算</div>
+						</div>
+					</form>
+					<!-- 推荐客户 -->
+					<form class="pp_box" v-if="pp_cur==1" style="padding-top: 100px;">
+						
+						<div class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">姓名：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<input class="flex_1" type="name" name="kh_name" v-model="kh_name" placeholder="请输入姓名">
+							</div>
+						</div>
+						<div class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">手机号码：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<input class="flex_1" type="number" name="kh_tel" v-model="kh_tel" placeholder="请输入手机号码">
+							</div>
+						</div>
+						<div class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">需求内容选择：</div>
+							<div class=" dis_flex aic pp_n_li_da">
+								<select name="xq_msg"  v-model="xq_msg">
+									<option value="需求内容1">需求内容1</option>
+									<option value="需求内容2">需求内容2</option>
+									<option value="需求内容3">需求内容3</option>
+									<option value="需求内容4">需求内容4</option>
+								</select>
+							</div>
+						</div>
+						<div class="dis_flex sfcs_n_li">
+							<div class="sfcs_n_li_name">预计需求时间：</div>
+							<div class="sfcs_n_li_srk dis_flex aic">
+								<input class="flex_1" type="number" name="kh_day" v-model="kh_day" placeholder="请输入需求时间"><span class="fz14" style="color: #9A9A9A;">天</span>
+							</div>
+						</div>
+						<div class="dis_flex ju_a aic comp_btns" style="margin-top: 200px;">
+							<div class="comp_btn_fabu dis_flex aic ju_c" @click="jisuan">提 交</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div class="index_box6 clearfix">
+				<div class="w1200 w12001 dis_flex ju_b">
+					<div class="index6_list dis_flex ju_b">
+						<div class="index6_li">
+							<div class="index6_li_d1">公司信息</div>
+							<a class="index6_li_d1" href="###">关于我们</a>
+							<a class="index6_li_d1" href="###">用户协议</a>
+							<a class="index6_li_d1" href="###">隐私政策</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">服务咨询</div>
+							<a class="index6_li_d1">400-189-3038</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">商务合作</div>
+							<a class="index6_li_d1">1745843160</a>
+						</div>
+					</div>
+					<div class="gzh_box">
+						<img src="../images/index_bewm.png" alt="">
+						<div>关注公众号<br>获取更多过户知识</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<!-- footer -->
+		<div class="footer tac">
+			<div class="w1200">
+				copyright 2003-2022 北京叁叁八五资讯有限公司 | 京ICP备18037428号-1 京公网安备 11010602100441号<br>
+				违法和不良信息举报电话：010-56319651 举报邮箱：jubao@3385.com
+			</div>
+		</div>
+		<!-- 加载中 -->
+		<div class="load_box" style="display: none;">
+			<img src="../images/load.gif" alt="">加载中...
+		</div>
+		<!-- 加载中 -->
+		<script>
+			//开启加载层
+			function openload() {
+				$(".load_box").fadeIn(500);
+			};
+			//关闭加载层
+			function closeload() {
+				$(".load_box").fadeOut(500);
+			};
+			//加载完成关闭
+			$(window).load(function() {
+				closeload();
+			});
+			
+
+			var vm = new Vue({
+				el: "#wrap",
+				data: {
+					pp_cur:0,
+					zhuanyi: 0, //1.您是房屋的转让方还是承受方？
+					gh_type:0,// 2.您需要办理的房屋过户类型
+					bl_time:0,// 3.您打算什么时候开始办理
+					buchong:'',//补充
+					tel:'',
+					guwen:'顾问1',
+					
+					
+					kh_name:'',
+					kh_tel:'',
+					xq_msg:'需求内容1',
+					kh_day:'',
+				},
+				created: function() {},
+				methods: {}
+			});
+			function rd_fuc(type,num){
+				if(type=='p'){
+					if(vm.pp_cur==num){
+						return
+					}
+					vm.pp_cur=num
+					
+				}
+				if(type==1){
+					if(vm.zhuanyi==num){
+						return
+					}
+					vm.zhuanyi=num
+					 reset_data()
+				}
+				if(type==2){
+					if(vm.gh_type==num){
+						return
+					}
+					vm.gh_type=num
+				}
+				if(type==3){//bl_time
+					if(vm.bl_time==num){
+						return
+					}
+					vm.bl_time=num
+				}
+				
+			}
+			function getCode() {
+			
+				if (vm.js_tel == '' || !(/^1\d{10}$/.test(vm.js_tel))) {
+					alert('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			function jisuan(){
+				
+				var datas={
+					zhuanyi:vm.zhuanyi,
+					gh_type:vm.gh_type,
+					bl_time:vm.bl_time,     //办理时间
+					buchong:vm.buchong,
+					tel:vm.tel,
+					guwen:vm.guwen
+				}
+				if(vm.pp_cur==1){
+					datas={
+						kh_name:vm.kh_name,
+						kh_tel:vm.kh_tel,
+						xq_msg:vm.xq_msg,
+						kh_day:vm.kh_day
+					}
+				}
+				console.log(datas)
+				
+			}
+			
+			
+			function ck_fuc(){
+				if(vm.jsjg_show) return
+				//打开弹框
+				vm.ck_zf=true
+				
+				
+				//显示内容
+				vm.jsjg_show=true
+			}
+		</script>
+
+
+	</body>
+</html>

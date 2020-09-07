@@ -57,7 +57,13 @@
 			</div>
 		
 			<div class="fwlb_h_tit">
-				<div class="w1200 w12001 fwlb_h_tit1 dis_flex aic" ><a href="index.html">易房助手＞</a><a href="fwlb.html">服务类别＞</a>服务类别详情</div>
+				<div class="w1200 w12001 fwlb_h_tit1 fwlb_pay_tit1 dis_flex aic" >
+					<a href="###" class="cur">1.提交订单</a>
+					<span>→</span>
+					<a href="###">2.支付的订单</a>
+					<span>→</span>
+					<a href="###">3.完成支付</a>
+				</div>
 			</div>
 			<div class="index_box3 clearfix" style="margin-top: 0;padding-top: 0;">
 				<div class="  w1200 w12001">
@@ -65,123 +71,61 @@
 					<div class="index4_b index4_b_dyjh">
 						<div class="in4b_b dis_flex ju_b" style="border-bottom: 0;">
 							<div class="in4b_bl" style="width: 866px;">
-								<div class="fwlb_msg dis_flex ju_b" >
-									<div class="swiper-container swiper_a">
-									    <div class="swiper-wrapper">
-									        <div class="swiper-slide">
-														<a class="fwlb_banner">
-															<div style="background-image: url(../images/fw_bg_4.png);"></div>
-														</a>
-													</div>
-									        <div class="swiper-slide">
-														<a class="fwlb_banner">
-															<div style="background-image: url(../images/fw_bg_4.png);"></div>
-														</a>
-													</div>
-									        <div class="swiper-slide">
-														<a class="fwlb_banner">
-															<div style="background-image: url(../images/fw_bg_4.png);"></div>
-														</a>
-													</div>
-									    </div>
-									   
-									</div>
-									<div class="flex_1 fwlb_msg_msg dis_flex_c ju_a">
-										<a href="###" class="xq_share dis_flex aic ju_c"><i class="iconfont icon-fenxiang2-copy-copy"></i>分享</a>
-										<div class="fwlb_msg_d1">居间服务</div>
-										<div class="fwlb_msg_d2">为买卖双方提供房产交易全流程服务</div>
-										<div class="fwlb_msg_d3">价格：<b>￥</b><span>800.00</span></div>
-										<div class="fwlb_msg_d3 dis_flex aic">保障：<img src="../images/duihao.png" alt=""><div class="fz16 c3">加载服务保险服务</div></div>
-										<a href="fwlb_details_pay.html" class="fwlb_msg_d4 dis_flex aic ju_c">立即购买</a>
-									</div>
-								</div>
-								<div class="fwlb_box">
-									<div class="fwlb_tabs dis_flex">
-										<div :class="fw_cur==0?'cur':''" @click="rd_fuc(0)">服务介绍</div>
-										<div :class="fw_cur==1?'cur':''" @click="rd_fuc(1)">服务案例</div>
-										<div :class="fw_cur==2?'cur':''" @click="rd_fuc(2)">答疑解惑</div>
-										<div :class="fw_cur==3?'cur':''" @click="rd_fuc(3)">用户评价</div>
-									</div>
-									<div v-if="fw_cur==0" class="fwlb_fwb">
-										<img src="../images/fw_js.jpg" alt="">
-										<img src="../images/fw_lc.jpg" alt="">
-										<img src="../images/fw_js.jpg" alt="">
-										<img src="../images/fw_lc.jpg" alt="">
-									</div>
-									<div v-if="fw_cur==1" class="xq_fwlb_box">
-										<div class="fwal_r_list dis_flex" style="flex-wrap: wrap;">
-											<a href="fwal_details.html" class="fwal_li" v-for="item in 12">
-												<div class="div_img fwal_li_img" style="background-image: url(../images/fw_bg_5.png);"></div>
-												<div class="fwal_text">
-													<div class="oh2">公婆7年前买房没办过户手续，现在过户还来得及吗</div>
-												</div>
-											</a>
-										</div>
-										<div class="zz_page_box dis_flex aic ju_c">
-											<a class="cur" href="###">1</a>
-											<a href="###">2</a>
-											<a href="###">3</a>
-											<a href="###">下一页</a>
-											<a href="###">尾页</a>
-										</div>
-									</div>
-									<div  v-if="fw_cur==2" class="xq_fwlb_box">
-										<div class="rdxx_li dyjh_li " v-for="item in 4">
-											<div class="dyjh_user_tit dis_flex aic">
-												<div class="dyjh_l dis_flex aic ju_c">
-													问
-												</div>
-												<div class="dyjh_user_tit_msg oh1 flex_1">北京的二手房交易流程是什么？二手房过户费用都有哪些？</div>
+								<form class="zflc_box" >
+									<div class="zflc_xb" style="padding-top: 50px;">
+										<div class="zflc_xb_tit">服务类型</div>
+										<div class="zflc_xb_box">
+											<div class="dis_flex sfcs_n_li">
+												<div class="sfcs_n_li_name">服务类型：</div>
+												<input type="hidden" name="fw_type" v-model="fw_type">
+												<div class="flex_1 dis_flex aic fz16 fwb" style="color: #343434;">赠与过户</div>
 											</div>
-											<div class="dis_flex">
-												<div class="xqdy_tx">
-													<div class="dyjhd_tx" style="background-image: url(../images/user_tx.png);"></div>
-													<div class="zx_user_lv dis_flex aic ju_c " style="background-image: url(&quot;../images/user_lvbg.png&quot;);">好评率：100%</div>
-												</div>
-												<div class="flex_1 rdxx_li_msg dis_flex_c ju_b" style="padding: 20px 0;">
-													<div class="dis_flex ju_b rdxx_li_d1 boxsiz">
-														<div class="flex_1 rdxx_li_tit">李连号</div>
-														<div class="fz14 c0D1931  flex_1 dis_flex aic" style="flex-direction: row-reverse;padding-right: 20px;">电话：40018925843转1384</div>
-														<a href="###" class="dyjhd_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
-													</div>
-													<div class="rdxx_li_d2 dis_flex ju_b">
-														<div class="flex_1 oh1">有抵押的房产是无法出售的，无法进行过户交易</div>
-														
-													</div>
-													<div class="dis_flex  ju_b  dy_hf_btn_li">
-														<div class="fz12 c9">2020-02-06</div>
-														
-													</div>
+											<div class="dis_flex sfcs_n_li">
+												<div class="sfcs_n_li_name">服务分类：</div>
+												<input type="hidden" name="fw_type" v-model="fw_type">
+												<div class="flex_1 dis_flex">
+													<div class="select_li select_li2 fz14" :class="fw_type==0?'cur':''" @click="rd_fuc(0,0)">无公证赠与</div>
+													<div class="select_li select_li2 fz14" :class="fw_type==1?'cur':''" @click="rd_fuc(0,1)">公证赠与</div>
+													<div class="select_li select_li2 fz14" :class="fw_type==2?'cur':''" @click="rd_fuc(0,2)">港澳台和外都赠与</div>
 												</div>
 											</div>
 											
 										</div>
 									</div>
-									<div v-if="fw_cur==3" class="xq_fwlb_box">
-										<div class="pingjia_li dis_flex" v-for="item in 10">
-											<div class="pj_tx" style="background-image: url(../images/tx.png);"></div>
-											<div class="flex_1">
-												<div class="pj_name">洗净哎</div>
-												<div class="pj_name">
-													<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
-													<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
-													<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
-													<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
-													<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
-													非常满意
+									<div class="zflc_xb">
+										<div class="zflc_xb_tit">房源信息</div>
+										<div class="zflc_xb_box">
+											
+											<div class="dis_flex sfcs_n_li">
+												<div class="sfcs_n_li_name">房源区域：</div>
+												<div class="sfcs_n_li_srk dis_flex aic">
+													<input class="flex_1" type="number" name="jy_code" v-model="jy_code" placeholder="请输入验证码">
 												</div>
-												<div class="pj_name">小伙子特别能干，真的很好，辛苦了</div>
+												<div class="dis_flex aic sr_tip">请正确选择</div>
+											</div>
+											
+											<div class="dis_flex sfcs_n_li">
+												<div class="sfcs_n_li_name">小区名称：</div>
+												<div class="sfcs_n_li_srk dis_flex aic">
+													<input class="flex_1" type="number" name="jy_code" v-model="jy_code" placeholder="请填写小区名称">
+												</div>
+												
+											</div>
+											
+											<div class="dis_flex sfcs_n_li">
+												<div class="sfcs_n_li_name">物业地址：</div>
+												<div class="sfcs_n_li_srk dis_flex aic">
+													<input class="flex_1" type="number" name="jy_code" v-model="jy_code" placeholder="请填写房源的详细地址">
+												</div>
+												<div class="dis_flex aic sr_tip">为保障你的合法权益，请正确填写</div>
 											</div>
 										</div>
-										<div class="zz_page_box dis_flex aic ju_c">
-											<a class="cur" href="###">1</a>
-											<a href="###">2</a>
-											<a href="###">3</a>
-											<a href="###">下一页</a>
-											<a href="###">尾页</a>
-										</div>
 									</div>
-								</div>
+									<div class="zflc_xb">
+										<div class="zflc_xb_tit">费用信息</div>
+									</div>
+								</form>
+								
 								
 							</div>
 							<div class="in4b_br" style="width: 320px;">
@@ -278,20 +222,22 @@
 			var vm = new Vue({
 				el: "#wrap",
 				data: {
-					fw_cur: 0, //服务详情
-					ss_type: 0,
+					zf_cur: 0, //zf
+					fw_type: 0,
 					content: '',
-
+					jy_code:''
 				},
 				created: function() {},
 				methods: {}
 			});
-			function rd_fuc(num){
-				if(vm.fw_cur==num){
-					return
+			function rd_fuc(type,num){
+				if(type==0){
+					if(vm.fw_type==num){
+						return
+					}
+					vm.fw_type=num
 				}
-				vm.fw_cur=num
-				//获取数据
+				
 			}
 			function getmore(){
 				//获取数据
