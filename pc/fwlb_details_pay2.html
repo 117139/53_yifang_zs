@@ -58,9 +58,9 @@
 		
 			<div class="fwlb_h_tit">
 				<div class="w1200 w12001 fwlb_h_tit1 fwlb_pay_tit1 dis_flex aic" >
-					<a href="###" class="cur">1.提交订单</a>
+					<a href="###">1.提交订单</a>
 					<span>→</span>
-					<a href="###">2.支付订单</a>
+					<a href="###" class="cur">2.支付订单</a>
 					<span>→</span>
 					<a href="###">3.完成支付</a>
 				</div>
@@ -83,10 +83,8 @@
 											<div class="dis_flex sfcs_n_li">
 												<div class="sfcs_n_li_name">服务分类：</div>
 												<input type="hidden" name="fw_type" v-model="fw_type">
-												<div class="flex_1 dis_flex">
-													<div class="select_li select_li2 fz14" :class="fw_type==0?'cur':''" @click="rd_fuc(0,0)">无公证赠与</div>
-													<div class="select_li select_li2 fz14" :class="fw_type==1?'cur':''" @click="rd_fuc(0,1)">公证赠与</div>
-													<div class="select_li select_li2 fz14" :class="fw_type==2?'cur':''" @click="rd_fuc(0,2)">港澳台和外都赠与</div>
+												<div class="flex_1 dis_flex aic">
+													<div class=" fz14">无公证赠与</div>
 												</div>
 											</div>
 											
@@ -98,32 +96,24 @@
 											
 											<div class="dis_flex sfcs_n_li">
 												<div class="sfcs_n_li_name">房源区域：</div>
-												<div class="sfcs_n_li_srk dis_flex aic">
-													<!-- <input class="flex_1" type="number" name="jy_code" v-model="jy_code" placeholder="请输入验证码"> -->
-													<select name="fy_qy">
-														<option value="区域1">区域1</option>
-														<option value="区域2">区域2</option>
-														<option value="区域3">区域3</option>
-														<option value="区域4">区域4</option>
-													</select>
+												<div class="flex_1 dis_flex aic">
+													<div class=" fz14">区域</div>
 												</div>
-												<div class="dis_flex aic sr_tip">请正确选择</div>
 											</div>
 											
 											<div class="dis_flex sfcs_n_li">
 												<div class="sfcs_n_li_name">小区名称：</div>
-												<div class="sfcs_n_li_srk dis_flex aic">
-													<input class="flex_1" type="text" name="xq_name" v-model="xq_name" placeholder="请填写小区名称">
+												<div class="flex_1 dis_flex aic">
+													<div class="c9 fz14">小区字</div>
 												</div>
 												
 											</div>
 											
 											<div class="dis_flex sfcs_n_li">
 												<div class="sfcs_n_li_name">物业地址：</div>
-												<div class="sfcs_n_li_srk dis_flex aic">
-													<input class="flex_1" type="text" name="wy_add" v-model="wy_add" placeholder="请填写房源的详细地址">
+												<div class="flex_1 dis_flex aic">
+													<div class="c9 fz14">海淀区中关村</div>
 												</div>
-												<div class="dis_flex aic sr_tip">为保障你的合法权益，请正确填写</div>
 											</div>
 										</div>
 									</div>
@@ -137,10 +127,8 @@
 											</div>
 											<div class="dis_flex sfcs_n_li">
 												<div class="sfcs_n_li_name">付款方式：</div>
-												<input type="hidden" name="fk_type" v-model="fk_type">
-												<div class="flex_1 dis_flex">
-													<div class="select_li select_li2 fz14" :class="fk_type==0?'cur':''" @click="rd_fuc(1,0)">定金支付</div>
-													<div class="select_li select_li2 fz14" :class="fk_type==1?'cur':''" @click="rd_fuc(1,1)">全款支付</div>
+												<div class="flex_1 dis_flex aic">
+													<div class="c9 fz14">定金支付</div>
 												</div>
 											</div>
 											<div class="dis_flex sfcs_n_li" style="margin: 0;">
@@ -155,59 +143,22 @@
 													<div class="fz14 c9">全款4000.00元</div>
 												</div>
 											</div>
-											<div class="dis_flex sfcs_n_li">
-												<div class="flex_1 dis_flex ju_b aic">
-														<div class="select_li select_li2 fz14 " :class="xy_type==1?'cur':''" @click="rd_fuc('ty')">
-															我已阅读并同意《<a href="###" style="color: #3677F1;">易房助手服务协议</a>》
-														</div>
-														<div class="flex_1"></div>
-														<div class="fz14 c3">
-															订单金额：<span class="fwb" style="font-size: 24px;color: #F75B5B;">8500.00元</span>
-														</div>
-														<div class="zf_sub_btn dis_flex aic ju_c" @click="sub_fuc">提交</div>
+											<div class="zflc_xb_tit">支付方式</div>
+											<div class="zftk_box dis_flex">
+												<div class="zftk_box_l">
+													<a href="###" class="dis_flex aic  cur"><i class="iconfont icon-weixinzhifu"></i>微信扫码</a>
+													<a href="###" class="dis_flex aic "><i class="iconfont icon-umidd17"></i>支付宝扫码</a>
 												</div>
-											</div>
-											<div class="tk_box" v-if="js_zf">
-												<div class="tk_ccz">
-													<div class="zf_tk zf_tk1">
-														<div class="tk_off dis_flex aic">
-															<div class="fz18 fwb dis_flex aic" style="color: #000;">请选择您的服务顾问</div>
-															<div class="tk_off_btn" @click="js_zf=false">
-																<img src="../images/guanbi.png" alt="">
-															</div>
-														</div>
-														<div class="tk_inr" style="height: 400px; overflow-y: auto;">
-															<div v-for="(item,index) in 5" class="xzgw_li dis_flex ju_b aic">
-																<a href="gw_xq.html" class="tw_bb_b tw_bb_b1 dis_flex" style="width: 442px;">
-																	<div class="gw_twtx">
-																		<div class="gw_tximg" style="background-image: url(../images/user_tx.png);"></div>
-																		<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
-																	</div>
-																	<div class="gw_msg">
-																		<div class="gw_msg_d1">李连号</div>
-																		<div class="zx_user_tabs gw_user_tabs dis_flex">
-																			<div class="zx_user_tab">继承过户</div>
-																			<div class="zx_user_tab">买卖服务</div>
-																			<div class="zx_user_tab">买卖服务</div>
-																		</div>
-																		<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div>
-																		<div href="###" class="zx_user_telewn gw_user_telewn dis_flex aic smtel_box">
-																			扫码打电话<img src="../images/tel_ewm_03.jpg" alt="">
-																			<div class="smtel_tk">
-																				<img src="../images/index_bewm.png" alt="">
-																			</div>
-																		</div>
-																	</div>
-																</a>
-																<div v-if="xz_gw==index" class="gw_xz cpointer"><img src="../images/duihao.png" alt=""></div>
-																<div v-if="xz_gw!=index" class="gw_xz cpointer" @click="xz_gw=index"><img src="../images/duihao1.png" alt=""></div>
-															</div>
-														</div>
-														<div class="xz_box dis_flex aic ">
-															<div class="xz_box_btn dis_flex aic ju_c" @click="goOrder">选择完成创建订单</div>
-															<div class="fz14 c9 cpointer" @click="goOrder">跳过直接下单</div>
-														</div>
+												<div class="zftk_box_c dis_flex_c aic" style="width: 360px;">
+													<div class="zf_c_ewm">
+														<img src="../images/index_bewm.png" alt="">
 													</div>
+													<div class="zf_c_text">请打开微信扫描上方二维码</div>
+												</div>
+												<div class="zf_c_sx"></div>
+												<div class="zf_r_b dis_flex_c aic flex_1">
+													<div>应付金额</div>
+													<div><span style="color: #FF5E5E;">8500</span>元</div>
 												</div>
 											</div>
 										</div>
@@ -219,27 +170,7 @@
 							<div class="in4b_br" style="width: 320px;">
 								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/fwlb_xq_03.jpg);height: 170px;margin-top: 0;"></a>
 								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/fwlb_xq_06.jpg);height: 150px;"></a>
-								<div class="in4b_br_box">
-									<div class="dis_flex in4b_br_tit dis_flex aic ju_b lbxq_gwli_tit">顾问推荐 <a href="###" class="gogw_more">查看更多<i class="iconfont icon-next-m"></i></div>
-									<div class="">
-										<div class="zx_li lbxq_gwli" style="width: 280px;" v-for="item in 4">
-											<div class="zx_li_b dis_flex ">
-												<div class="zx_user" style="left: 67px;">
-													<div class="zx_user_tx" style="background-image: url(../images/user_tx.png);"></div>
-													<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
-												</div>
-												<div class="zx_user_name">李连号</div>
-												<div class="zx_user_tabs dis_flex">
-													<div class="zx_user_tab">继承过户</div>
-													<div class="zx_user_tab">买卖服务</div>
-													<div class="zx_user_tab">买卖服务</div>
-												</div>
-												<div class="zx_user_tel">电话：40018925843转1384</div>
-												<a href="###" class="zx_user_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
-											</div>
-										</div>
-									</div>
-								</div>
+								
 								
 							</div>
 						</div>

@@ -6,9 +6,9 @@
 		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 		<meta name="format-detection" content="email=no" />
 		<meta name="format-detection" content="telephone=no">
-		<title>易房助手-新闻热点</title>
-		<meta name="Keywords" content="易房助手-新闻热点">
-		<meta name="Description" content="易房助手-新闻热点">
+		<title>易房助手-服务类别</title>
+		<meta name="Keywords" content="易房助手-服务类别">
+		<meta name="Description" content="易房助手-服务类别">
 		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../images/css/swiper.min.css">
 		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 		<script src="../images/js/video/TcPlayer-2.3.2.js" charset="utf-8"></script>
 	</head>
 
-	<body style="">
+	<body>
 		<div id="wrap">
 			<div class="top_box">
 				<div class="w1200 w12001 oh">
@@ -41,11 +41,11 @@
 					<div class="nav_box fr oh">
 						<a href="index.html" id="active0">首&nbsp;&nbsp;&nbsp;页</a>
 
-						<a href="fwlb.html" id="active1">服务类别</a>
-						
+						<a href="fwlb.html" id="active1" class="active">服务类别</a>
+
 						<a href="dyjh.html" id="active2">答疑解惑</a>
-						
-						<a href="jyzs.html" id="active4" class="active">交易知识</a>
+
+						<a href="jyzs.html" id="active4">交易知识</a>
 						<a href="fwal.html" id="active5">服务案例</a>
 						<a href="sfcs.html" id="active6">税费测算</a>
 
@@ -55,83 +55,83 @@
 					</div>
 				</div>
 			</div>
-		
+
 			<div class="fwlb_h_tit">
-				<div class="w1200 w12001 fwlb_h_tit1 dis_flex aic" ><a href="index.html">易房助手</a>＞新闻热点</div>
+				<div class="w1200 w12001 fwlb_h_tit1 fwlb_pay_tit1 dis_flex aic">
+					<a href="###">1.提交订单</a>
+					<span>→</span>
+					<a href="###">2.支付订单</a>
+					<span>→</span>
+					<a href="###" class="cur">3.完成支付</a>
+				</div>
 			</div>
 			<div class="index_box3 clearfix" style="margin-top: 0;padding-top: 0;">
 				<div class="  w1200 w12001">
-				
+
 					<div class="index4_b index4_b_dyjh">
 						<div class="in4b_b dis_flex ju_b" style="border-bottom: 0;">
-							<div class="in4b_bl">
-								<div class="dis_flex ju_b in4b_bl_t">
-									<div class="rd_list dis_flex aic" style="box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.05);">
-										<div class="rd_li cur">新闻热点</div>
-										
-									</div>
+							<div class="in4b_bl" style="width: 866px;">
+								<form class="zflc_box">
 									
-								</div>
-								<div class="rdxx_list">
-									<div class="clearfix" style="width: 100%;">
-										<a href="rd_news_xq.html" class="rdxx_li dis_flex" v-for="item in 10">
-											<div class="rdxx_li_img div_img">
-												<div style="background-image: url(../images/fw_bg_2.png);"></div>
+									<div class="zflc_xb" style="padding-top: 30px;">
+										<div class="dis_flex_c aic order_ok_box">
+											<img src="../images/order_ok.png" alt="">
+											<div>您已成功支付，请及时联系下方的咨询顾问~</div>
+										</div>
+										<div class="zflc_xb_tit">服务类型</div>
+										<div class="zflc_xb_box">
+											<div class="dis_flex sfcs_n_li">
+												<div class="sfcs_n_li_name">服务类型：</div>
+												<input type="hidden" name="fw_type" v-model="fw_type">
+												<div class="flex_1 dis_flex aic fz16 fwb" style="color: #343434;">赠与过户</div>
 											</div>
-											<div class="flex_1 rdxx_li_msg dis_flex_c ju_a">
-												<div class="dis_flex ju_b rdxx_li_d1">
-													<div class="flex_1 rdxx_li_tit oh1">北京的二手房交易流程是什么？二都有哪些？{{rd_cur}}</div>
+											<div class="dis_flex sfcs_n_li">
+												<div class="sfcs_n_li_name">服务分类：</div>
+												<input type="hidden" name="fw_type" v-model="fw_type">
+												<div class="flex_1 dis_flex aic">
+													<div class=" fz14">无公证赠与</div>
 												</div>
-												<div class="dis_flex ju_b rdxx_li_d1">
-													<div class="rdxx_li_time">2020-05-09</div>
-												</div>
-												<!-- <div class="rdxx_li_d2 dis_flex" style="flex-wrap: wrap;">
-													<div class="li_bq  dis_flex aic ju_c">购房指南</div>
-													<div class="li_bq  dis_flex aic ju_c">过户知识</div>
-													<div class="li_bq  dis_flex aic ju_c">房产买卖</div>
-													<div class="li_bq  dis_flex aic ju_c">房产继承</div>
-												</div> -->
 											</div>
-										</a>
+
+										</div>
 									</div>
-									<div class="zz_page_box dis_flex aic ju_c">
-										<a class="cur" href="###">1</a>
-										<a href="###">2</a>
-										<a href="###">3</a>
-										<a href="###">下一页</a>
-										<a href="###">尾页</a>
-									</div>
-								</div>
-								
-							</div>
-							<div class="in4b_br">
-								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/dyjh_cs_07.jpg);margin-top: 0;"></a>
-								<div class="in4b_br_box">
-									<div class="dis_flex in4b_br_tit">顾问推荐</div>
-									<div class="">
-										<div  class="tw_bb_b tw_bb_b1 dis_flex" v-for="item in 5">
-											<div class="gw_twtx">
-												<div class="gw_tximg" style="background-image: url(../images/user_tx.png);"></div>
-												<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
-											</div>
-											<div class="gw_msg">
-												<div class="gw_msg_d1">李连号</div>
-												<div class="zx_user_tabs gw_user_tabs dis_flex">
-													<div class="zx_user_tab">继承过户</div>
-													<div class="zx_user_tab">买卖服务</div>
-													<div class="zx_user_tab">买卖服务</div>
+									<div class="zflc_xb">
+										<div class="zflc_xb_tit">您的顾问</div>
+										<div class="zflc_xb_box">
+
+											<div class="tw_bb">
+												<div class="tw_bb_b dis_flex">
+													<div class="gw_twtx">
+														<div class="gw_tximg" style="background-image: url(&quot;../images/user_tx.png&quot;);"></div>
+														<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(&quot;../images/user_lvbg.png&quot;);">好评率：100%</div>
+													</div>
+													<div class="gw_msg">
+														<div class="gw_msg_d1">李连号</div>
+														<div class="zx_user_tabs gw_user_tabs dis_flex" style="margin-bottom: 15px;">
+															<div class="zx_user_tab">继承过户</div>
+															<div class="zx_user_tab">买卖服务</div>
+															<div class="zx_user_tab">买卖服务</div>
+														</div>
+														<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div> <a href="###" class="zx_user_telewn gw_user_telewn dis_flex aic">扫码打电话<img
+															 src="../images/tel_ewm_03.jpg" alt=""></a>
+													</div>
 												</div>
-												<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div>
-												<a href="###" class="zx_user_telewn gw_user_telewn dis_flex aic">扫码打电话<img src="../images/tel_ewm_03.jpg" alt=""></a>
+											</div>
+											<div class="dis_flex aic ju_c">
+												<a class="back_btn" href="index.html">返回首页<i class="iconfont icon-next-m"></i></a>
 											</div>
 										</div>
-										<div class="getmore dis_flex aic ju_c" @click="getmore">查看更多<img src="../images/getmore.png" alt=""></div>
 									</div>
-								</div>
-								
+								</form>
+
+
+							</div>
+							<div class="in4b_br" style="width: 320px;">
+								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/fwlb_xq_03.jpg);height: 170px;margin-top: 0;"></a>
+								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/fwlb_xq_06.jpg);height: 150px;"></a>
 							</div>
 						</div>
-					
+
 					</div>
 				</div>
 			</div>
@@ -185,30 +185,71 @@
 			$(window).load(function() {
 				closeload();
 			});
-		
+			$(function() {
+				var mySwiper = new Swiper('.swiper_a', {
+					autoplay: true, //可选选项，自动滑动
+					loop: true,
+
+				})
+			})
 
 
 
 			var vm = new Vue({
 				el: "#wrap",
 				data: {
-					rd_cur: 0, //热点分类
-					ss_type: 0,
+					zf_cur: 0, //zf
+					fw_type: 0,
 					content: '',
+					xq_name: '',
+					wy_add: '',
+					fk_type: 0,
+					xy_type: 0,
+					xz_gw: 0,
 
+
+					js_zf: false
 				},
 				created: function() {},
 				methods: {}
 			});
-			function rd_fuc(num){
-				if(vm.rd_cur==num){
-					return
+
+			function rd_fuc(type, num) {
+				if (type == 0) {
+					if (vm.fw_type == num) {
+						return
+					}
+					vm.fw_type = num
 				}
-				vm.rd_cur=num
+				if (type == 1) {
+					if (vm.fk_type == num) {
+						return
+					}
+					vm.fk_type = num
+				}
+				if (type == 'ty') {
+					// if(vm.xy_type==num){
+					// 	return
+					// }
+					vm.xy_type = !vm.xy_type
+				}
+			}
+
+			function sub_fuc() {
+				var data = {
+					fw_type: vm.fw_type,
+					xq_name: vm.xq_name,
+					wy_add: vm.wy_add,
+				}
+				vm.js_zf = true
+			}
+
+			function getmore() {
 				//获取数据
 			}
-			function getmore(){
-				//获取数据
+
+			function goOrder() {
+				window.location.href = "fwlb_details_pay2.html"
 			}
 		</script>
 

@@ -150,8 +150,15 @@
 						</div>
 						<div class="dis_flex sfcs_n_li">
 							<div class="sfcs_n_li_name">预计需求时间：</div>
-							<div class="sfcs_n_li_srk dis_flex aic">
+							<!-- <div class="sfcs_n_li_srk dis_flex aic">
 								<input class="flex_1" type="number" name="kh_day" v-model="kh_day" placeholder="请输入需求时间"><span class="fz14" style="color: #9A9A9A;">天</span>
+							</div> -->
+							<div class=" dis_flex aic pp_n_li_da">
+								<select name="kh_day"  v-model="kh_day">
+									<option value="一天">一天</option>
+									<option value="一周">一周</option>
+									<option value="一个月">一个月</option>
+								</select>
 							</div>
 						</div>
 						<div class="dis_flex ju_a aic comp_btns" style="margin-top: 200px;">
@@ -166,9 +173,9 @@
 					<div class="index6_list dis_flex ju_b">
 						<div class="index6_li">
 							<div class="index6_li_d1">公司信息</div>
-							<a class="index6_li_d1" href="###">关于我们</a>
-							<a class="index6_li_d1" href="###">用户协议</a>
-							<a class="index6_li_d1" href="###">隐私政策</a>
+							<a class="index6_li_d1" href="about.html?type=1">关于我们</a>
+							<a class="index6_li_d1" href="yhxy.html">用户协议</a>
+							<a class="index6_li_d1" href="ysqy.html">隐私政策</a>
 						</div>
 						<div class="index6_li">
 							<div class="index6_li_d1">服务咨询</div>
@@ -229,7 +236,8 @@
 					kh_name:'',
 					kh_tel:'',
 					xq_msg:'需求内容1',
-					kh_day:'',
+					
+					kh_day:'一天',
 				},
 				created: function() {},
 				methods: {}

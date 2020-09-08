@@ -149,13 +149,13 @@
 				<div class="w1200 clearfix" style="overflow-x: auto;
 			overflow-y: hidden;">
 					<div class="w1200 clearfix kemengxh_list" style="white-space: nowrap;">
-						<a href="###" class="kemengxh_li">夫妻过户更名</a>
-						<a href="###" class="kemengxh_li">父母子女之间过户</a>
-						<a href="###" class="kemengxh_li">兄弟姐妹之间过户</a>
-						<a href="###" class="kemengxh_li">直系亲属 过户</a>
-						<a href="###" class="kemengxh_li">老人过世分房</a>
-						<a href="###" class="kemengxh_li">离婚分房</a>
-						<a href="###" class="kemengxh_li">房产证加减名</a>
+						<a href="kngz.html" class="kemengxh_li">夫妻过户更名</a>
+						<a href="kngz.html" class="kemengxh_li">父母子女之间过户</a>
+						<a href="kngz.html" class="kemengxh_li">兄弟姐妹之间过户</a>
+						<a href="kngz.html" class="kemengxh_li">直系亲属 过户</a>
+						<a href="kngz.html" class="kemengxh_li">老人过世分房</a>
+						<a href="kngz.html" class="kemengxh_li">离婚分房</a>
+						<a href="kngz.html" class="kemengxh_li">房产证加减名</a>
 					</div>
 				</div>
 			</div>
@@ -164,10 +164,10 @@
 				<div class="w1200 w12001 dis_flex aic ju_b">
 					<div class="fw_more dis_flex aic" style="opacity: 0;">更多服务<img src="../images/more01.png" alt=""></div>
 					<img src="../images/zx_tit.png" alt="">
-					<a class="fw_more dis_flex aic" href="###">更多服务<img src="../images/more01.png" alt=""></a>
+					<a @click="js_zf=true" class="fw_more dis_flex aic" href="###">更多顾问<img src="../images/more01.png" alt=""></a>
 				</div>
 				<div class="dis_flex zx_list w1200 w12001 dis_flex ju_b">
-					<div class="zx_li">
+					<a class="zx_li" href="gw_xq.html">
 						<div class="zx_li_b">
 							<div class="zx_user">
 								<div class="zx_user_tx" style="background-image: url(../images/user_tx.png);"></div>
@@ -180,11 +180,16 @@
 								<div class="zx_user_tab">买卖服务</div>
 							</div>
 							<div class="zx_user_tel">电话：40018925843转1384</div>
-							<a href="###" class="zx_user_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
+							<div href="###" class="zx_user_telewn dis_flex aic smtel_box">
+								<img src="../images/tel_ewm_03.jpg" alt="">扫码打电话
+								<div class="smtel_tk1">
+									<img src="../images/index_bewm.png" alt="">
+								</div>
+							</div>
 						</div>
-					</div>
+					</a>
 
-					<div class="zx_li">
+					<a class="zx_li" href="gw_xq.html" v-for="item in 4">
 						<div class="zx_li_b">
 							<div class="zx_user">
 								<div class="zx_user_tx" style="background-image: url(../images/user_tx.png);"></div>
@@ -197,57 +202,15 @@
 								<div class="zx_user_tab">买卖服务</div>
 							</div>
 							<div class="zx_user_tel">电话：40018925843转1384</div>
-							<a href="###" class="zx_user_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
+							<div href="###" class="zx_user_telewn dis_flex aic smtel_box">
+								<img src="../images/tel_ewm_03.jpg" alt="">扫码打电话
+								<div class="smtel_tk1">
+									<img src="../images/index_bewm.png" alt="">
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="zx_li">
-						<div class="zx_li_b">
-							<div class="zx_user">
-								<div class="zx_user_tx" style="background-image: url(../images/user_tx.png);"></div>
-								<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
-							</div>
-							<div class="zx_user_name">李连号</div>
-							<div class="zx_user_tabs dis_flex">
-								<div class="zx_user_tab">继承过户</div>
-								<div class="zx_user_tab">买卖服务</div>
-								<div class="zx_user_tab">买卖服务</div>
-							</div>
-							<div class="zx_user_tel">电话：40018925843转1384</div>
-							<a href="###" class="zx_user_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
-						</div>
-					</div>
-					<div class="zx_li">
-						<div class="zx_li_b">
-							<div class="zx_user">
-								<div class="zx_user_tx" style="background-image: url(../images/user_tx.png);"></div>
-								<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
-							</div>
-							<div class="zx_user_name">李连号</div>
-							<div class="zx_user_tabs dis_flex">
-								<div class="zx_user_tab">继承过户</div>
-								<div class="zx_user_tab">买卖服务</div>
-								<div class="zx_user_tab">买卖服务</div>
-							</div>
-							<div class="zx_user_tel">电话：40018925843转1384</div>
-							<a href="###" class="zx_user_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
-						</div>
-					</div>
-					<div class="zx_li">
-						<div class="zx_li_b">
-							<div class="zx_user">
-								<div class="zx_user_tx" style="background-image: url(../images/user_tx.png);"></div>
-								<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
-							</div>
-							<div class="zx_user_name">李连号</div>
-							<div class="zx_user_tabs dis_flex">
-								<div class="zx_user_tab">继承过户</div>
-								<div class="zx_user_tab">买卖服务</div>
-								<div class="zx_user_tab">买卖服务</div>
-							</div>
-							<div class="zx_user_tel">电话：40018925843转1384</div>
-							<a href="###" class="zx_user_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
-						</div>
-					</div>
+					</a>
+					
 				</div>
 				<div class="dis_flex  w1200 w12001">
 					<a href="pipei.html" class="zn_btn dis_flex aic ju_c" style="background-image: url(../images/zn_bg_03.jpg);">30秒发布匹配，智能匹配顾问</a>
@@ -407,7 +370,7 @@
 								</form>
 								<div class="index_tw_tel" style="background-image: url(../images/tw_tel_03.png);">电话：400-6905-5050</div>
 								<div class="tw_bb">
-									<div  class="tw_bb_b dis_flex">
+									<a href="gw_xq.html" class="tw_bb_b dis_flex">
 										<div class="gw_twtx">
 											<div class="gw_tximg" style="background-image: url(../images/user_tx.png);"></div>
 											<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
@@ -420,9 +383,14 @@
 												<div class="zx_user_tab">买卖服务</div>
 											</div>
 											<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div>
-											<a href="###" class="zx_user_telewn gw_user_telewn dis_flex aic">扫码打电话<img src="../images/tel_ewm_03.jpg" alt=""></a>
+											<div href="###" class="smtel_box zx_user_telewn gw_user_telewn dis_flex aic ">
+												扫码打电话<img src="../images/tel_ewm_03.jpg" alt="">
+												<div class="smtel_tk">
+													<img src="../images/index_bewm.png" alt="">
+												</div>
+											</div>
 										</div>
-									</div>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -490,14 +458,52 @@
 					</div>
 				</div>
 			</div>
+			<div class="tk_box" v-if="js_zf">
+				<div class="tk_ccz">
+					<div class="zf_tk zf_tk1">
+						<div class="tk_off dis_flex aic">
+							<div class="fz18 fwb dis_flex aic" style="color: #000;">更多顾问</div>
+							<div class="tk_off_btn" @click="js_zf=false">
+								<img src="../images/guanbi.png" alt="">
+							</div>
+						</div>
+						<div class="tk_inr" style="overflow-y: auto;max-height: 500px;">
+							<div v-for="(item,index) in 5" class="xzgw_li dis_flex ju_b aic">
+								<a href="gw_xq.html" class="tw_bb_b tw_bb_b1 dis_flex" style="width: 549px;">
+									<div class="gw_twtx">
+										<div class="gw_tximg" style="background-image: url(../images/user_tx.png);"></div>
+										<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
+									</div>
+									<div class="gw_msg">
+										<div class="gw_msg_d1">李连号</div>
+										<div class="zx_user_tabs gw_user_tabs dis_flex">
+											<div class="zx_user_tab">继承过户</div>
+											<div class="zx_user_tab">买卖服务</div>
+											<div class="zx_user_tab">买卖服务</div>
+										</div>
+										<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div>
+										<div href="###" class="zx_user_telewn gw_user_telewn dis_flex aic smtel_box">
+											扫码打电话<img src="../images/tel_ewm_03.jpg" alt="">
+											<div class="smtel_tk">
+												<img src="../images/index_bewm.png" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="index_box6 clearfix">
 				<div class="w1200 w12001 dis_flex ju_b">
 					<div class="index6_list dis_flex ju_b">
 						<div class="index6_li">
 							<div class="index6_li_d1">公司信息</div>
-							<a class="index6_li_d1" href="###">关于我们</a>
-							<a class="index6_li_d1" href="###">用户协议</a>
-							<a class="index6_li_d1" href="###">隐私政策</a>
+							<a class="index6_li_d1" href="about.html?type=1">关于我们</a>
+							<a class="index6_li_d1" href="yhxy.html">用户协议</a>
+							<a class="index6_li_d1" href="ysqy.html">隐私政策</a>
 						</div>
 						<div class="index6_li">
 							<div class="index6_li_d1">服务咨询</div>
@@ -600,7 +606,7 @@
 				data: {
 					rd_cur: 0, //热点分类
 					ss_type: 0,
-					
+					js_zf:false,
 					content: '',
 
 				},

@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+		<meta name="format-detection" content="email=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>易房助手-顾问个人资料</title>
+		<meta name="Keywords" content="易房助手-顾问个人资料">
+		<meta name="Description" content="易房助手-顾问个人资料">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/style.css" rel="stylesheet" type="text/css">
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl.js"></script>
+		<script src="../images/js/video/TcPlayer-2.3.2.js" charset="utf-8"></script>
+	</head>
+
+	<body style="">
+		<div id="wrap">
+			<div class="top_box">
+				<div class="w1200 w12001 oh">
+					<a href="index.html" class="logo fl">
+						<img src="../images/logo.png" alt="">
+					</a>
+					<div class="sj_btn">
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+					<a class="go_my fr" href="./my.html">
+						<img src="../images/my.png" alt="">
+					</a>
+					<div class="nav_box fr oh">
+						<a href="index.html" id="active0">首&nbsp;&nbsp;&nbsp;页</a>
+
+						<a href="fwlb.html" id="active1">服务类别</a>
+
+						<a href="dyjh.html" id="active2" class="active">答疑解惑</a>
+
+						<a href="jyzs.html" id="active4">交易知识</a>
+						<a href="fwal.html" id="active5">服务案例</a>
+						<a href="sfcs.html" id="active6">税费测算</a>
+
+					</div>
+					<div class="pc_tel fr">
+						<img src="../images/pc_tel.png" alt="">400-690-5050
+					</div>
+				</div>
+			</div>
+			<!-- top -->
+			<div class="dyjh_banner  w1200 w12001 dis_flex">
+				<div class="gw_bg dis_flex aic" style="background-image: url(../images/gw_bg.png);">
+					<div class="gw_tx" style="background-image: url(../images/user_tx.png);"></div>
+					<div class="flex_1">
+						<div class="gw_name">关于真</div>
+						<div class="gw_gr_msg dis_flex">
+							<div class="ge_gr_litit">可提供的服务：</div>
+							<div class="ge_gr_bq">买卖服务</div>
+							<div class="ge_gr_bq">买卖服务</div>
+							<div class="ge_gr_bq">买卖服务</div>
+							<div class="ge_gr_bq">买卖服务</div>
+							<div class="ge_gr_bq">买卖服务</div>
+							<div class="ge_gr_bq">买卖服务</div>
+						</div>
+						<div class="gw_gr_msg dis_flex">
+							<div class="ge_gr_litit">服务理念：</div>
+							<div>已周到的服务，以家人朋友的角色，用心服务每一个客户！</div>
+						</div>
+						<div class="gw_gr_msg dis_flex">
+							<div class="ge_gr_litit">联系咨询顾问：</div>
+							<div class="fz18 fwb">4008621转1831</div>
+						</div>
+						<div class="gw_gr_msg dis_flex">
+							<div class="ge_gr_litit">扫码打电话：</div>
+							<div class="sm_tel smtel_box">
+								<img class="sm_tel" src="../images/tel_ewm_03.jpg" alt="">
+								<div class="smtel_tk">
+									<img src="../images/index_bewm.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="index_box3 clearfix" style="margin-top: 20px;padding-top: 0;">
+				<div class="  w1200 w12001">
+
+					<div class="index4_b index4_b_dyjh">
+						<div class="in4b_b dis_flex ju_b" style="border-bottom: 0;">
+							<div class="fwlb_box" style="width: 866px;">
+								<div class="fwlb_tabs dis_flex">
+									<div :class="fw_cur==0?'cur':''" @click="rd_fuc(0)">Ta的评价</div>
+									<div :class="fw_cur==1?'cur':''" @click="rd_fuc(1)">Ta的动态</div>
+									<div :class="fw_cur==2?'cur':''" @click="rd_fuc(2)">Ta的问答</div>
+								</div>
+								<div v-if="fw_cur==0" class="xq_fwlb_box">
+									<div class="pingjia_li dis_flex" v-for="item in 10">
+										<div class="pj_tx" style="background-image: url(../images/tx.png);"></div>
+										<div class="flex_1">
+											<div class="pj_name">洗净哎</div>
+											<div class="pj_name">
+												<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+												<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+												<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+												<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+												<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+												非常满意
+											</div>
+											<div class="pj_name">小伙子特别能干，真的很好，辛苦了</div>
+										</div>
+									</div>
+									<div class="zz_page_box dis_flex aic ju_c">
+										<a class="cur" href="###">1</a>
+										<a href="###">2</a>
+										<a href="###">3</a>
+										<a href="###">下一页</a>
+										<a href="###">尾页</a>
+									</div>
+								</div>
+								<div v-if="fw_cur==1" class="xq_fwlb_box">
+									<div class="pingjia_li dis_flex" v-for="item in 10">
+										<div class="pj_tx" style="background-image: url(../images/tx.png);"></div>
+										<div class="flex_1">
+											<div class="pj_name">洗净哎</div>
+											<div class="pj_name">今天的客户特别好玩，顺利帮助这位客户成功过户</div>
+											<div class="pj_name fz12 c6">2020-06-05</div>
+										</div>
+									</div>
+									<div class="zz_page_box dis_flex aic ju_c">
+										<a class="cur" href="###">1</a>
+										<a href="###">2</a>
+										<a href="###">3</a>
+										<a href="###">下一页</a>
+										<a href="###">尾页</a>
+									</div>
+								</div>
+								<div v-if="fw_cur==2" class="xq_fwlb_box">
+									<div class="pingjia_li dis_flex" v-for="item in 10">
+										
+										<div class="flex_1">
+											<div class="pj_wd dis_flex">
+												<div class="dyjh_l dis_flex aic ju_c flex_0">
+													问
+												</div>
+												<div class="fwb wd_text">北京的二手房交易流程是什么？二手房过户费用都有哪些？</div>
+											</div>
+											<div class="pj_wd dis_flex">
+												<div class="dyjh_l dis_flex aic ju_c  flex_0" style="background: #3678F2;">
+													答
+												</div>
+												<div class="wd_text">审核买方购房资质，网签，网上审税，网上预约缴税过户。费用需要根据买卖双方的情况和房屋情况来定。费用需要根据买卖双方的情况和房屋情况来定。费用需要根据买卖双方的情况和房屋情况来定。费用需要根据买卖双方的情况和房屋情况来定。</div>
+											</div>
+											<div class="pj_wd_time fz12 c6">2020-06-05</div>
+										</div>
+									</div>
+									<div class="zz_page_box dis_flex aic ju_c">
+										<a class="cur" href="###">1</a>
+										<a href="###">2</a>
+										<a href="###">3</a>
+										<a href="###">下一页</a>
+										<a href="###">尾页</a>
+									</div>
+								</div>
+							</div>
+							<div class="in4b_br gw_r">
+								<div class="in4b_br_box" style="padding: 0;">
+									<div class="dis_flex in4b_br_tit ju_b" style="">我要提问
+										<a @click="js_zf=true" class="fz14" style="color: #5E96FF;" href="###">去评价></a>
+									</div>
+
+									<div class="dis_flex_c aic gw_cj">
+										<div class="gw_cj_d1">100.00%</div>
+										<div class="gw_cj_d2">满意度</div>
+										<div class="gw_cj_d3 dis_flex aic">
+											<div class="gwd31">好评(<span>100%</span>)</div>
+											<div class="gwd32">
+												<div class="gwd32_b" style="width: 100%;"></div>
+											</div>
+										</div>
+										<div class="gw_cj_d3 dis_flex aic">
+											<div class="gwd31">中评(<span>暂无</span>)</div>
+											<div class="gwd32">
+												<div class="gwd32_b" style="width: 0%;"></div>
+											</div>
+										</div>
+										<div class="gw_cj_d3 dis_flex aic">
+											<div class="gwd31">差评(<span>暂无</span>)</div>
+											<div class="gwd32">
+												<div class="gwd32_b" style="width: 0%;"></div>
+											</div>
+										</div>
+										<div class="gw_cj_d4">1365</div>
+										<div class="gw_cj_d5">历史办理过户（单子）</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="tk_box" v-if="js_zf">
+				<div class="tk_ccz">
+					<div class="zf_tk zf_tk1 zf_tk2">
+						<div class="tk_off dis_flex aic">
+							<div class="gwxq_tk_pj" style="color: #000;">评价TA</div>
+							<div class="tk_off_btn" @click="js_zf=false">
+								<img src="../images/guanbi.png" alt="">
+							</div>
+						</div>
+						<div class="pjtk_box">
+							<div class="gwxq_pj_dx dis_flex aic">
+								<span>发表评价</span>
+								<div class="dis_flex aic ju_c">
+									<i class="iconfont" :class="pjx>0?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=1"></i></div>
+								<div class="dis_flex aic ju_c">
+									<i class="iconfont" :class="pjx>1?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=2"></i></div>
+								<div class="dis_flex aic ju_c">
+									<i class="iconfont" :class="pjx>2?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=3"></i></div>
+								<div class="dis_flex aic ju_c">
+									<i class="iconfont" :class="pjx>3?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=4"></i></div>
+								<div class="dis_flex aic ju_c">
+									<i class="iconfont" :class="pjx>4?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=5"></i></div>
+								<b>({{pjx}})</b>
+							</div>
+							<textarea  class="pj_cont" placeholder="请输入您的评价" v-model="pj_content"></textarea>
+							<div class="dis_flex ju_b">
+								<div></div>
+								<div class="sub_pj dis_flex aic ju_c" onclick="sub_pj()">发表</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="index_box6 clearfix">
+				<div class="w1200 w12001 dis_flex ju_b">
+					<div class="index6_list dis_flex ju_b">
+						<div class="index6_li">
+							<div class="index6_li_d1">公司信息</div>
+							<a class="index6_li_d1" href="about.html?type=1">关于我们</a>
+							<a class="index6_li_d1" href="yhxy.html">用户协议</a>
+							<a class="index6_li_d1" href="ysqy.html">隐私政策</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">服务咨询</div>
+							<a class="index6_li_d1">400-189-3038</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">商务合作</div>
+							<a class="index6_li_d1">1745843160</a>
+						</div>
+					</div>
+					<div class="gzh_box">
+						<img src="../images/index_bewm.png" alt="">
+						<div>关注公众号<br>获取更多过户知识</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<div class="footer tac">
+			<div class="w1200">
+				copyright 2003-2022 北京叁叁八五资讯有限公司 | 京ICP备18037428号-1 京公网安备 11010602100441号<br>
+				违法和不良信息举报电话：010-56319651 举报邮箱：jubao@3385.com
+			</div>
+		</div>
+		<!-- 加载中 -->
+		<div class="load_box" style="display: none;">
+			<img src="../images/load.gif" alt="">加载中...
+		</div>
+		<!-- 加载中 -->
+		<script>
+			//开启加载层
+			function openload() {
+				$(".load_box").fadeIn(500);
+			};
+			//关闭加载层
+			function closeload() {
+				$(".load_box").fadeOut(500);
+			};
+			//加载完成关闭
+			$(window).load(function() {
+				closeload();
+			});
+
+
+			var vm = new Vue({
+				el: "#wrap",
+				data: {
+					fw_cur: 0, //热点分类
+					js_zf: false,
+					pjx: 0,
+					pj_content:''
+				},
+				created: function() {},
+				methods: {}
+			});
+
+			function rd_fuc(num) {
+				if (vm.fw_cur == num) {
+					return
+				}
+				vm.fw_cur = num
+			}
+			function sub_pj(){
+				console.log(vm.pj_content)
+				//关闭弹框
+				vm.js_zf=false
+			}
+		</script>
+
+
+	</body>
+</html>
