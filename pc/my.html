@@ -1,0 +1,819 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+		<meta name="format-detection" content="email=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title>易房助手-个人中心</title>
+		<meta name="Keywords" content="易房助手-个人中心">
+		<meta name="Description" content="易房助手-个人中心">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/style.css" rel="stylesheet" type="text/css">
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl.js"></script>
+		<script src="../images/js/video/TcPlayer-2.3.2.js" charset="utf-8"></script>
+	</head>
+
+	<body style="">
+		<div id="wrap">
+			<div class="top_box">
+				<div class="w1200 w12001 oh">
+					<a href="index.html" class="logo fl">
+						<img src="../images/logo.png" alt="">
+					</a>
+					<div class="sj_btn">
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+					<a class="go_my fr" href="./my.html">
+						<img src="../images/my.png" alt="">
+					</a>
+					<div class="nav_box fr oh">
+						<a href="index.html" id="active0">首&nbsp;&nbsp;&nbsp;页</a>
+
+						<a href="fwlb.html" id="active1">服务类别</a>
+						
+						<a href="dyjh.html" id="active2">答疑解惑</a>
+						
+						<a href="jyzs.html" id="active4">交易知识</a>
+						<a href="fwal.html" id="active5">服务案例</a>
+						<a href="sfcs.html" id="active6">税费测算</a>
+
+					</div>
+					<div class="pc_tel fr">
+						<img src="../images/pc_tel.png" alt="">400-690-5050
+					</div>
+				</div>
+			</div>
+			<!-- banner -->
+			<div class="dyjh_banner  w1200 w12001">
+				<!-- <div class="dyjh_banner_b dis_flex ju_b aic"  style="background-image: url(../images/dyjh_banner_03.jpg);">
+					<div class="dyjh_b_l dis_flex_c ju_b">
+						<div class="dyjh_b_l1">居间服务</div>
+						<div class="dyjh_b_l2">居间人向委托人报告订立合同的机会或者提供订立合同的媒介服务</div>
+					</div>
+					<a href="###" class="dyjh_buy_btn dis_flex aic ju_c">立即购买</a>
+				</div> -->
+				<div class="slider single-item">
+					<div>
+						<a href="###" class="dyjh_banner_b dis_flex" style="background-image: url(../images/gr_banner_03.jpg);"></a>
+					</div>
+					<div>
+						<a href="###" class="dyjh_banner_b dis_flex" style="background-image: url(../images/gr_banner_03.jpg);"></a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="gr_box clearfix">
+				<div class="w1200 w12001 dis_flex ju_b">
+					<div class="gr_l dis_flex_c aic">
+						<div class="gr_tx" style="background-image: url(../images/user_tx.png);"></div>
+						<div class="gr_name">易方助手</div>
+						<div class="gr_list dis_flex_c aic">
+							<a :class="gr_cur==0?'cur':''" @click="rd_fuc('my',0)" href="###">个人资料</a>
+							<a :class="gr_cur==1?'cur':''" @click="rd_fuc('my',1)" href="###">我的问答</a>
+							<a :class="gr_cur==2?'cur':''" @click="rd_fuc('my',2)" href="###">我的订单</a>
+							<a :class="gr_cur==3?'cur':''" @click="rd_fuc('my',3)" href="###">我的钱包</a>
+							<a :class="gr_cur==4?'cur':''" @click="rd_fuc('my',4)" href="###">我的分享</a>
+							<a :class="gr_cur==5?'cur':''" @click="rd_fuc('my',5)" href="###">我的推荐</a>
+							<a :class="gr_cur==6?'cur':''" @click="rd_fuc('my',6)" href="###">服务团队</a>
+							<a :class="gr_cur==7?'cur':''" @click="rd_fuc('my',7)" href="###">我要贷款</a>
+						</div>
+					</div>
+					<!-- 个人资料 -->
+					<div class="gr_r" v-if="gr_cur==0">
+						<div class="grr_tit dis_flex aic"><img src="../images/gr_1.png" alt="">编辑资料</div>
+						<div class="grr_box">
+							<form class="grr_box_1 dis_flex ju_b add_form">
+								<div class="grr_1_L">
+									<div class="gr_bj_li dis_flex aic">
+										<div class="gr_bj_li_name">昵称：</div>
+										<input class="gr_bj_int" name="userName" type="text" placeholder="请输入昵称" >
+									</div>
+									<div class="gr_bj_li dis_flex aic">
+										<div class="gr_bj_li_name">手机号码：</div>
+										<div>1786521686</div>
+										<div class="gr_btn" @click="set_tel=true">更改绑定</div>
+										<div class="gr_btn" @click="set_pwd=true">修改密码</div>
+									</div>
+									<div class="gr_bj_li dis_flex aic">
+										<div class="gr_bj_li_name"></div>
+										<div class="grsub_btn" onclick="sub()">保存</div>
+									</div>
+								</div>
+								<div class="grr_1_C"></div>
+								<!-- 点击上传/修改头像 -->
+								<div class="grr_1_R dis_flex_c aic">
+									<div class="up_tx" style="background-image: url(../images/user_tx.png);">
+										<input type="file"  onchange="upimg_img(this)">
+									</div>
+									<div class="uo_tip">点击上传/修改头像</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- 我的问答 -->
+					<div class="gr_r" v-if="gr_cur==1">
+						<div class="grr_tit dis_flex aic"><img src="../images/gr_2.png" alt="">我的问答</div>
+						<div class="grr_box">
+							<div  class="grr_box_2">
+								<a href="dyjh_details.html" class="rdxx_li dyjh_li dis_flex" v-for="item in 6">
+									<div class="dyjh_l dis_flex aic ju_c">
+										问
+									</div>
+									<div class="flex_1 rdxx_li_msg dis_flex_c ju_b">
+										<div class="dis_flex ju_b rdxx_li_d1">
+											<div class="flex_1 rdxx_li_tit">北京的二手房交易流程是什么？二都有哪些？1</div>
+										</div>
+										<div class="rdxx_li_d2 oh1">等待回答</div>
+										<div class="dis_flex  ju_b  dy_hf_btn_li">
+											<div class="dy_hf_btn dis_flex aic">0位咨询顾问回复</div>
+											<div class="dy_time">2020-02-06</div>
+										</div>
+									</div>
+								</a>
+								<div class="zz_page_box dis_flex aic ju_c" style="height: 100px;">
+									<a class="cur" href="###">1</a>
+									<a href="###">2</a>
+									<a href="###">3</a>
+									<a href="###">下一页</a>
+									<a href="###">尾页</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 我的订单 -->
+					<div class="gr_r" v-if="gr_cur==2">
+						<div class="grr_tit dis_flex aic"><img src="../images/gr_3.png" alt="">我的订单</div>
+						<div class="grr_box">
+							<div  class="grr_box_3">
+								<div class="myOrder_li dis_flex_c ju_b" v-for="(item,index) in 5">
+									<div class="myOrder_li_d1 dis_flex aic ju_b">
+										<div class="fz18 c3">海淀 庄伟花园</div>
+										<div v-if="index==2" class="fz18" style="color: #FF4B4B;">待付款</div>
+										<div v-else class="fz18" style="color: #bbb;">待付款</div>
+									</div>
+									<div class="myOrder_li_d1 dis_flex aic ju_b">
+										<div class="fz14 c9">申请时间：2020-08-21 11：25</div>
+										<div class="dis_flex aic ju_b myOrder_cz">	
+											<a class="fz18 c6 dis_flex aic" href="myOrder_xq.html">查看订单<i class="iconfont icon-next-m"></i></a>
+											<div class="dis_flex aic ju_c myOrder_zfbtn">去支付</div>
+										</div>
+									</div>
+								</div>
+								<div class="zz_page_box dis_flex aic ju_c" style="height: 100px;">
+									<a class="cur" href="###">1</a>
+									<a href="###">2</a>
+									<a href="###">3</a>
+									<a href="###">下一页</a>
+									<a href="###">尾页</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 我的钱包 -->
+					<div class="gr_r" v-if="gr_cur==3">
+						<div class="grr_tit dis_flex aic"><img src="../images/gr_4.png" alt="">我的钱包</div>
+						<div class="my_money_box dis_flex ju_a aic">
+							<div class="dis_flex_c aic">
+								<div class="fz20 cfff">不可提现余额</div>
+								<div class="cfff" style="font-size: 40px;margin-top: 10px;">61074</div>
+							</div>
+							<div class="dis_flex_c aic">
+								<div class="fz20 cfff">可提现余额</div>
+								<div class="cfff" style="font-size: 40px;margin-top: 10px;">61074</div>
+							</div>
+							<a class="my_txbtn" href="mymoney_tx.html">我要提现</a>
+						</div>
+						<div class="grr_tit dis_flex aic"><img src="../images/gr_42.png" alt="">收支明细</div>
+						<div class="grr_box">
+							<div  class="grr_box_3">
+								<div class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 5">
+									<div class="mysz_li_d1">
+										<div>推荐客户1消费100元</div>
+										<div class="d1_time">2019-08-01  14:54:48</div>
+									</div>
+									<div v-if="index==0" class="fz14" style="color: #FE9494;">冻结中</div>
+									<div v-else class="fz14" style="color: #747CF6;">可提现</div>
+									<div v-if="index!=0" style="color: #747CF6;font-size: 30px;">+1.00</div>
+									<div v-else style="color: #FE9595;font-size: 30px;">-1.00</div>
+								</div>
+								<div class="zz_page_box dis_flex aic ju_c" style="height: 100px;">
+									<a class="cur" href="###">1</a>
+									<a href="###">2</a>
+									<a href="###">3</a>
+									<a href="###">下一页</a>
+									<a href="###">尾页</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 我的分享 -->
+					<div class="gr_r" v-if="gr_cur==4">
+						<div class="grr_tit dis_flex aic">
+							<img src="../images/gr_5.png" alt="">我的分享
+							<div class="flex_1"></div>
+							<a href="###" class="now_share_btn" @click="share_tk=true">立即分享</a>
+						</div>
+						<div class="grr_box">
+							<div class="pipei_tabs dis_flex grr_box_share">
+								<div class="dis_flex aic ju_c flex_1" :class="pp_cur==0?'cur':''" @click="rd_fuc('p',0)">一级推荐客户</div>
+								<div class="dis_flex aic ju_c flex_1" :class="pp_cur==1?'cur':''" @click="rd_fuc('p',1)">二级推荐客户</div>
+							</div>
+							<div v-if="pp_cur==0" class="grr_box_3">
+								<div class="share_px dis_flex ju_b">
+									<div></div>
+									<div class=" dis_flex aic">
+										排序：
+										<div class="share_pxbtn" @click="share_px(1)">时间<img v-if="time_type==1" src="../images/share_px1.png" alt=""><img v-if="time_type==2" src="../images/share_px2.png" alt=""></div>
+										<div class="share_pxbtn" @click="share_px(2)">收入<img v-if="money_type==1" src="../images/share_px1.png" alt=""><img v-if="money_type==2" src="../images/share_px2.png" alt=""></div>
+									</div>
+								</div>
+								<a href="my_share_xq.html" class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 5">
+									<div class="share_tx" style="background-image: url(../images/user_tx.png);"></div>
+									<div class="mysz_li_d1 flex_1">
+										<div class="fwb" style="color: #656565;">胡军一</div>
+										<div class="d1_time">注册时间：2020-09-06</div>
+									</div>
+									<div v-if="index==1" class="fz14 dis_flex" style="color: #747CF6;">推荐收入：<span class="tar" style="min-width: 45px;">4</span></div>
+									<div v-else class="fz14 dis_flex" style="color: #747CF6;">推荐收入：<span class="tar" style="min-width: 45px;">61074</span></div>
+								</a>
+								<div class="zz_page_box dis_flex aic ju_c" style="height: 100px;">
+									<a class="cur" href="###">1</a>
+									<a href="###">2</a>
+									<a href="###">3</a>
+									<a href="###">下一页</a>
+									<a href="###">尾页</a>
+								</div>
+							</div>
+							<div v-if="pp_cur==1" class="grr_box_3">
+								<div class="share_px dis_flex ju_b">
+									<div></div>
+									<div class=" dis_flex aic">
+										排序：
+										<div class="share_pxbtn" @click="share_px(1)">时间<img v-if="time_type==1" src="../images/share_px1.png" alt=""><img v-if="time_type==2" src="../images/share_px2.png" alt=""></div>
+										<div class="share_pxbtn" @click="share_px(2)">收入<img v-if="money_type==1" src="../images/share_px1.png" alt=""><img v-if="money_type==2" src="../images/share_px2.png" alt=""></div>
+									</div>
+								</div>
+								<a href="my_share_xq.html" class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 5">
+									<div class="share_tx" style="background-image: url(../images/user_tx.png);"></div>
+									<div class="mysz_li_d1 flex_1">
+										<div class="fwb" style="color: #656565;">立杏子</div>
+										<div class="d1_time">注册时间：2020-09-06 </div>
+									</div>
+									<div v-if="index==2" class="fz14 dis_flex" style="color: #747CF6;">推荐收入：<span class="tar" style="min-width: 45px;">4</span></div>
+									<div v-else class="fz14 dis_flex" style="color: #747CF6;">推荐收入：<span class="tar" style="min-width: 45px;">61074</span></div>
+								</a>
+								<div class="zz_page_box dis_flex aic ju_c" style="height: 100px;">
+									<a class="cur" href="###">1</a>
+									<a href="###">2</a>
+									<a href="###">3</a>
+									<a href="###">下一页</a>
+									<a href="###">尾页</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 我的推荐 -->
+					<div class="gr_r" v-if="gr_cur==5">
+						<div class="grr_tit dis_flex aic">
+							<img src="../images/gr_5.png" alt="">我的推荐
+							<div class="flex_1"></div>
+							<a href="###" class="now_share_btn" @click="tj_tk=true" style="width: 183px;">填写推荐的客户</a>
+						</div>
+						<div class="grr_box">
+							
+							<div class="grr_box_3">
+								<a href="my_share_xq.html" class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 5">
+									
+									<div class="mysz_li_d1 flex_1">
+										<div class="fwb fz18 c34">胡军一</div>
+										<div class="fz14" style="color: #656565;margin-top: 5px;"><span>需求类型：继承过户</span><span class="ml15">电话：15838468623</span></div>
+										<div  class="fz14" style="color: #656565;margin-top: 5px;">预计时间：6天内</div>
+									</div>
+									<div v-if="index==1" class="fz14 dis_flex" style="color: #747CF6;">已消费</div>
+									<div v-else class="fz14 dis_flex" style="color: #FF5F5F">未消费</div>
+									<div  v-if="index==0" class="mysz_li_d1 flex_1 tar" style="color: #FD6F6F;">
+										<div class="fz18">无效客户</div>
+										<div class="fz14 mt10">原因：该客户临时反悔订单失败，客户无效</div>
+									</div>
+									<div  v-else-if="index==1" class="mysz_li_d1 flex_1 tar" style="color:#3678F2;">
+										<div class="fz18">有效客户</div>
+									</div>
+									<div  v-else class="mysz_li_d1 flex_1 tar" style="color: #9A9A9A;">
+										<div class="fz18">等待审核</div>
+									</div>
+								</a>
+								<div class="zz_page_box dis_flex aic ju_c" style="height: 100px;">
+									<a class="cur" href="###">1</a>
+									<a href="###">2</a>
+									<a href="###">3</a>
+									<a href="###">下一页</a>
+									<a href="###">尾页</a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<!-- 服务团队 -->
+					<div class="gr_r" v-if="gr_cur==6">
+						<div class="grr_tit dis_flex aic">
+							<img src="../images/gr_7.png" alt="">服务团队</div>
+						<div class="grr_box">
+							
+							<div class="grr_box_3">
+								<a v-for="item in 5" class="tw_bb dis_flex"  href="gw_xq.html" style="margin-top: 0;margin-bottom: 28px;">
+									<div class="tw_bb_b dis_flex">
+										<div class="gw_twtx">
+											<div class="gw_tximg" style="background-image: url(&quot;../images/user_tx.png&quot;);"></div>
+											<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(&quot;../images/user_lvbg.png&quot;);">好评率：100%</div>
+										</div>
+										<div class="gw_msg">
+											<div class="gw_msg_d1">李连号</div>
+											<div class="zx_user_tabs gw_user_tabs dis_flex" style="margin-bottom: 15px;">
+												<div class="zx_user_tab">继承过户</div>
+												<div class="zx_user_tab">买卖服务</div>
+												<div class="zx_user_tab">买卖服务</div>
+											</div>
+											<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div> 
+											<div href="###" class="zx_user_telewn gw_user_telewn dis_flex aic smtel_box">
+												扫码打电话<img src="../images/tel_ewm_03.jpg" alt="">
+												<div class="smtel_tk">
+													<img src="../images/index_bewm.png" alt="">
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+								<!-- <div class="zz_page_box dis_flex aic ju_c" style="height: 100px;">
+									<a class="cur" href="###">1</a>
+									<a href="###">2</a>
+									<a href="###">3</a>
+									<a href="###">下一页</a>
+									<a href="###">尾页</a>
+								</div> -->
+							</div>
+							
+						</div>
+					</div>
+					<!-- 我要贷款 -->
+					<div class="gr_r" v-if="gr_cur==7">
+						<div class="grr_tit dis_flex aic">
+							<img src="../images/gr_8.png" alt="">我要贷款</div>
+						<div class="grr_box">
+							
+							<div class="grr_box_3">
+								<form class="pp_box" style="padding-top: 10px;">
+									
+									<div class="dis_flex sfcs_n_li">
+										<div class="sfcs_n_li_name">姓名：</div>
+										<div class="sfcs_n_li_srk dis_flex aic">
+											<input class="flex_1" type="name" name="dk_name" v-model="dk_name" placeholder="请输入姓名">
+										</div>
+									</div>
+									<div class="dis_flex sfcs_n_li">
+										<div class="sfcs_n_li_name">手机号码：</div>
+										<div class="sfcs_n_li_srk dis_flex aic">
+											<input class="flex_1" type="number" name="dk_tel" v-model="dk_tel" placeholder="请输入手机号码">
+										</div>
+									</div>
+									<div class="dis_flex sfcs_n_li">
+										<div class="sfcs_n_li_name">贷款需求金额:</div>
+										<div class="sfcs_n_li_srk dis_flex aic">
+											<input class="flex_1" type="number" name="dk_money" v-model="dk_money" placeholder="请输入贷款需求金额">万元
+										</div>
+									</div>
+									<!-- dk_content -->
+									<div class="dis_flex sfcs_n_li">
+										<div class="sfcs_n_li_name">贷款需求说明::</div>
+										<div class="sfcs_n_li_srk sfcs_n_li_srk_textarea dis_flex_c">
+											<textarea name="dk_content" v-model="dk_content" placeholder="请输入原因" maxlength="100"></textarea>
+											<div class="dis_flex aic ju_b">
+												<div></div>
+												<div class="fz14" style="color: #9a9a9a;">{{dk_content.length}}/100</div>
+											</div>
+										</div>
+									</div>
+									<div class="dis_flex ju_a aic comp_btns" style="margin-top: 90px;">
+										<div class="dk_btn dis_flex aic ju_c cpointer" @click="my_tj_fuc">提 交</div>
+									</div>
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 绑定手机号 -->
+			<div class="tk_box " v-if="set_tel">
+				<div class="tk_ccz">
+					<div class="zf_tk zf_tk1  set_tel_box" style="">
+						<div class="tk_off dis_flex aic" style="height: 60px;">
+							<div class="set_tel_tit">修改手机号</div>
+							<div class="tk_off_btn" @click="set_tel=false">
+								<img src="../images/guanbi.png" alt="">
+							</div>
+						</div>
+						<div class="setTel_main" style="padding-top: 60px;">
+							<div class="setTel_li dis_flex aic">
+								<div class="setTel_li_name">输入新的手机号：</div>
+								<input class="setTel_li_tel" type="text" v-model="new_tel" placeholder="请输入新的手机号">
+							</div>
+							<div class="setTel_li dis_flex aic" style="margin-top: 16px;">
+								<div class="setTel_li_name">输入验证码：</div>
+								<input class="setTel_li_code" type="text" v-model="tel_code" placeholder="请输入验证码">
+								<div v-if="yzm_type==0" class="setTel_getcode"  @click="getCode">获取验证码</div>
+								<div v-if="yzm_type==1" class="setTel_getcode">{{yztime}}s</div>
+								
+							</div>
+						</div>
+						<div class="dis_flex aic ju_c">
+							<div class="setTel_btn setTel_btn1" @click="reset_tel">确定</div>
+							<div class="setTel_btn" @click="set_tel=false">关闭</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 修改密码 -->
+			<div class="tk_box " v-if="set_pwd">
+				<div class="tk_ccz">
+					<div class="zf_tk zf_tk1  set_pwd_box">
+						<div class="tk_off dis_flex aic" style="height: 60px;">
+							<div class="set_tel_tit">修改密码</div>
+							<div class="tk_off_btn" @click="set_pwd=false">
+								<img src="../images/guanbi.png" alt="">
+							</div>
+						</div>
+						<div class="setTel_main" style="padding-top: 24px;">
+							<div class="setTel_li dis_flex aic">
+								<div class="setTel_li_name">输入新的手机号：</div>
+								<input class="setTel_li_tel" type="text" v-model="new_tel" placeholder="请输入新的手机号">
+							</div>
+							<div class="setTel_li dis_flex aic" style="margin-top: 16px;">
+								<div class="setTel_li_name">输入验证码：</div>
+								<input class="setTel_li_code" type="text" v-model="tel_code" placeholder="请输入验证码">
+								<div v-if="yzm_type==0" class="setTel_getcode"  @click="getCode">获取验证码</div>
+								<div v-if="yzm_type==1" class="setTel_getcode">{{yztime}}s</div>
+								
+							</div>
+							<div class="setTel_li dis_flex aic" style="margin-top: 16px;">
+								<div class="setTel_li_name">新密码：</div>
+								<input class="setTel_li_tel" type="password" v-model="new_pwd" placeholder="请输入新密码">
+								<div class="fz12 c9" style="padding-left: 10px;">6-46个字符，区分大小写</div>
+							</div>
+							<div class="setTel_li dis_flex aic" style="margin-top: 16px;">
+								<div class="setTel_li_name">确认新密码：</div>
+								<input class="setTel_li_tel" type="password" v-model="new_pwd1" placeholder="请输入确认新密码">
+							</div>
+						</div>
+						<div class="dis_flex aic ju_c">
+							<div class="setTel_btn setTel_btn1" @click="reset_pwd">确定</div>
+							<div class="setTel_btn" @click="set_pwd=false">关闭</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 立即分享 -->
+			<div class="tk_box" v-show="share_tk">
+				<div class="tk_ccz">
+					<div class="zf_tk share_tkbox">
+						<div class="tk_off">
+							<div class="tk_off_btn" @click="share_tk=false"></div>
+						</div>
+						<div class="share_tk_inr dis_flex">
+							<div class="share_tk_L flex_1 dis_flex_c aic">
+								<div class="shake_tk_ewm ">
+									<img src="../images/index_bewm.png" alt="">
+								</div>
+								<div class="fz16 c34">微信扫一扫 分享好友</div>
+							</div>
+							<div class="share_tk_c"></div>
+							<div class="share_tk_R flex_1 dis_flex_c aic">
+								<div class="shake_tk_copy ">
+									<img src="../images/share_copy_03.jpg" alt="">
+								</div>
+								<div class="fz16 c34">点击复制链接</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 推荐 -->
+			<div class="tk_box" v-show="tj_tk">
+				<div class="tk_ccz">
+					<div class="zf_tk">
+						<div class="tk_off">
+							<div class="tk_off_btn" @click="tj_tk=false"></div>
+						</div>
+						<div class="tk_inr">
+							<form class="pp_box" style="padding-top: 10px;">
+								
+								<div class="dis_flex sfcs_n_li">
+									<div class="sfcs_n_li_name">姓名：</div>
+									<div class="sfcs_n_li_srk dis_flex aic">
+										<input class="flex_1" type="name" name="kh_name" v-model="kh_name" placeholder="请输入姓名">
+									</div>
+								</div>
+								<div class="dis_flex sfcs_n_li">
+									<div class="sfcs_n_li_name">手机号码：</div>
+									<div class="sfcs_n_li_srk dis_flex aic">
+										<input class="flex_1" type="number" name="kh_tel" v-model="kh_tel" placeholder="请输入手机号码">
+									</div>
+								</div>
+								<div class="dis_flex sfcs_n_li">
+									<div class="sfcs_n_li_name">需求内容选择：</div>
+									<div class=" dis_flex aic pp_n_li_da">
+										<select name="xq_msg"  v-model="xq_msg">
+											<option value="需求内容1">需求内容1</option>
+											<option value="需求内容2">需求内容2</option>
+											<option value="需求内容3">需求内容3</option>
+											<option value="需求内容4">需求内容4</option>
+										</select>
+									</div>
+								</div>
+								<div class="dis_flex sfcs_n_li">
+									<div class="sfcs_n_li_name">预计需求时间：</div>
+									<!-- <div class="sfcs_n_li_srk dis_flex aic">
+										<input class="flex_1" type="number" name="kh_day" v-model="kh_day" placeholder="请输入需求时间"><span class="fz14" style="color: #9A9A9A;">天</span>
+									</div> -->
+									<div class=" dis_flex aic pp_n_li_da">
+										<select name="kh_day"  v-model="kh_day">
+											<option value="一天">一天</option>
+											<option value="一周">一周</option>
+											<option value="一个月">一个月</option>
+										</select>
+									</div>
+								</div>
+								<div class="dis_flex ju_a aic comp_btns" style="margin-top: 90px;">
+									<div class="comp_btn_fabu dis_flex aic ju_c" @click="my_tj_fuc">提 交</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="index_box6 clearfix">
+				<div class="w1200 w12001 dis_flex ju_b">
+					<div class="index6_list dis_flex ju_b">
+						<div class="index6_li">
+							<div class="index6_li_d1">公司信息</div>
+							<a class="index6_li_d1" href="about.html?type=1">关于我们</a>
+							<a class="index6_li_d1" href="yhxy.html">用户协议</a>
+							<a class="index6_li_d1" href="ysqy.html">隐私政策</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">服务咨询</div>
+							<a class="index6_li_d1">400-189-3038</a>
+						</div>
+						<div class="index6_li">
+							<div class="index6_li_d1">商务合作</div>
+							<a class="index6_li_d1">1745843160</a>
+						</div>
+					</div>
+					<div class="gzh_box">
+						<img src="../images/index_bewm.png" alt="">
+						<div>关注公众号<br>获取更多过户知识</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<div class="footer tac">
+			<div class="w1200">
+				copyright 2003-2022 北京叁叁八五资讯有限公司 | 京ICP备18037428号-1 京公网安备 11010602100441号<br>
+				违法和不良信息举报电话：010-56319651 举报邮箱：jubao@3385.com
+			</div>
+		</div>
+		<!-- 加载中 -->
+		<div class="load_box" style="display: none;">
+			<img src="../images/load.gif" alt="">加载中...
+		</div>
+		<!-- 加载中 -->
+		<script>
+			//开启加载层
+			function openload() {
+				$(".load_box").fadeIn(500);
+			};
+			//关闭加载层
+			function closeload() {
+				$(".load_box").fadeOut(500);
+			};
+			//加载完成关闭
+			$(window).load(function() {
+				closeload();
+			});
+			$(function() {
+				// banner
+				$('.single-item').slick({
+					dots: true,
+					speed: 500,
+					arrows: false,
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					autoplay: true,
+					autoplaySpeed: 3000
+				});
+				vm.gr_cur=getNowCanshu().type||0
+				
+				
+				
+				
+				// 复制
+				// var clipboard = new ClipboardJS('.shake_tk_copy');
+				var clipboard = new ClipboardJS('.shake_tk_copy', {
+				  text: function () {
+				    return 'http://www.baidu.com'
+				  }
+				});
+				clipboard.on('success', function(e) {
+					layer.msg('复制成功')
+				    console.info('Action:', e.action);
+				    console.info('Text:', e.text);
+				    console.info('Trigger:', e.trigger);
+				
+				    e.clearSelection();
+				});
+				
+				clipboard.on('error', function(e) {
+				    console.error('Action:', e.action);
+				    console.error('Trigger:', e.trigger);
+				});
+
+			})
+
+
+
+			var vm = new Vue({
+				el: "#wrap",
+				data: {
+					gr_cur: 0, 
+					tximg:'',
+					
+					set_tel:false,
+					new_tel:'',
+					tel_code:'',
+					yzm_type:0,
+					yztime:0,
+					set_pwd:false,
+					new_pwd:'',
+					new_pwd1:'',
+					
+					// 分享
+					pp_cur:0,
+					
+					time_type:1,
+					money_type:1,
+					share_tk:false,
+					tj_tk:false,
+					kh_name:'',
+					kh_tel:'',
+					xq_msg:'需求内容1',
+					
+					kh_day:'一天',
+					
+					
+					dk_name:'',
+					dk_tel:'',
+					dk_money:'',
+					dk_content:'',
+				},
+				created: function() {},
+				methods: {}
+			});
+			
+			
+			
+			function my_tj_fuc(){
+				var datas={
+					kh_name:vm.kh_name,
+					kh_tel:vm.kh_tel,
+					xq_msg:vm.xq_msg,
+					kh_day:vm.kh_day
+				}
+				vm.tj_tk=false
+				console.log(datas)
+			}
+			
+			function share_px(type){
+				if(type==1){
+					vm.time_type=vm.time_type==1? 2:1
+				}
+				if(type==2){
+					vm.money_type=vm.money_type==1? 2:1
+				}
+			}
+			function rd_fuc(type,num){
+				if(type=='p'){
+					if(vm.pp_cur==num){
+						return
+					}
+					vm.pp_cur=num
+					
+				}
+				if(type=='my'){
+					if(vm.gr_cur==num){
+						return
+					}
+					vm.gr_cur=num
+				}
+				
+			}
+			function reset_tel(){
+				console.log(vm.new_tel)
+				console.log(vm.tel_code)
+				vm.set_tel=false
+			}
+			function reset_pwd(){
+				console.log(vm.new_tel)
+				console.log(vm.tel_code)
+				console.log(vm.new_pwd)
+				console.log(vm.new_pwd1)
+				vm.set_pwd=false
+			}
+			function getCode() {
+			
+				if (vm.new_tel == '' || !(/^1\d{10}$/.test(vm.new_tel))) {
+					layer.msg('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			
+			$.fn.serializeObject = function() {
+			    var ct = this.serializeArray();
+			    var obj = {};
+			    $.each(ct, function() {
+			        if (obj[this.name] !== undefined) {
+			            if (!obj[this.name].push) {
+			                obj[this.name] = [obj[this.name]];
+			            }
+			            obj[this.name].push(this.value || "");
+			        } else {
+			            obj[this.name] = this.value || "";
+			        }
+			    });
+			    return obj;
+			};
+			function sub() {
+			    var us = $(".add_form").serializeObject();
+			    console.log(us)
+			}
+			function upimg_img(e) {
+			    var filePath = $(e).val()
+			    console.log(filePath)
+			    fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(); //获取文件后缀名
+			    if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
+			        layer.msg('文件格式必须为：png/jpg/jpeg');
+			        return;
+			    }
+			    var reader = new FileReader();
+			    reader.readAsDataURL(e.files[0]); // 读出 base64
+			    console.log(e.files[0])
+			    reader.onloadend = function() {
+			        // 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+			        var dataURL = reader.result; //base64
+			        // 显示图片
+			        $('.up_tx').attr('style', "background-image: url(" + dataURL + ");");
+			
+			        vm.tximg = dataURL
+			
+			    };
+			    return
+			
+			}
+		</script>
+
+
+	</body>
+</html>

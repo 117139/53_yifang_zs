@@ -6,9 +6,9 @@
 		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 		<meta name="format-detection" content="email=no" />
 		<meta name="format-detection" content="telephone=no">
-		<title>易房助手-答疑解惑</title>
-		<meta name="Keywords" content="易房助手-答疑解惑">
-		<meta name="Description" content="易房助手-答疑解惑">
+		<title>易房助手-个人中心</title>
+		<meta name="Keywords" content="易房助手-个人中心">
+		<meta name="Description" content="易房助手-个人中心">
 		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="../images/css/swiper.min.css">
 		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
@@ -16,6 +16,7 @@
 		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
 		<link href="../images/css/style.css" rel="stylesheet" type="text/css">
 		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
 		<script src="../images/js/vue.min.js"></script>
 		<script src="../images/js/swiper.min.js"></script>
 		<script src="../images/js/slick.js"></script>
@@ -42,9 +43,9 @@
 						<a href="index.html" id="active0">首&nbsp;&nbsp;&nbsp;页</a>
 
 						<a href="fwlb.html" id="active1">服务类别</a>
-						
-						<a href="dyjh.html" id="active2" class="active">答疑解惑</a>
-						
+
+						<a href="dyjh.html" id="active2">答疑解惑</a>
+
 						<a href="jyzs.html" id="active4">交易知识</a>
 						<a href="fwal.html" id="active5">服务案例</a>
 						<a href="sfcs.html" id="active6">税费测算</a>
@@ -73,90 +74,66 @@
 					</div>
 				</div>
 			</div>
-			<div class="fwlb_h_tit">
-				<div class="w1200 w12001 fwlb_h_tit1 dis_flex aic" ><a href="index.html">易房助手</a>＞<a href="dyjh.html">答疑解惑</a>＞答疑解惑详情页</div>
-			</div>
-			<div class="index_box3 clearfix" style="padding-bottom: 20px;padding-top: 0;">
-				<div class="  w1200 w12001">
-				
-					<div class="index4_b index4_b_dyjh">
-						<div class="in4b_b dis_flex ju_b" style="border-bottom: 0;">
-							<div class="in4b_bl">
-								<div class="dyjh_wenti dis_flex aic">
-									<div class="dis_flex_c ju_b" style="width: 100%;height: 100%;">
-										<div class="dyjh_user_tit dis_flex aic">
-											<div class="dyjh_l dis_flex aic ju_c">
-												问
-											</div>
-											<div class="dyjh_user_tit_msg oh1 flex_1">北京的二手房交易流程是什么？二手房过户费用都有哪些？</div>
-										</div>
-										<div class="dyjh_user_msg dis_flex aic">
-											<div class="dyjh_user_name">用户123</div>
-											<div class="dyjh_user_time">2020-02-06</div>
-										</div>
-									</div>
-									<div class="dis_flex aic share_btn"><img src="../images/share.png" alt="">分享</div>
-								</div>
-								<div class="rdxx_list">
-									<div class="dyjhd_num dis_flex aic">2位顾问解答</div>
-									<div class="dis_flex_c aic ju_c">
-										<img src="../images/hd_null.png" alt="" style="margin: 30px auto;">
-										<div class="fz16" style="color: #CACEE1;">暂无回答</div>
-									</div>
-									<div class="rdxx_li dyjh_li dis_flex" v-for="item in 4">
-										<div class="dyjhd_tx" style="background-image: url(../images/user_tx.png);"></div>
-										<div class="flex_1 rdxx_li_msg dis_flex_c ju_b">
-											<div class="dis_flex ju_b rdxx_li_d1">
-												<div class="flex_1 rdxx_li_tit">李连号</div>
-											</div>
-											<div class="rdxx_li_d2 dis_flex ju_b">
-												<div class="flex_1 oh1">有抵押的房产是无法出售的，无法进行过户交易</div>
-												<a href="###" class="dyjhd_telewn dis_flex aic">扫码打电话<img src="../images/tel_ewm_03.jpg" alt=""></a>
-											</div>
-											<div class="dis_flex  ju_b  dy_hf_btn_li">
-												<div class="fz12 c9">2020-02-06</div>
-												<div class="fz14 c0D1931">电话：40018925843转1384</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="in4b_br">
-								<div class="in4b_br_box">
-									<div class="dis_flex in4b_br_tit">我要提问</div>
-									<form class="tw_form" action="">
-										<div class="dyjh_tw_content">
-											<textarea name="content" placeholder="请描述您的问题（至少6字）" v-model="content" maxlength="100"></textarea>
-											<div class="tw_cnum">{{content.length}}/100</div>
-										</div>
-										
-										<div class="dis_flex ju_b">
-											<div></div>
-											<input type="submit" class="form_btn" value="发布提问">
-										</div>
-									</form>
-								</div>
-								<a class="dyjh_r_btn" href="sfcs.html" style="background-image: url(../images/dyjh_cs_07.jpg);"></a>
-								<div class="in4b_br_box">
-									<div class="dis_flex in4b_br_tit">相关问答</div>
-									<div class="r_wd_list">
-										<a href="dyjh_details.html" class="r_wd_li dis_flex_c ju_b" v-for="item in 4">
-											<div class="dyjh_user_tit dis_flex aic">
-												<div class="dyjh_l dis_flex aic ju_c">
-													问
-												</div>
-												<div class="dyjh_user_tit_msg oh1 flex_1">北京的二手房交易流程是什么？二手房过户费用都有哪些？</div>
-											</div>
-											<div class="dyjh_user_msg dis_flex aic">
-												<div class="dyjh_user_name">用户123</div>
-												<div class="dyjh_user_time">2020-02-06</div>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
+
+			<div class="gr_box clearfix">
+				<div class="w1200 w12001 dis_flex ju_b">
+					<div class="gr_l dis_flex_c aic">
+						<div class="gr_tx" style="background-image: url(../images/user_tx.png);"></div>
+						<div class="gr_name">易方助手</div>
+						<div class="gr_list dis_flex_c aic">
+							<a href="my.html?type=0&s=124204512">个人资料</a>
+							<a href="my.html?type=1&s=124204512">我的问答</a>
+							<a href="my.html?type=2&s=124204512">我的订单</a>
+							<a class="cur" href="my.html?type=3&s=124204512">我的钱包</a>
+							<a href="my.html?type=4&s=124204512">我的分享</a>
+							<a href="my.html?type=5&s=124204512">我的推荐</a>
+							<a href="my.html?type=6&s=124204512">服务团队</a>
+							<a href="my.html?type=7&s=124204512">我要贷款</a>
 						</div>
-					
+					</div>
+					<!-- 我的订单 -->
+					<div class="gr_r">
+						<div class="grr_tit dis_flex aic">
+							<img src="../images/gr_4.png" alt="">我要提现
+							<div class="flex_1"></div>
+							<a class="cpointer fz14" style="color: #3678F2;" href="my.html?type=3&s=1111">返回上一级<i class="iconfont icon-next-m"
+								 style="font-size: 12px;"></i></a>
+						</div>
+						<div class="grr_box">
+							<form class="grr_box_tx">
+								<div class="mytx_li dis_flex aic">
+									<div class="mytx_li_name">持卡人：</div>
+									<input type="text" name="card_name" placeholder="请输入持卡人姓名">
+								</div>
+								<div class="mytx_li dis_flex aic">
+									<div class="mytx_li_name">开行户：</div>
+									<select name="bank_name">
+										<option value="开行户">开行户</option>
+										<option value="开行户1">开行户1</option>
+										<option value="开行户2">开行户2</option>
+										<option value="开行户3">开行户3</option>
+									</select>
+								</div>
+								<div class="mytx_li dis_flex aic">
+									<div class="mytx_li_name">银行卡号码：</div>
+									<input type="number" name="bank_num" placeholder="请输入银行卡号码">
+								</div>
+								<div class="mytx_li dis_flex aic" style="background: #fff;">
+									<div class="mytx_li_name">可提金额：</div>
+									<div class="fz14 c34"><span  class="fz18" style="color: #FF7220;">188.00</span>元</div>
+								</div>
+								<div class="mytx_li dis_flex aic">
+									<div class="mytx_li_name">提现金额：</div>
+									<input type="number" name="tx_num" placeholder="请输入不要大于可提金额的数字金额">
+									<div class="fz14 c34" style="margin-left: 10px;">元</div>
+								</div>
+								
+								<div class="mytx_li dis_flex aic" style="background: #fff;">
+									<div class="mytx_li_name"></div>
+									<div class="my_tx_btn" @click="my_tx_fuc">立即提现</div>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -221,7 +198,7 @@
 					autoplay: true,
 					autoplaySpeed: 3000
 				});
-				
+				vm.gr_cur = getNowCanshu().type || 0
 
 			})
 
@@ -230,21 +207,70 @@
 			var vm = new Vue({
 				el: "#wrap",
 				data: {
-					rd_cur: 0, //热点分类
-					ss_type: 0,
-					content: '',
+					gr_cur: 0,
+					tximg: '',
+
 
 				},
 				created: function() {},
 				methods: {}
 			});
-			function rd_fuc(num){
-				if(vm.rd_cur==num){
+
+			function back() {
+				history.go(-1)
+			}
+
+			
+			function rd_fuc(num) {
+				if (vm.gr_cur == num) {
 					return
 				}
-				vm.rd_cur=num
+				vm.gr_cur = num
 			}
-			
+			$.fn.serializeObject = function() {
+				var ct = this.serializeArray();
+				var obj = {};
+				$.each(ct, function() {
+					if (obj[this.name] !== undefined) {
+						if (!obj[this.name].push) {
+							obj[this.name] = [obj[this.name]];
+						}
+						obj[this.name].push(this.value || "");
+					} else {
+						obj[this.name] = this.value || "";
+					}
+				});
+				return obj;
+			};
+
+			function my_tx_fuc() {
+				var us = $(".grr_box_tx").serializeObject();
+				console.log(us)
+			}
+
+			function upimg_img(e) {
+				var filePath = $(e).val()
+				console.log(filePath)
+				fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(); //获取文件后缀名
+				if (!fileFormat.match(/.png|.jpg|.jpeg/)) {
+					layer.msg('文件格式必须为：png/jpg/jpeg');
+					return;
+				}
+				var reader = new FileReader();
+				reader.readAsDataURL(e.files[0]); // 读出 base64
+				console.log(e.files[0])
+				reader.onloadend = function() {
+					// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
+					var dataURL = reader.result; //base64
+					// 显示图片
+					$('.up_tx').attr('style', "background-image: url(" + dataURL + ");");
+
+					vm.tximg = dataURL
+
+				};
+				return
+
+			}
 		</script>
 
 
