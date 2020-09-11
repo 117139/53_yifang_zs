@@ -60,14 +60,14 @@
 			<div class="login_banner" style="background-image: url(../images/images/login_banner_02.jpg);">
 				<div class="w1200 w12001 dis_flex aic ju_b" style="height: 100%;">
 					<div></div>
-					<div class="login_box">
+					<form class="login_box">
 						<div class="login_tabs dis_flex ju_a">
 							<div class="cpointer" :class="login_type==0?'cur':''" @click="rd_fuc(0)">手机动态码登录</div>
 							<div class="cpointer" :class="login_type==1?'cur':''" @click="rd_fuc(1)">账号密码登录</div>
 						</div>
 						<div class="login_li dis_flex aic">
 							<div class="li_icon dis_flex aic ju_c"><i class="iconfont icon-shouji"></i></div>
-							<input class="flex_1" type="number" v-model="tel"  placeholder="请输入手机号">
+							<input class="flex_1" type="number" name="tel" v-model="tel"  placeholder="请输入手机号">
 						</div>
 						
 						
@@ -75,21 +75,22 @@
 							<div class="login_li dis_flex aic flex_1" style="margin-bottom: 0;width: 179px;">
 								<div class="li_icon dis_flex aic ju_c"><i class="iconfont icon-suo"></i></div>
 								
-								<input class="flex_1" type="number" v-model="code" placeholder="请输入验证码">
+								<input class="flex_1" type="number" name="code" v-model="code" placeholder="请输入验证码">
 							</div>
 							<div v-if="yzm_type==0" class="getcode_login dis_flex aic ju_c" @click="getCode">获取验证码</div>
 							<div v-if="yzm_type==1" class="getcode_login dis_flex aic ju_c">{{yztime}}s</div>
 						</div>
 						<div v-if="login_type==1" class="login_li dis_flex aic">
 							<div class="li_icon dis_flex aic ju_c"><i class="iconfont icon-suo"></i></div>
-							<input class="flex_1" type="password" v-model="pwd"  placeholder="请输入密码">
+							<input class="flex_1" type="password" name="pwd" v-model="pwd"  placeholder="请输入密码">
 						</div>
 						<div  v-if="login_type==1" class="login_other dis_flex">
 							<a href="reg.html">快速注册</a>
 							<a href="password.html">找回密码</a>
 						</div>
-						<div class="login_btn dis_flex aic ju_c" onclick="login_fuc()">登录</div>
-					</div>
+						<!-- <div class="login_btn dis_flex aic ju_c" onclick="login_fuc()">登录</div> -->
+						<input class="login_btn dis_flex aic ju_c" onclick="login_fuc()" type="submit" value="登录" />
+					</form>
 				</div>
 			</div>
 			<div class="go_pp_box">
@@ -197,6 +198,8 @@
 				}, 1000);
 			}
 			function login_fuc(){
+				var us = $('.login_box').serializeObject();
+			    console.log(us)
 				if (vm.tel == '' || !(/^1\d{10}$/.test(vm.tel))) {
 					layer.msg('手机号有误')
 					return
@@ -209,11 +212,11 @@
 					console.log(vm.tel,vm.code)
 				}
 				if(vm.login_type==1){
-					if (vm.code == '' ) {
+					if (vm.pwd == '' ) {
 						layer.msg('请输入密码')
 						return
 					}
-					console.log(vm.tel,vm.code)
+					console.log(vm.tel,vm.pwd)
 				}
 			}
 		</script>

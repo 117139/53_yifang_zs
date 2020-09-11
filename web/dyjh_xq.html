@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>答疑解惑</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name">答疑解惑</div>
+						<dvi class="dh_top_l dh_top_r">
+							<a @click="tk_show=true" class="mytw_btn" href="###">我要提问</a>
+						</dvi>
+					</div>
+				</div>
+				<div class="xq_top">
+					<div class="dis_flex" style="align-items: flex-start;margin-bottom: .5rem;">
+						<div class="al_name flex_1">公婆7年没办过户手续，现在过户该不知道怎么办？</div>
+
+						<div class="xq_share dis_flex aic ju_c flex_0" style="border-radius: .15rem .15rem 0rem 0rem;"><i class="iconfont icon-fenxiang2-copy-copy"></i>分享</div>
+					</div>
+					<div class="dis_flex aic ju_b al_aur">
+						<div>作者：易房助手 </div>
+						<span style="margin-left: .1rem;">2020-09-03</span>
+					</div>
+				</div>
+				<div class="index_hx"></div>
+				<div class="zx_hf_box">
+					<div class="zxhf_num dis_flex">
+						<div>0位咨询顾问回复</div>
+					</div>
+					<img class="hd_null" src="../images/hd_null.png" alt="">
+					<div class="tac hd_null_text">暂无回答</div>
+				</div>
+				<div class="zx_hf_box">
+					<div class="zxhf_num dis_flex">
+						<div>2位咨询顾问回复</div>
+					</div>
+					<div class="dis_flex zxhf_li" v-for="item in 2">
+						<div class="div_img1 zxhf_li_tx flex_0">
+							<div style="background-image: url(../images/user_tx.png);"></div>
+						</div>
+						<div class="flex_1">
+							<div class="dis_flex aic ju_b zxhf_name">
+								<div class="flex_1 oh1 zxhf_name_text">李天</div>
+								<a class="div_img1 hf_tel flex_0" href="tel:10010">
+									<div style="background-image: url(../images/images/index_tel.png);"></div>
+								</a>
+							</div>
+							<div class="zxhf_msg">今天去帮助了一个老人，很开心，希望我们的服务你们能满意</div>
+							<div class="zxhf_time">2020-05-09</div>
+						</div>
+					</div>
+				</div>
+				<div class="index_hx"></div>
+				<!-- 答疑解惑 -->
+				<div class="dis_flex aic ju_b web_h_tit">
+					<a href="###" class="web_htit_name dis_flex aic">
+						<img src="../images/images/web_jhicon.png" alt="" style="width: .35rem;height: .33rem;">相关问答</a>
+					<a href="dyjh.html" class="web_more_btn">更多解惑<i class="iconfont icon-next-m"></i></a>
+				</div>
+				<div class="index_box_p03">
+					<a class="dis_flex_c dyjh_li" href="dyjh_xq.html" v-for="item in 3">
+						<div class=" dyjh_li_d1 dis_flex aic">
+							<!-- <div class="dy_w dis_flex aic ju_c">问</div> -->
+							<div class="dy_w dis_flex aic ju_c"><img src="../images/images/wen.png" alt=""></div>
+							<div class="oh1 flex_1">北京的二手房交易流程是什么？二都？二都？二都？二都？二都...</div>
+						</div>
+						<div class=" dyjh_li_d2 dis_flex aic">
+							<!-- <div class="dy_w dy_d dis_flex aic ju_c">答</div> -->
+							<div class="dy_w dy_d dis_flex aic ju_c"><img src="../images/images/da.png" alt=""></div>
+							<div class="oh1 flex_1">审核买方购房资质，网签，网上审税，上税上税上税上税上税上税..</div>
+						</div>
+
+						<div class="dis_flex ju_b aic dy_d3">
+							<div class="dy_d3_num">1位咨询顾问回复</div>
+							<div class="dy_d3_time">2020-05-09</div>
+						</div>
+					</a>
+
+				</div>
+			</div>
+			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
+				<div style="background-image: url(../images/images/go_top.png);"></div>
+			</a>
+			<div class="web_tk dis_flex_c" :class="tk_show?'tk_show':''">
+				<div class="flex_1" @click="tk_show=false"></div>
+				<div class="web_tk_box" style="height: 5.13rem;">
+					<div class="web_tk_box_p">
+						<div class="tk_tit dis_flex ju_b">
+							<div class="tk_t_text">我要提问</div>
+							<div class="tk_no div_img1" @click="tk_show=false">
+								<div style="background-image: url(../images/guanbi.png);"></div>
+							</div>
+						</div>
+						<div class="tk_srk">
+							<textarea placeholder="请描述您的问题（至少6字）" maxlength="100" v-model="tw_content"></textarea>
+							<div class="dis_flex aic ju_b">
+								<div></div>
+								<div class="tk_srk_num">{{tw_content.length}}/100</div>
+							</div>
+						</div>
+						<div class="tk_tw_btn dis_flex aic ju_c" @click="tk_show=sub_tw(tw_content)">发布提问</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap">
+					<li tapmode="hover" class="flex-con active" @click="caidan_show=!caidan_show">菜单导航
+						<div v-show="caidan_show" class="caidan_list dis_flex_c aic ju_a">
+							<a href="index.html">返回首页</a>
+							<a href="fwal.html">服务案例</a>
+							<a href="jyzs.html">交易知识</a>
+							<a href="rdxw.html">热点新闻</a>
+						</div>
+					</li>
+					<a tapmode="hover" class="flex-con" href="fwlb.html">服务项目</a>
+					<a tapmode="hover" class="flex-con" href="sfcs.html">税费测算</a>
+					<a tapmode="hover" class="flex-con" href="tel:18300000000">一键拨号</a>
+				</ul>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					list_cur: 0,
+					tk_show:false,
+					tw_content:''
+				},
+				created: function() {},
+				methods: {}
+			});
+
+			function set_cur(num) {
+				if (vm.list_cur == num) return
+				vm.list_cur = num
+			}
+
+			function jiazai_fuc(jiazai_loading) {
+				// 加载
+				set_loading(true)
+				console.log('list加载')
+				setTimeout(function() {
+					set_loading(false)
+				}, 2000)
+			}
+		</script>
+	</body>
+
+</html>

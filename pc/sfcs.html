@@ -193,6 +193,7 @@
 						</div>
 						<div class="dis_flex ju_a aic comp_btns">
 							<div class="comp_btn " @click="jisuan">开始计算</div>
+							<!-- <input class="comp_btn " @click="jisuan" type="submit" value="开始计算" /> -->
 							<div class="comp_btn comp_btn1"  @click="reset_data">清空重选</div>
 						</div>
 					</form>
@@ -289,7 +290,7 @@
 			
 			
 			
-			<div class="tk_box" v-if="js_zf">
+			<div class="tk_box" v-if="js_zf" :style="js_zf?'display:block;':''">
 				<div class="tk_ccz">
 					<div class="zf_tk">
 						<div class="tk_off">
@@ -319,7 +320,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="tk_box" v-if="ck_zf">
+			<div class="tk_box" v-if="ck_zf" :style="ck_zf?'display:block;':''">
 				<div class="tk_ccz">
 					<div class="zf_tk">
 						<div class="tk_off">

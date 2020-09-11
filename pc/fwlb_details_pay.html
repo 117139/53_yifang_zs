@@ -167,7 +167,7 @@
 														<div class="zf_sub_btn dis_flex aic ju_c" @click="sub_fuc">提交</div>
 												</div>
 											</div>
-											<div class="tk_box" v-if="js_zf">
+											<div class="tk_box" v-if="js_zf" :style="js_zf?'display:block;':''">
 												<div class="tk_ccz">
 													<div class="zf_tk zf_tk1">
 														<div class="tk_off dis_flex aic">
@@ -217,13 +217,13 @@
 								
 							</div>
 							<div class="in4b_br" style="width: 320px;">
-								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/fwlb_xq_03.jpg);height: 170px;margin-top: 0;"></a>
-								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/fwlb_xq_06.jpg);height: 150px;"></a>
+								<a class="dyjh_r_btn" href="my.html?type=4&s=111" style="background-image: url(../images/fwlb_xq_03.jpg);height: 170px;margin-top: 0;"></a>
+								<a class="dyjh_r_btn" href="sfcs.html" style="background-image: url(../images/fwlb_xq_06.jpg);height: 150px;"></a>
 								<div class="in4b_br_box">
-									<div class="dis_flex in4b_br_tit dis_flex aic ju_b lbxq_gwli_tit">顾问推荐 <a href="###" class="gogw_more">查看更多<i class="iconfont icon-next-m"></i></div>
+									<div class="dis_flex in4b_br_tit dis_flex aic ju_b lbxq_gwli_tit">顾问推荐 <a @click="js_gw_more=true" href="###" class="gogw_more">查看更多<i class="iconfont icon-next-m"></i></div>
 									<div class="">
-										<div class="zx_li lbxq_gwli" style="width: 280px;" v-for="item in 4">
-											<div class="zx_li_b dis_flex ">
+										<a href="gw_xq.html" class="zx_li lbxq_gwli" style="width: 280px;" v-for="item in 4">
+											<div class="zx_li_b dis_flex_c ">
 												<div class="zx_user" style="left: 67px;">
 													<div class="zx_user_tx" style="background-image: url(../images/user_tx.png);"></div>
 													<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
@@ -235,9 +235,15 @@
 													<div class="zx_user_tab">买卖服务</div>
 												</div>
 												<div class="zx_user_tel">电话：40018925843转1384</div>
-												<a href="###" class="zx_user_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
+												<div class="zx_user_telewn dis_flex aic smtel_box">
+													<img src="../images/tel_ewm_03.jpg" alt="">扫码打电话
+													<div class="smtel_tk1">
+														<img src="../images/index_bewm.png" alt="">
+													</div>
+												</div>
+												
 											</div>
-										</div>
+										</a>
 									</div>
 								</div>
 								
@@ -247,6 +253,45 @@
 					</div>
 				</div>
 			</div>
+			<div class="tk_box" v-if="js_gw_more" :style="js_gw_more?'display:block;':''">
+				<div class="tk_ccz">
+					<div class="zf_tk zf_tk1">
+						<div class="tk_off dis_flex aic">
+							<div class="fz18 fwb dis_flex aic" style="color: #000;">更多顾问</div>
+							<div class="tk_off_btn" @click="js_gw_more=false">
+								<img src="../images/guanbi.png" alt="">
+							</div>
+						</div>
+						<div class="tk_inr" style="overflow-y: auto;max-height: 500px;">
+							<div v-for="(item,index) in 5" class="xzgw_li dis_flex ju_b aic">
+								<a href="gw_xq.html" class="tw_bb_b tw_bb_b1 dis_flex" style="width: 549px;">
+									<div class="gw_twtx">
+										<div class="gw_tximg" style="background-image: url(../images/user_tx.png);"></div>
+										<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
+									</div>
+									<div class="gw_msg">
+										<div class="gw_msg_d1">李连号</div>
+										<div class="zx_user_tabs gw_user_tabs dis_flex">
+											<div class="zx_user_tab">继承过户</div>
+											<div class="zx_user_tab">买卖服务</div>
+											<div class="zx_user_tab">买卖服务</div>
+										</div>
+										<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div>
+										<div href="###" class="zx_user_telewn gw_user_telewn dis_flex aic smtel_box">
+											扫码打电话<img src="../images/tel_ewm_03.jpg" alt="">
+											<div class="smtel_tk">
+												<img src="../images/index_bewm.png" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 			<div class="index_box6 clearfix">
 				<div class="w1200 w12001 dis_flex ju_b">
 					<div class="index6_list dis_flex ju_b">
@@ -320,7 +365,8 @@
 					xz_gw:0,
 					
 					
-					js_zf:false
+					js_zf:false,
+					js_gw_more:false
 				},
 				created: function() {},
 				methods: {}

@@ -282,7 +282,7 @@ body {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 9999;
+	z-index: 199;
 	background: #fff;
 
 	box-shadow: 0px 1px 9px 0px rgba(0, 0, 0, 0.1);
@@ -663,7 +663,7 @@ body {
 	margin: 6px;
 	/* padding: 93px 13px 10px; */
 	position: relative;
-
+	display: flex;
 }
 
 .fw_li_img {
@@ -712,7 +712,17 @@ body {
 	color: #FF2725;
 	font-size: 20px;
 }
-
+/* .slick-prev, .slick-next{
+		
+} */
+.slick-prev{
+	left: 50%!important;
+	margin-left: -600px;
+}
+.slick-next{
+	right: 50%!important;
+	margin-right: -600px;
+}
 /* 您可能喜欢 */
 .index_box1 {
 	margin-top: 50px;
@@ -745,7 +755,7 @@ body {
 	width: 100%;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	background: linear-gradient(0deg, rgba(201, 211, 221, .1), rgba(249, 249, 249, .1));
+	background: linear-gradient(0deg, rgba(249, 249, 249, .1), rgba(201, 211, 221, .1));
 
 }
 
@@ -941,7 +951,9 @@ body {
 	font-weight: bold;
 	color: #FFFFFF;
 }
-
+.cs_l_d4:hover,.cs_l_d4:focus{
+	color: #fff;
+}
 .fw_al_b {
 	width: 907px;
 	/* height: 551px; */
@@ -2217,7 +2229,8 @@ input[type="number"] {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 100;
+	z-index: 500;
+	display: none;
 }
 
 .tk_ccz {
@@ -2226,7 +2239,7 @@ input[type="number"] {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 100;
+	z-index: 500;
 	background: rgba(0, 0, 0, .5);
 }
 
@@ -4030,9 +4043,21 @@ height: 148px;
 
 
 @media screen and (max-width: 1284px) {
-	/* .w1200{
-	    width: 100%;
-	} */
+	.w1200{
+	    width: 1200px;
+	}
+	.w12001{
+	    padding: 0;
+	}
+	.fw_li{
+		max-width: 23.8%;
+		box-sizing: border-box;
+	}
+	.fw_li_msg{
+		max-width: 100%;
+		width: auto;
+		right: 13px;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -4062,7 +4087,7 @@ height: 148px;
 		padding: 10px;
 	}
 
-	.sj_btn {
+	/* .sj_btn {
 		display: block;
 		position: absolute;
 		top: 30px;
@@ -4075,7 +4100,7 @@ height: 148px;
 		height: 5px;
 		margin-bottom: 5px;
 		background: #e81c1d
-	}
+	} */
 
 	.nav_box,
 	.list_f {

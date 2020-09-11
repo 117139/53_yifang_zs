@@ -68,10 +68,10 @@
 				</div> -->
 				<div class="slider single-item">
 					<div>
-						<a href="###" class="dyjh_banner_b dis_flex" style="background-image: url(../images/gr_banner_03.jpg);"></a>
+						<a href="fwlb_details_pay.html" class="dyjh_banner_b dis_flex" style="background-image: url(../images/gr_banner_03.jpg);"></a>
 					</div>
 					<div>
-						<a href="###" class="dyjh_banner_b dis_flex" style="background-image: url(../images/gr_banner_03.jpg);"></a>
+						<a href="fwlb_details_pay.html" class="dyjh_banner_b dis_flex" style="background-image: url(../images/gr_banner_03.jpg);"></a>
 					</div>
 				</div>
 			</div>
@@ -417,7 +417,7 @@
 				</div>
 			</div>
 			<!-- 绑定手机号 -->
-			<div class="tk_box " v-if="set_tel">
+			<div class="tk_box " v-if="set_tel" :style="set_tel?'display:block;':''">
 				<div class="tk_ccz">
 					<div class="zf_tk zf_tk1  set_tel_box" style="">
 						<div class="tk_off dis_flex aic" style="height: 60px;">
@@ -447,7 +447,7 @@
 				</div>
 			</div>
 			<!-- 修改密码 -->
-			<div class="tk_box " v-if="set_pwd">
+			<div class="tk_box " v-if="set_pwd" :style="set_pwd?'display:block;':''">
 				<div class="tk_ccz">
 					<div class="zf_tk zf_tk1  set_pwd_box">
 						<div class="tk_off dis_flex aic" style="height: 60px;">
@@ -487,7 +487,7 @@
 			</div>
 			
 			<!-- 立即分享 -->
-			<div class="tk_box" v-show="share_tk">
+			<div class="tk_box" v-if="share_tk"  :style="share_tk?'display:block;':''">
 				<div class="tk_ccz">
 					<div class="zf_tk share_tkbox">
 						<div class="tk_off">
@@ -512,7 +512,7 @@
 				</div>
 			</div>
 			<!-- 推荐 -->
-			<div class="tk_box" v-show="tj_tk">
+			<div class="tk_box" v-if="tj_tk"  :style="tj_tk?'display:block;':''">
 				<div class="tk_ccz">
 					<div class="zf_tk">
 						<div class="tk_off">

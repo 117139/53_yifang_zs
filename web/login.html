@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>登录</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name"></div>
+						<dvi class="dh_top_l dh_top_r tar">
+							<a href="reg">注册</a>
+						</dvi>
+					</div>
+				</div>
+				<form class="login_box">
+					<div class="login_box_tit">登录易房助手，体验更多功能</div>
+					<div class="login_li dis_flex aic"  v-if="login_type==0">
+						<input class="flex_1" type="number" name="tel" placeholder="请输入手机号">
+					</div>
+					<div class="login_li dis_flex aic" v-if="login_type==0">
+						<input class="flex_1" type="number" name="code" placeholder="请输入验证码">
+						<div v-if="yzm_type==0" class="login_code dis_flex aic ju_c" @click="getCode">获取验证码</div>
+						<div v-if="yzm_type==1" class="login_code dis_flex aic ju_c">{{yztime}}s</div>
+					</div>
+					
+					<div class="login_li dis_flex aic"  v-if="login_type==1">
+						<div class="login_name">账号：</div>
+						<input class="flex_1" type="number" name="tel" placeholder="请输入手机号">
+					</div>
+					<div class="login_li dis_flex aic" v-if="login_type==1">
+						<div class="login_name">密码：</div>
+						<input class="flex_1" type="password" name="pwd" placeholder="请输入密码">
+					</div>
+					<div class="login_btn dis_flex aic ju_c" @click="login_fuc">登录</div>
+					<div class="dis_flex aic ju_b login_ddd">
+						<div  v-if="login_type!=2" @click="login_type=2">找回密码</div>
+						<div v-if="login_type!=1" @click="login_type=1">账号密码登录</div>
+						<div v-if="login_type!=0" @click="login_type=0">验证码登录</div>
+					</div>
+				</form>
+				
+			</div>
+			
+			
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					login_type: 0, //
+					tel: '',
+					code: '',
+					yzm_type:0,
+					yztime:0,
+					pwd:''
+				},
+				created: function() {},
+				methods: {}
+			});
+			function rd_fuc(num){
+				if(vm.login_type==num){
+					return
+				}
+				vm.login_type=num
+			}
+			
+			function getCode() {
+			
+				if (vm.tel == '' || !(/^1\d{10}$/.test(vm.tel))) {
+					alert('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			function login_fuc(){
+				var us = $('.login_box').serializeObject();
+			    console.log(us)
+				if (vm.tel == '' || !(/^1\d{10}$/.test(vm.tel))) {
+					layer.msg('手机号有误')
+					return
+				}
+				if(vm.login_type==0){
+					if (vm.code == '' ) {
+						layer.msg('请输入验证码')
+						return
+					}
+					console.log(vm.tel,vm.code)
+				}
+				if(vm.login_type==1){
+					if (vm.pwd == '' ) {
+						layer.msg('请输入密码')
+						return
+					}
+					console.log(vm.tel,vm.code)
+				}
+			}
+		</script>
+	</body>
+
+</html>

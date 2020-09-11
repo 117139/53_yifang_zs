@@ -16,6 +16,8 @@
 		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
 		<link href="../images/css/style.css" rel="stylesheet" type="text/css">
 		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
 		<script src="../images/js/vue.min.js"></script>
 		<script src="../images/js/swiper.min.js"></script>
 		<script src="../images/js/slick.js"></script>
@@ -87,7 +89,7 @@
 									   
 									</div>
 									<div class="flex_1 fwlb_msg_msg dis_flex_c ju_a">
-										<a href="###" class="xq_share dis_flex aic ju_c"><i class="iconfont icon-fenxiang2-copy-copy"></i>分享</a>
+										<a @click="share_tk=true" href="###" class="xq_share dis_flex aic ju_c"><i class="iconfont icon-fenxiang2-copy-copy"></i>分享</a>
 										<div class="fwlb_msg_d1">居间服务</div>
 										<div class="fwlb_msg_d2">为买卖双方提供房产交易全流程服务</div>
 										<div class="fwlb_msg_d3">价格：<b>￥</b><span>800.00</span></div>
@@ -133,7 +135,7 @@
 												</div>
 												<div class="dyjh_user_tit_msg oh1 flex_1">北京的二手房交易流程是什么？二手房过户费用都有哪些？</div>
 											</div>
-											<div class="dis_flex">
+											<a href="gw_xq.html" class="dis_flex">
 												<div class="xqdy_tx">
 													<div class="dyjhd_tx" style="background-image: url(../images/user_tx.png);"></div>
 													<div class="zx_user_lv dis_flex aic ju_c " style="background-image: url(&quot;../images/user_lvbg.png&quot;);">好评率：100%</div>
@@ -142,7 +144,13 @@
 													<div class="dis_flex ju_b rdxx_li_d1 boxsiz">
 														<div class="flex_1 rdxx_li_tit">李连号</div>
 														<div class="fz14 c0D1931  flex_1 dis_flex aic" style="flex-direction: row-reverse;padding-right: 20px;">电话：40018925843转1384</div>
-														<a href="###" class="dyjhd_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
+														<!-- <a href="###" class="dyjhd_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a> -->
+														<div class="dyjhd_telewn dis_flex aic smtel_box">
+															<img src="../images/tel_ewm_03.jpg" alt="">扫码打电话
+															<div class="smtel_tk">
+																<img src="../images/index_bewm.png" alt="">
+															</div>
+														</div>
 													</div>
 													<div class="rdxx_li_d2 dis_flex ju_b">
 														<div class="flex_1 oh1">有抵押的房产是无法出售的，无法进行过户交易</div>
@@ -153,7 +161,7 @@
 														
 													</div>
 												</div>
-											</div>
+											</a>
 											
 										</div>
 									</div>
@@ -185,13 +193,13 @@
 								
 							</div>
 							<div class="in4b_br" style="width: 320px;">
-								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/fwlb_xq_03.jpg);height: 170px;margin-top: 0;"></a>
-								<a class="dyjh_r_btn" href="###" style="background-image: url(../images/fwlb_xq_06.jpg);height: 150px;"></a>
+								<a class="dyjh_r_btn" href="my.html?type=4&s=111" style="background-image: url(../images/fwlb_xq_03.jpg);height: 170px;margin-top: 0;"></a>
+								<a class="dyjh_r_btn" href="sfcs.html" style="background-image: url(../images/fwlb_xq_06.jpg);height: 150px;"></a>
 								<div class="in4b_br_box">
-									<div class="dis_flex in4b_br_tit dis_flex aic ju_b lbxq_gwli_tit">顾问推荐 <a href="###" class="gogw_more">查看更多<i class="iconfont icon-next-m"></i></div>
+									<div class="dis_flex in4b_br_tit dis_flex aic ju_b lbxq_gwli_tit">顾问推荐 <a @click="js_zf=true" href="###" class="gogw_more">查看更多<i class="iconfont icon-next-m"></i></div>
 									<div class="">
-										<div class="zx_li lbxq_gwli" style="width: 280px;" v-for="item in 4">
-											<div class="zx_li_b dis_flex ">
+										<a href="gw_xq.html" class="zx_li lbxq_gwli" style="width: 280px;" v-for="item in 4">
+											<div class="zx_li_b dis_flex_c ">
 												<div class="zx_user" style="left: 67px;">
 													<div class="zx_user_tx" style="background-image: url(../images/user_tx.png);"></div>
 													<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
@@ -203,9 +211,15 @@
 													<div class="zx_user_tab">买卖服务</div>
 												</div>
 												<div class="zx_user_tel">电话：40018925843转1384</div>
-												<a href="###" class="zx_user_telewn dis_flex aic"><img src="../images/tel_ewm_03.jpg" alt="">扫码打电话</a>
+												<div class="zx_user_telewn dis_flex aic smtel_box">
+													<img src="../images/tel_ewm_03.jpg" alt="">扫码打电话
+													<div class="smtel_tk1">
+														<img src="../images/index_bewm.png" alt="">
+													</div>
+												</div>
+												
 											</div>
-										</div>
+										</a>
 									</div>
 								</div>
 								
@@ -215,6 +229,71 @@
 					</div>
 				</div>
 			</div>
+			<!-- 立即分享 -->
+			<div class="tk_box" v-if="share_tk"  :style="share_tk?'display:block;':''">
+				<div class="tk_ccz">
+					<div class="zf_tk share_tkbox">
+						<div class="tk_off">
+							<div class="tk_off_btn" @click="share_tk=false"></div>
+						</div>
+						<div class="share_tk_inr dis_flex">
+							<div class="share_tk_L flex_1 dis_flex_c aic">
+								<div class="shake_tk_ewm ">
+									<img src="../images/index_bewm.png" alt="">
+								</div>
+								<div class="fz16 c34">微信扫一扫 分享好友</div>
+							</div>
+							<div class="share_tk_c"></div>
+							<div class="share_tk_R flex_1 dis_flex_c aic">
+								<div class="shake_tk_copy ">
+									<img src="../images/share_copy_03.jpg" alt="">
+								</div>
+								<div class="fz16 c34">点击复制链接</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tk_box" v-if="js_zf" :style="js_zf?'display:block;':''">
+				<div class="tk_ccz">
+					<div class="zf_tk zf_tk1">
+						<div class="tk_off dis_flex aic">
+							<div class="fz18 fwb dis_flex aic" style="color: #000;">更多顾问</div>
+							<div class="tk_off_btn" @click="js_zf=false">
+								<img src="../images/guanbi.png" alt="">
+							</div>
+						</div>
+						<div class="tk_inr" style="overflow-y: auto;max-height: 500px;">
+							<div v-for="(item,index) in 5" class="xzgw_li dis_flex ju_b aic">
+								<a href="gw_xq.html" class="tw_bb_b tw_bb_b1 dis_flex" style="width: 549px;">
+									<div class="gw_twtx">
+										<div class="gw_tximg" style="background-image: url(../images/user_tx.png);"></div>
+										<div class="zx_user_lv dis_flex aic ju_c" style="background-image: url(../images/user_lvbg.png);">好评率：100%</div>
+									</div>
+									<div class="gw_msg">
+										<div class="gw_msg_d1">李连号</div>
+										<div class="zx_user_tabs gw_user_tabs dis_flex">
+											<div class="zx_user_tab">继承过户</div>
+											<div class="zx_user_tab">买卖服务</div>
+											<div class="zx_user_tab">买卖服务</div>
+										</div>
+										<div class="zx_user_tel gw_user_tel">电话：40018925843转1384</div>
+										<div href="###" class="zx_user_telewn gw_user_telewn dis_flex aic smtel_box">
+											扫码打电话<img src="../images/tel_ewm_03.jpg" alt="">
+											<div class="smtel_tk">
+												<img src="../images/index_bewm.png" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 			<div class="index_box6 clearfix">
 				<div class="w1200 w12001 dis_flex ju_b">
 					<div class="index6_list dis_flex ju_b">
@@ -265,13 +344,7 @@
 			$(window).load(function() {
 				closeload();
 			});
-		$(function(){
-			var mySwiper = new Swiper('.swiper_a', {
-				autoplay: true,//可选选项，自动滑动
-				loop: true,
-				
-			})
-		})
+		
 
 
 
@@ -281,7 +354,9 @@
 					fw_cur: 0, //服务详情
 					ss_type: 0,
 					content: '',
-
+					
+					js_zf:false,
+					share_tk:false,
 				},
 				created: function() {},
 				methods: {}
@@ -296,6 +371,38 @@
 			function getmore(){
 				//获取数据
 			}
+			
+			
+			$(function(){
+				var mySwiper = new Swiper('.swiper_a', {
+					autoplay: true,//可选选项，自动滑动
+					loop: true,
+					
+				})
+			
+			
+			// 复制
+				// var clipboard = new ClipboardJS('.shake_tk_copy');
+				var clipboard = new ClipboardJS('.shake_tk_copy', {
+				  text: function () {
+				    return 'http://www.baidu.com'
+				  }
+				});
+				clipboard.on('success', function(e) {
+					layer.msg('复制成功')
+				    console.info('Action:', e.action);
+				    console.info('Text:', e.text);
+				    console.info('Trigger:', e.trigger);
+				
+				    e.clearSelection();
+				});
+				
+				clipboard.on('error', function(e) {
+				    console.error('Action:', e.action);
+				    console.error('Trigger:', e.trigger);
+				});
+			
+			})
 		</script>
 
 
