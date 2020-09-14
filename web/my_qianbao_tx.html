@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
 		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
-		<title>个人中心</title>
+		<title>提现</title>
 		<meta name="Keywords" content="易房助手">
 		<meta name="Description" content="易房助手">
 		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -34,9 +34,11 @@
 			html,
 			body,
 			.flex-con {
-				background: #fff;
+				background: #F6F7F9;
 			}
-
+			.login_box input{
+				text-align: right;
+			}
 		</style>
 	</head>
 
@@ -48,60 +50,45 @@
 						<dvi class="dh_top_l">
 							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
 						</dvi>
-						<div class="dh_top_name">个人中心</div>
+						<div class="dh_top_name">提现</div>
 						<dvi class="dh_top_l dh_top_r"></dvi>
 					</div>
 				</div>
-				<div class="my_box">
-					<div class="my_msg dis_flex aic">
-						<div class="my_tx div_img1">
-							<div style="background-image: url(../images/user_tx.png);"></div>
+			
+				<div class="my_setpwd dis_flex_c aic">
+					<form class="login_box">
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">持卡人</div>
+							<input class="flex_1" type="text" name="name" placeholder="请输入持卡人姓名" v-model="c_name">
 						</div>
-						<div class="my_name flex_1">李三中</div>
-						<a href="my_set.html" class="div_img1 my_set">
-							<div style="background-image: url(../images/images/set_btn.png);"></div>
-						</a>
-					</div>
-					<a class="div_img1 my_tjbtn" href="">
-						<div style="background-image: url(../images/images/my_tj_btn_03.jpg);"></div>
-					</a>
-					<div class="my_list">
-						<div class="my_list_tit dis_flex aic">我的服务</div>
-						<div class="dis_flex my_list_box">
-							<a href="my_order.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw1.png" alt="">
-								<div>我的订单</div>
-							</a>
-							<a href="my_wd.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw2.png" alt="">
-								<div>我的问答</div>
-							</a>
-							<a href="my_qianbao.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw3.png" alt="">
-								<div>我的钱包</div>
-							</a>
-							<a href="my_share.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw4.png" alt="">
-								<div>我的分享</div>
-							</a>
-							<a href="my_tuijian.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw5.png" alt="">
-								<div>我的推荐</div>
-							</a>
-							<a href="my_daikuan.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw6.png" alt="">
-								<div>我要贷款</div>
-							</a>
-							<a href="my_team.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw7.png" alt="">
-								<div>服务团队</div>
-							</a>
-							<a href="" class="my_li dis_flex_c aic ju_c flex_03"></a>
-							<a href="" class="my_li dis_flex_c aic ju_c flex_03"></a>
+						<div class="login_li dis_flex aic"  @click="showPicker = true">
+							<div class="tx_li_name">开户行</div>
+							<div v-if="c_khh" class="flex_1 tar" v-html="c_khh"></div>
+							<div v-else class="flex_1 tar" style="color: #999;">请选择</div>
+							<input type="hidden" name="c_khh" v-model="c_khh">
+							<i class="iconfont icon-next-m"></i>
+							
 						</div>
-					</div>
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">银行卡号码</div>
+							<input class="flex_1" type="number" name="c_id" placeholder="请输入银行卡号码" v-model="c_id">
+						</div>
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">可提现金额：</div>
+							<div class="flex_1 tar" style="color: #FF3B3B;">88.00元</div>
+							
+						</div>
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">提现金额</div>
+							<input class="flex_1" type="number" name="tx_num" placeholder="请输入提现金额" v-model="tx_num">
+						</div>
+					</form>
+					
 				</div>
-				
+				<van-popup v-model="showPicker" position="bottom">
+					<van-picker show-toolbar :columns="columns" @cancel="showPicker = false" @confirm="onConfirm" />
+				</van-popup>
+				<a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">保存</a>
 				
 			</div>
 			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
@@ -129,53 +116,88 @@
 </script> -->
 		<script>
 			var vm;
-			$(function() {
-				var mySwiper = new Swiper('.swiper-container', {
-					autoplay: true, //可选选项，自动滑动,
-					loop: true,
-					effect: 'fade',
-					pagination: {
-						el: '.swiper-pagination',
-					},
-				})
+			
 
 
-
-				$('.gotop_btn').hide(); //隐藏go to top按钮
-
-				$('.flex-con').scroll(function() {
-					console.log($(this).scrollTop());
-
-					//当window的scrolltop距离大于1时，go to 
-					if ($(this).scrollTop() > 100) {
-						// console.log()
-						$('.gotop_btn').show();
-					} else {
-						$('.gotop_btn').hide();
-					}
-				});
-
-				$('.gotop_btn').click(function() {
-					$('.flex-con').animate({
-						scrollTop: 0
-					}, 300);
-					return false;
-				});
-
-
-
-			});
+				
 
 			vm = new Vue({
 				el: "#wrap",
 				data: {
 					caidan_show: false, //菜单
+					showPicker:false,
+					c_name: '',
+					columns: [{
+							values: [
+								'开户行1',
+								'开户行2',
+								'开户行3',
+								'开户行4',
+								'开户行5'
+							],
+							defaultIndex: 0
+						}
 					
-
+					],
+					c_khh:'',
+					c_id: '',
+					tx_num:'',
 				},
 				created: function() {},
-				methods: {}
+				methods: {
+					onConfirm: function(value) { //户口
+						console.log(value[0])
+						this.c_khh = value[0];
+						this.showPicker = false;
+					},
+				}
 			});
+			function getCode() {
+			
+				if (vm.tel == '' || !(/^1\d{10}$/.test(vm.tel))) {
+					layer.msg('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			function  set_fuc(){
+				var us = $('.login_box').serializeObject();
+				  console.log(us)
+				if(!vm.c_name){
+					layer.msg('请填写持卡人')
+					return
+				}
+				if(!vm.c_khh){
+					layer.msg('请选择开户行')
+					return
+				}
+				if(!vm.c_id){
+					layer.msg('请填写银行卡号码')
+					return
+				}
+				if(!vm.tx_num){
+					layer.msg('请填写提现金额')
+					return
+				}
+				
+			}
 		</script>
 	</body>
 

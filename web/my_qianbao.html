@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>我的钱包</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+		
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name">我的钱包</div>
+						<dvi class="dh_top_l dh_top_r"></dvi>
+					</div>
+				</div>
+				<div class="my_qb_bg" style="background-image: url(../images/images/myqb_bg_02.jpg);">
+					<div class="dis_flex aic ju_b">
+						<div class="my_qb_txtit">余额</div>
+						<a href="my_qianbao_tx.html" class="my_qb_txbtn dis_flex aic ju_c">提现</a>
+					</div>
+					<div class="my_qb_num">600.06</div>
+					<div class="dis_flex aic ju_a">
+						<div class="my_qb_l dis_flex_c aic">
+							<div class="my_qb_l_d1">0.00</div>
+							<div class="my_qb_l_d2">可提现余额(元）</div>
+						</div>
+						<div class="my_qb_c"></div>
+						<div class="my_qb_l dis_flex_c aic">
+							<div class="my_qb_l_d1">0.00</div>
+							<div class="my_qb_l_d2">不可提现余额(元）</div>
+						</div>
+					</div>
+				</div>
+				<div class="dis_flex aic ju_b my_qb_mx">
+					<div class="my_qb_mx_d1">明细</div>
+					<div class="my_qb_mx_d2 dis_flex aic ju_c"  @click="showPicker_time = true"><span v-html="sr_time"></span> <i class="iconfont icon-xiala"></i></div>
+				</div>
+				<div class="index_box_p03 jiazai_box">
+					<div class="dis_flex my_qb_li ju_b" href="dyjh_xq.html" v-for="(item,index) in 20">
+						<div class="flex_1">
+							<div class="my_qb_li_name">推广收入</div>
+							<div class="my_qb_li_time">2020-02-17</div>
+						</div>
+						<div v-if="index==0" class="my_qb_li_type" style="color: #F75E5E;">冻结中</div>
+						<div v-else  class="my_qb_li_type">可提现</div>
+						<div v-if="index==0" class="my_qb_li_pri">+12.00</div>
+						<div v-else class="my_qb_li_pri">-12.00</div>
+					</div>
+					<div class="zanwu">已经到底了~</div>
+				</div>
+			</div>
+			<div class="web_tk dis_flex_c" :class="tk_show?'tk_show':''">
+				<div class="flex_1" @click="tk_show=false"></div>
+				<div class="web_tk_box" style="height: 5.13rem;">
+					<div class="web_tk_box_p">
+						<div class="tk_tit dis_flex ju_b">
+							<div class="tk_t_text">我要提问</div>
+							<div class="tk_no div_img1" @click="tk_show=false">
+								<div style="background-image: url(../images/guanbi.png);"></div>
+							</div>
+						</div>
+						<div class="tk_srk">
+							<textarea placeholder="请描述您的问题（至少6字）" maxlength="100" v-model="tw_content"></textarea>
+							<div class="dis_flex aic ju_b">
+								<div></div>
+								<div class="tk_srk_num">{{tw_content.length}}/100</div>
+							</div>
+						</div>
+						<div class="tk_tw_btn dis_flex aic ju_c" @click="tk_show=sub_tw(tw_content)">发布提问</div>
+					</div>
+				</div>
+			</div>
+			<van-popup v-model="showPicker_time" position="bottom">
+			  <van-datetime-picker v-model="value_time" :min-date="minDate" type="year-month" @cancel="showPicker_time = false"
+			    @confirm="onConfirm_time" />
+			</van-popup>
+			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
+				<div style="background-image: url(../images/images/go_top.png);"></div>
+			</a>
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap">
+					<li tapmode="hover" class="flex-con active" @click="caidan_show=!caidan_show">菜单导航
+						<div v-show="caidan_show" class="caidan_list dis_flex_c aic ju_a">
+							<a href="index.html">返回首页</a>
+							<a href="fwal.html">服务案例</a>
+							<a href="jyzs.html">交易知识</a>
+							<a href="rdxw.html">热点新闻</a>
+						</div>
+					</li>
+					<a tapmode="hover" class="flex-con" href="fwlb.html">服务项目</a>
+					<a tapmode="hover" class="flex-con" href="sfcs.html">税费测算</a>
+					<a tapmode="hover" class="flex-con" href="tel:18300000000">一键拨号</a>
+				</ul>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					list_cur:0,
+					tk_show:'',
+					tw_content:'',
+					showPicker_time:false,
+					minDate: new Date(1970, 0, 1),
+					sr_time: gettime(new Date()),
+					sr_time_value: gettime_value(new Date()),
+					value_time: new Date(),
+				},
+				created: function() {},
+				methods: {
+					onConfirm_time: function(value) {
+					  this.sr_time = gettime(value);
+					  this.sr_time_value = gettime_value(value);
+					  this.showPicker_time = false;
+					  // this.pageindex = 1
+					  // getList()
+					},
+				}
+			});
+			function set_cur(num){
+				if(vm.list_cur==num) return
+				vm.list_cur=num
+			}
+			function jiazai_fuc(jiazai_loading){
+				// 加载
+				set_loading(true)
+				console.log('list加载')
+				setTimeout(function (){
+					set_loading(false)
+				},2000)
+			}
+			
+			
+			function gettime(value) {
+			  var seperator1 = "-";
+			  value = new Date(value)
+			
+			  var year = value.getFullYear();
+			  console.log(year)
+			  var month = value.getMonth() + 1;
+			  var strDate = value.getDate();
+			  if (month >= 1 && month <= 9) {
+			    month = "0" + month;
+			  }
+			  if (strDate >= 0 && strDate <= 9) {
+			    strDate = "0" + strDate;
+			  }
+			  var currentdate = year + '年' + month + '月';
+			  return currentdate
+			}
+			
+			function gettime_value(value) {
+			  var seperator1 = "-";
+			  value = new Date(value)
+			
+			  var year = value.getFullYear();
+			  // console.log(year)
+			  var month = value.getMonth() + 1;
+			  var strDate = value.getDate();
+			  if (month >= 1 && month <= 9) {
+			    month = "0" + month;
+			  }
+			  if (strDate >= 0 && strDate <= 9) {
+			    strDate = "0" + strDate;
+			  }
+			  var currentdate = year + '-' + month;
+			  return currentdate
+			}
+		</script>
+	</body>
+
+</html>

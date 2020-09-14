@@ -190,7 +190,9 @@ function getCookie(cname) {
 	return "";
 }
 
-
+function jump(url) {
+  window.location.href = url;
+}
 
 var jiazai_loading=false
 $(function() {

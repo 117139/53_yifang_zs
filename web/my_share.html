@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>我的分享</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #6F7CF6;
+			}
+		
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name">我的分享</div>
+						<dvi class="dh_top_l dh_top_r">
+							<div class="dh_back_btn"  @click="tk_show=true"><i class="iconfont icon-fenxiang2-copy-copy"></i></div>
+						</dvi>
+					</div>
+				</div>
+				
+				
+			<div class="my_share_box jiazai_box" style="background-image: url(../images/images/my_share_bg_02.jpg);">
+				<div class="now_share_btn dis_flex aic ju_c" @click="tk_show=true">立即分享</div>
+				<div class="share_box">
+					<div class="my_share_tit dis_flex aic">通过您的链接/二维码分享带来的客户如下：</div>
+					<div class="my_share_px dis_flex aic">
+						排序：
+						<div class="share_pxbtn  dis_flex aic" @click="share_px(1)">时间<img v-if="time_type==1" src="../images/share_px1.png" alt=""><img v-if="time_type==2" src="../images/share_px2.png" alt=""></div>
+						<div class="share_pxbtn dis_flex aic" @click="share_px(2)">收入<img v-if="money_type==1" src="../images/share_px1.png" alt=""><img v-if="money_type==2" src="../images/share_px2.png" alt=""></div>
+					</div>
+					<div class="share_type dis_flex aic ju_a">
+						<div :class="list_cur==0?'cur':''" @click="set_cur(0)">一级粉丝</div>
+						<div :class="list_cur==1?'cur':''" @click="set_cur(1)">二级粉丝</div>
+					</div>
+					<div class="my_share_list ">
+						<a href="my_share_xq.html" class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 5">
+							<div class="share_tx" style="background-image: url(../images/user_tx.png);"></div>
+							<div class="mysz_li_d1 flex_1">
+								<div class="fwb" style="color: #656565;">立杏子</div>
+								<div class="d1_time">注册时间：2020-09-06 </div>
+							</div>
+							<div class="my_share_sr dis_flex">推荐收入：<span class="tar" >61074</span></div>
+						</a>
+						<div class="zanwu">已经到底了~</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="web_tk dis_flex_c aic" :class="tk_show?'tk_show':''">
+				<div class="flex_1 w100" @click="tk_show=false"></div>
+				<div class="web_tk_box tk_share_tk" style="background-image: url(../images/images/my_share_t_bg_03.jpg);">
+					<div class="web_tk_box_p web_tk_box_p_share">
+						<div class="tk_tit  dis_flex ju_b">
+							<div></div>
+							<div class="tk_no div_img1" @click="tk_show=false">
+								<div style="background-image: url(../images/guanbi.png);"></div>
+							</div>
+						</div>
+						<div class="tk_share_box dis_flex_c aic">
+							<img class="tk_fz_img" src="../images/share_copy_03.jpg" alt="">
+							<div class="tk_fz_tip">分享易房助手<br>邀请朋友一起来</div>
+							<div class="tk_fz_tip2">点击复制链接分享</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex_1 w100" @click="tk_show=false"></div>
+			</div>
+			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
+				<div style="background-image: url(../images/images/go_top.png);"></div>
+			</a>
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap">
+					<li tapmode="hover" class="flex-con active" @click="caidan_show=!caidan_show">菜单导航
+						<div v-show="caidan_show" class="caidan_list dis_flex_c aic ju_a">
+							<a href="index.html">返回首页</a>
+							<a href="fwal.html">服务案例</a>
+							<a href="jyzs.html">交易知识</a>
+							<a href="rdxw.html">热点新闻</a>
+						</div>
+					</li>
+					<a tapmode="hover" class="flex-con" href="fwlb.html">服务项目</a>
+					<a tapmode="hover" class="flex-con" href="sfcs.html">税费测算</a>
+					<a tapmode="hover" class="flex-con" href="tel:18300000000">一键拨号</a>
+				</ul>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			$(function (){
+				// 复制
+				// var clipboard = new ClipboardJS('.shake_tk_copy');
+				var clipboard = new ClipboardJS('.web_tk_box_p_share', {
+				  text: function () {
+				    return 'http://www.baidu.com'
+				  }
+				});
+				clipboard.on('success', function(e) {
+					layer.msg('复制成功')
+				    console.info('Action:', e.action);
+				    console.info('Text:', e.text);
+				    console.info('Trigger:', e.trigger);
+				
+				    e.clearSelection();
+				});
+				
+				clipboard.on('error', function(e) {
+				    console.error('Action:', e.action);
+				    console.error('Trigger:', e.trigger);
+				});
+			})
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					list_cur:0,
+					tk_show:'',
+					tw_content:'',
+					time_type:1,
+					money_type:1,
+				},
+				created: function() {},
+				methods: {}
+			});
+			function share_px(type){
+				if(type==1){
+					vm.time_type=vm.time_type==1? 2:1
+				}
+				if(type==2){
+					vm.money_type=vm.money_type==1? 2:1
+				}
+			}
+			function set_cur(num){
+				if(vm.list_cur==num) return
+				vm.list_cur=num
+			}
+			function jiazai_fuc(jiazai_loading){
+				// 加载
+				set_loading(true)
+				console.log('list加载')
+				setTimeout(function (){
+					set_loading(false)
+				},2000)
+			}
+		</script>
+	</body>
+
+</html>

@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
 		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
-		<title>个人中心</title>
+		<title>我要贷款</title>
 		<meta name="Keywords" content="易房助手">
 		<meta name="Description" content="易房助手">
 		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,9 @@
 			.flex-con {
 				background: #fff;
 			}
-
+			.login_box input{
+				text-align: right;
+			}
 		</style>
 	</head>
 
@@ -48,58 +50,39 @@
 						<dvi class="dh_top_l">
 							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
 						</dvi>
-						<div class="dh_top_name">个人中心</div>
+						<div class="dh_top_name">我要贷款</div>
 						<dvi class="dh_top_l dh_top_r"></dvi>
 					</div>
 				</div>
-				<div class="my_box">
-					<div class="my_msg dis_flex aic">
-						<div class="my_tx div_img1">
-							<div style="background-image: url(../images/user_tx.png);"></div>
+			
+				<div class="my_dk_box dis_flex_c aic" style="background-image: url(../images/images/my_daikuan_02.jpg);">
+					<form class="login_box">
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">姓名：</div>
+							<input class="flex_1" type="text" name="name" placeholder="请输入姓名" v-model="c_name">
 						</div>
-						<div class="my_name flex_1">李三中</div>
-						<a href="my_set.html" class="div_img1 my_set">
-							<div style="background-image: url(../images/images/set_btn.png);"></div>
-						</a>
-					</div>
-					<a class="div_img1 my_tjbtn" href="">
-						<div style="background-image: url(../images/images/my_tj_btn_03.jpg);"></div>
-					</a>
-					<div class="my_list">
-						<div class="my_list_tit dis_flex aic">我的服务</div>
-						<div class="dis_flex my_list_box">
-							<a href="my_order.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw1.png" alt="">
-								<div>我的订单</div>
-							</a>
-							<a href="my_wd.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw2.png" alt="">
-								<div>我的问答</div>
-							</a>
-							<a href="my_qianbao.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw3.png" alt="">
-								<div>我的钱包</div>
-							</a>
-							<a href="my_share.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw4.png" alt="">
-								<div>我的分享</div>
-							</a>
-							<a href="my_tuijian.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw5.png" alt="">
-								<div>我的推荐</div>
-							</a>
-							<a href="my_daikuan.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw6.png" alt="">
-								<div>我要贷款</div>
-							</a>
-							<a href="my_team.html" class="my_li dis_flex_c aic ju_c flex_03">
-								<img src="../images/images/my_fw7.png" alt="">
-								<div>服务团队</div>
-							</a>
-							<a href="" class="my_li dis_flex_c aic ju_c flex_03"></a>
-							<a href="" class="my_li dis_flex_c aic ju_c flex_03"></a>
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">手机号码：</div>
+							<input class="flex_1" type="number" name="tel" placeholder="请输入手机号码" v-model="c_tel">
 						</div>
-					</div>
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">贷款需求金额</div>
+							<input class="flex_1 dk_int" type="number" name="c_num" placeholder="请输入贷款需求金额" v-model="c_num">
+							<div style="font-size: .3rem;color: #999;">万元</div>
+						</div>
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">贷款需求说明</div>
+						</div>
+						<div class="dk_box">
+							<textarea v-model="c_cont" name="c_cont" maxlength="100" placeholder="请输入您的贷款需求说明~"></textarea>
+							<div class="dis_flex aic ju_b">
+								<div></div>
+								<div>{{c_cont.length}}/100</div>
+							</div>
+						</div>
+						<a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">提交</a>
+					</form>
+					
 				</div>
 				
 				
@@ -129,53 +112,71 @@
 </script> -->
 		<script>
 			var vm;
-			$(function() {
-				var mySwiper = new Swiper('.swiper-container', {
-					autoplay: true, //可选选项，自动滑动,
-					loop: true,
-					effect: 'fade',
-					pagination: {
-						el: '.swiper-pagination',
-					},
-				})
+			
 
 
-
-				$('.gotop_btn').hide(); //隐藏go to top按钮
-
-				$('.flex-con').scroll(function() {
-					console.log($(this).scrollTop());
-
-					//当window的scrolltop距离大于1时，go to 
-					if ($(this).scrollTop() > 100) {
-						// console.log()
-						$('.gotop_btn').show();
-					} else {
-						$('.gotop_btn').hide();
-					}
-				});
-
-				$('.gotop_btn').click(function() {
-					$('.flex-con').animate({
-						scrollTop: 0
-					}, 300);
-					return false;
-				});
-
-
-
-			});
+				
 
 			vm = new Vue({
 				el: "#wrap",
 				data: {
 					caidan_show: false, //菜单
-					
-
+					showPicker:false,
+					showPicker1:false,
+					c_name: '',
+					c_tel:'',
+					c_num: '',
+					c_cont:''
 				},
 				created: function() {},
 				methods: {}
 			});
+			function getCode() {
+			
+				if (vm.tel == '' || !(/^1\d{10}$/.test(vm.tel))) {
+					layer.msg('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			function  set_fuc(){
+				var us = $('.login_box').serializeObject();
+				  console.log(us)
+				if(!vm.c_name){
+					layer.msg('请填写姓名')
+					return
+				}
+				if(!vm.c_tel){
+					layer.msg('请填写手机号')
+					return
+				}
+				if(!vm.c_num){
+					layer.msg('请填写贷款需求金额')
+					return
+				}
+				if(!vm.c_cont){
+					layer.msg('请填写贷款需求说明')
+					return
+				}
+				
+			}
 		</script>
 	</body>
 

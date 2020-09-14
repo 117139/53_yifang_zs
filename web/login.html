@@ -36,7 +36,9 @@
 			.flex-con {
 				background: #fff;
 			}
-
+			.mytw_btn{
+				font-size: .26rem;
+			}
 		</style>
 	</head>
 
@@ -50,34 +52,44 @@
 						</dvi>
 						<div class="dh_top_name"></div>
 						<dvi class="dh_top_l dh_top_r tar">
-							<a href="reg">注册</a>
+							<a class="mytw_btn" href="login.html?type=3&s=1" v-if="login_type==0||login_type==1">注册</a>
+							<a class="mytw_btn" href="login.html?type=0&s=1" v-else>登录</a>
 						</dvi>
 					</div>
 				</div>
 				<form class="login_box">
-					<div class="login_box_tit">登录易房助手，体验更多功能</div>
-					<div class="login_li dis_flex aic"  v-if="login_type==0">
-						<input class="flex_1" type="number" name="tel" placeholder="请输入手机号">
+					<div v-if="login_type==0||login_type==1" class="login_box_tit">登录易房助手，体验更多功能</div>
+					<div v-if="login_type==2" class="login_box_tit">找回密码</div>
+					<div v-if="login_type==3" class="login_box_tit">注册易房助手，体验更多功能</div>
+					<!--  验证码登录 注册 找回密码 -->
+					<div class="login_li dis_flex aic"  v-if="login_type==0||login_type==2||login_type==3">
+						<input class="flex_1" type="number" name="tel" placeholder="请输入手机号"  v-model="tel">
 					</div>
-					<div class="login_li dis_flex aic" v-if="login_type==0">
-						<input class="flex_1" type="number" name="code" placeholder="请输入验证码">
+					<div class="login_li dis_flex aic" v-if="login_type==0||login_type==2||login_type==3">
+						<input class="flex_1" type="number" name="code" placeholder="请输入验证码"  v-model="code">
 						<div v-if="yzm_type==0" class="login_code dis_flex aic ju_c" @click="getCode">获取验证码</div>
 						<div v-if="yzm_type==1" class="login_code dis_flex aic ju_c">{{yztime}}s</div>
 					</div>
-					
+					<div class="login_li dis_flex aic" v-if="login_type==2||login_type==3">
+						<input class="flex_1" type="password" name="pwd" placeholder="请输入密码"  v-model="pwd">
+					</div>
+					<div class="login_li dis_flex aic" v-if="login_type==2||login_type==3">
+						<input class="flex_1" type="password" name="pwd1" placeholder="请再次输入密码" v-model="pwd1">
+					</div>
+					<!-- 账号密码登录 -->
 					<div class="login_li dis_flex aic"  v-if="login_type==1">
 						<div class="login_name">账号：</div>
-						<input class="flex_1" type="number" name="tel" placeholder="请输入手机号">
+						<input class="flex_1" type="number" name="tel" placeholder="请输入手机号"  v-model="tel">
 					</div>
 					<div class="login_li dis_flex aic" v-if="login_type==1">
 						<div class="login_name">密码：</div>
-						<input class="flex_1" type="password" name="pwd" placeholder="请输入密码">
+						<input class="flex_1" type="password" name="pwd" placeholder="请输入密码" v-model="pwd">
 					</div>
 					<div class="login_btn dis_flex aic ju_c" @click="login_fuc">登录</div>
 					<div class="dis_flex aic ju_b login_ddd">
-						<div  v-if="login_type!=2" @click="login_type=2">找回密码</div>
-						<div v-if="login_type!=1" @click="login_type=1">账号密码登录</div>
-						<div v-if="login_type!=0" @click="login_type=0">验证码登录</div>
+						<div  v-if="login_type==0||login_type==1" @click="login_type=2">找回密码</div>
+						<div v-if="login_type==0" @click="login_type=1">账号密码登录</div>
+						<div v-if="login_type==1" @click="login_type=0">验证码登录</div>
 					</div>
 				</form>
 				
@@ -91,7 +103,13 @@
 </script> -->
 		<script>
 			var vm;
-			
+			$(function (){
+				if(getNowCanshu().type){
+					vm.login_type=getNowCanshu().type
+				}else{
+					vm.login_type=0
+				}
+			})
 
 			vm = new Vue({
 				el: "#wrap",
@@ -101,7 +119,8 @@
 					code: '',
 					yzm_type:0,
 					yztime:0,
-					pwd:''
+					pwd:'',
+					pwd1:''
 				},
 				created: function() {},
 				methods: {}
@@ -116,7 +135,7 @@
 			function getCode() {
 			
 				if (vm.tel == '' || !(/^1\d{10}$/.test(vm.tel))) {
-					alert('手机号有误')
+					layer.msg('手机号有误')
 					return
 				}
 				codetime()
@@ -145,20 +164,27 @@
 					layer.msg('手机号有误')
 					return
 				}
-				if(vm.login_type==0){
+				if(vm.login_type==0||vm.login_type==2||vm.login_type==3){
 					if (vm.code == '' ) {
 						layer.msg('请输入验证码')
 						return
 					}
 					console.log(vm.tel,vm.code)
 				}
-				if(vm.login_type==1){
+				if(vm.login_type==1||vm.login_type==2||vm.login_type==3){
 					if (vm.pwd == '' ) {
 						layer.msg('请输入密码')
 						return
 					}
 					console.log(vm.tel,vm.code)
 				}
+				if(vm.login_type==2||vm.login_type==3){
+					if (vm.pwd != vm.pwd1 ) {
+						layer.msg('两次密码不一致')
+						return
+					}
+				}
+				
 			}
 		</script>
 	</body>

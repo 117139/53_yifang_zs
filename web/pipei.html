@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>发布匹配/推荐客户</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+			.login_box input{
+				text-align: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name">发布匹配/推荐客户</div>
+						<dvi class="dh_top_l dh_top_r"></dvi>
+					</div>
+				</div>
+			
+				<div class="my_setpwd dis_flex_c aic">
+					<img class="w100" src="../images/images/index_30s.png" alt="">
+					<div class="dis_flex aic pp_tabs">
+						<div class="flex_1 dis_flex aic ju_c" :class="tj_type==0?'cur':''" @click="tj_type=0">发布需求</div>
+						<div class="flex_1 dis_flex aic ju_c" :class="tj_type==1?'cur':''" @click="tj_type=1">推荐客户</div>
+					</div>
+					<form v-if="tj_type==0" class="login_box">
+						<div class="sub_li_name">1.您是房屋的转让方还是承受方？</div>
+						<div class="">
+							<div class="select_li" :class="zr_type==0?'cur':''" @click="zr_type=0">承受方</div>
+							<div class="select_li" :class="zr_type==1?'cur':''" @click="zr_type=1">转让方</div>
+							<input type="hidden" name="yw_type" v-model="zr_type">
+						</div>
+						<div class="sub_li_name">2.请选择您需要办理的业务类型</div>
+						<div class="">
+							<div class="select_li" :class="yw_type==0?'cur':''" @click="yw_type=0">房屋买卖类</div>
+							<div class="select_li" :class="yw_type==1?'cur':''" @click="yw_type=1">房屋赠与类</div>
+							<div class="select_li" :class="yw_type==2?'cur':''" @click="yw_type=2">房屋继承类</div>
+							<div class="select_li" :class="yw_type==3?'cur':''" @click="yw_type=3">公证类</div>
+							<div class="select_li" :class="yw_type==4?'cur':''" @click="yw_type=4">其他类别</div>
+							<input type="hidden" name="yw_type" v-model="yw_type">
+						</div>
+						<div class="sub_li_name">3.您打算什么时候开始办理</div>
+						<div class="">
+							<div class="select_li" :class="bl_type==0?'cur':''" @click="bl_type=0">一周内</div>
+							<div class="select_li" :class="bl_type==1?'cur':''" @click="bl_type=1">一个月内</div>
+							<div class="select_li" :class="bl_type==2?'cur':''" @click="bl_type=2">一个月以上</div>
+							<div class="select_li" :class="bl_type==3?'cur':''" @click="bl_type=3">不确定</div>
+							<input type="hidden" name="bl_type" v-model="bl_type">
+						</div>
+						<div class="sub_li_name">4.补充其他详细需求（非必填）</div>
+						<div class="other_cont">
+							<textarea name="other_cont" v-model="other_cont"></textarea>
+						</div>
+						<div class="sub_li_name">5.留下您的联系方式以便顾问联系您</div>
+						<div class="other_cont">
+							<input type="text" name="lxfs" v-model="lxfs" placeholder="请输入您的联系方式">
+						</div>
+						<div class="sub_li_name">6.选择咨询顾问（不选择为默认第一人）</div>
+						<div class="other_cont" @click="showPicker_gw=true">
+							<input type="hidden" name="xz_gw" v-model="gw_str">
+							<div class="select_div">gw_str</div>
+						</div>
+					</form>
+					<form v-if="tj_type==1" class="login_box">
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">姓名：</div>
+							<input class="flex_1" type="text" name="name" placeholder="请输入姓名" v-model="c_name">
+						</div>
+						<div class="login_li dis_flex aic">
+							<div class="tx_li_name">手机号码：</div>
+							<input class="flex_1" type="number" name="tel" placeholder="请输入手机号码" v-model="c_tel">
+						</div>
+						<div class="login_li dis_flex aic"  @click="showPicker = true">
+							<div class="tx_li_name">需求内容选择：</div>
+							<div v-if="xq_inr" class="flex_1 tar" v-html="xq_inr"></div>
+							<div v-else class="flex_1 tar" style="color: #999;">请选择类型</div>
+							<input type="hidden" name="xq_inr" v-model="xq_inr">
+							<i class="iconfont icon-xiala"></i>
+							
+						</div>
+						<div class="login_li dis_flex aic"  @click="showPicker1 = true">
+							<div class="tx_li_name">预计需求时间：</div>
+							<div v-if="xq_time" class="flex_1 tar" v-html="xq_time"></div>
+							<div v-else class="flex_1 tar" style="color: #999;">请选择需求时间</div>
+							<input type="hidden" name="xq_time" v-model="xq_time">
+							<i class="iconfont icon-xiala"></i>
+							
+						</div>
+					
+					</form>
+					
+				</div>
+				<van-popup v-model="showPicker_gw" position="bottom">
+					<van-picker show-toolbar :columns="gw_list" @cancel="showPicker_gw = false" @confirm="onConfirm_gw" />
+				</van-popup>
+				<van-popup v-model="showPicker" position="bottom">
+					<van-picker show-toolbar :columns="columns" @cancel="showPicker = false" @confirm="onConfirm" />
+				</van-popup>
+				<van-popup v-model="showPicker1" position="bottom">
+					<van-picker show-toolbar :columns="columns1" @cancel="showPicker1 = false" @confirm="onConfirm1" />
+				</van-popup>
+				<a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">保存</a>
+				
+			</div>
+			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
+				<div style="background-image: url(../images/images/go_top.png);"></div>
+			</a>
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap">
+					<li tapmode="hover" class="flex-con active" @click="caidan_show=!caidan_show">菜单导航
+						<div v-show="caidan_show" class="caidan_list dis_flex_c aic ju_a">
+							<a href="index.html">返回首页</a>
+							<a href="fwal.html">服务案例</a>
+							<a href="jyzs.html">交易知识</a>
+							<a href="rdxw.html">热点新闻</a>
+						</div>
+					</li>
+					<a tapmode="hover" class="flex-con" href="fwlb.html">服务项目</a>
+					<a tapmode="hover" class="flex-con" href="sfcs.html">税费测算</a>
+					<a tapmode="hover" class="flex-con" href="tel:18300000000">一键拨号</a>
+				</ul>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			
+			$(function (){
+				if(getNowCanshu().type){
+					vm.tj_type=getNowCanshu().type
+				}else{
+					vm.tj_type=0
+				}
+			})
+
+				
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					tj_type:0,
+					showPicker:false,
+					showPicker1:false,
+					zr_type:0, //转让方
+					yw_type:0, //业务类型
+					bl_type:0, //3.办理时间
+					other_cont:'', //补充其他详细
+					lxfs:'',
+					showPicker_gw:false,
+					gw_list: [{
+							values: [
+								'顾问1',
+								'顾问2',
+								'顾问3',
+								'顾问4',
+								'顾问5'
+							],
+							defaultIndex: 0
+						}
+					
+					],
+					gw_str:'',
+					
+					c_name: '',
+					c_tel:'',
+					
+					columns: [{
+							values: [
+								'内容1',
+								'内容2',
+								'内容3',
+								'内容4',
+								'内容5'
+							],
+							defaultIndex: 0
+						}
+					
+					],
+					columns1: [{
+							values: [
+								'1天',
+								'一周',
+								'一个月',
+							],
+							defaultIndex: 0
+						}
+					
+					],
+					xq_inr:'',
+					xq_time:'',
+				},
+				created: function() {},
+				methods: {
+					onConfirm_gw: function(value) { //户口
+						console.log(value[0])
+						this.xq_inr = value[0];
+						this.showPicker = false;
+					},
+					onConfirm: function(value) { //户口
+						console.log(value[0])
+						this.xq_inr = value[0];
+						this.showPicker = false;
+					},
+					onConfirm1: function(value) { //户口
+						console.log(value[0])
+						this.xq_time = value[0];
+						this.showPicker1 = false;
+					},
+				}
+			});
+			function getCode() {
+			
+				if (vm.tel == '' || !(/^1\d{10}$/.test(vm.tel))) {
+					layer.msg('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			function  set_fuc(){
+				var us = $('.login_box').serializeObject();
+				  console.log(us)
+				if(vm.tj_type==0){
+					
+				}
+				if(vm.tj_type==1){
+					if(!vm.c_name){
+						layer.msg('请填写姓名')
+						return
+					}
+					if(!vm.c_tel){
+						layer.msg('请填写手机号')
+						return
+					}
+					if(!vm.xq_inr){
+						layer.msg('请选择需求内容')
+						return
+					}
+					if(!vm.xq_time){
+						layer.msg('请选择需求时间')
+						return
+					}
+				}
+				
+			}
+		</script>
+	</body>
+
+</html>
