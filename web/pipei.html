@@ -96,7 +96,10 @@
 						<div class="sub_li_name">6.选择咨询顾问（不选择为默认第一人）</div>
 						<div class="other_cont" @click="showPicker_gw=true">
 							<input type="hidden" name="xz_gw" v-model="gw_str">
-							<div class="select_div">gw_str</div>
+							<div class="select_div dis_flex aic ju_b">
+								<div>{{gw_str?gw_str:'请选择顾问'}}</div>
+								<i class="iconfont icon-xiala"></i>
+							</div>
 						</div>
 					</form>
 					<form v-if="tj_type==1" class="login_box">
@@ -235,8 +238,8 @@
 				methods: {
 					onConfirm_gw: function(value) { //户口
 						console.log(value[0])
-						this.xq_inr = value[0];
-						this.showPicker = false;
+						this.gw_str = value[0];
+						this.showPicker_gw = false;
 					},
 					onConfirm: function(value) { //户口
 						console.log(value[0])
