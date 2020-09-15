@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>服务详情页</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+			.dh_icon_btn,.dh_icon_btn:hover,.dh_icon_btn:focus{
+				width: .5rem;
+				height: .5rem;
+				background: rgba(0,0,0,.25);
+				border-radius: 50%;
+				color: #fff;
+			}
+			.dh_icon_btn i{
+				
+				font-size: .28rem;
+			}
+			.dh_icon_btn+.dh_icon_btn{
+				margin-right: .1rem;
+			}
+			.dh_top{
+				background:rgba(0,0,0,0);
+				border-bottom: 0;
+			}
+			.dh_top_name{
+				color: transparent;
+			}
+			.xq_b_box{
+				position: fixed;
+				z-index: 300;
+				bottom: 0;
+				width: 100%;
+				height: 1rem;
+				background: #FFFFFF;
+				border: 1px solid #EDEDED;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box" style="height: 0;">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn dh_icon_btn  dis_flex aic ju_c" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name">服务详情页</div>
+						<dvi class="dh_top_l dh_top_r dis_flex" style="flex-direction: row-reverse;">
+							<div class="dh_icon_btn dis_flex aic ju_c"><i class="iconfont icon-fenxiang2-copy-copy"></i></div>
+							<a class="dh_icon_btn dis_flex aic ju_c" href="index.html"><i class="iconfont icon-home"></i></a>
+						</dvi>
+					</div>
+				</div>
+				
+				<div class="swiper-container swiper_xq">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><a href="###" style="background-image: url(../images/images/banner_03.jpg);"></a></div>
+						<div class="swiper-slide"><a href="###" style="background-image: url(../images/images/login_banner_02.jpg);"></a></div>
+						<div class="swiper-slide"><a href="###" style="background-image: url(../images/images/banner_03.jpg);"></a></div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+				
+				<div class="fw_xq_tit dis_flex ju_b">
+					<div class="flex_1 fw_xq_tit_name">买卖过户</div>
+					<div class="dis_flex fwxq_pri">
+						<div>价格：</div>
+						<div class="dis_flex aib">
+							<div class="fwxq_p1">￥</div>
+							<div class="fwxq_p2">800.00</div>
+							<div class="fwxq_p3">起</div>
+						</div>
+					</div>
+				</div>
+				<div class="fwxq_tip">为买卖双方提供房产交易全流程服务</div>
+				<div class="dis_flex fwxq_bz aic">
+					<img class="fwxq_bz_i1" src="../images/images/fwxq_bz.png" alt="">
+					<div class="flex_1 fwxq_bz_i2">保障：加载服务保险服务</div>
+					<img class="fwxq_bz_i3" src="../images/duihao.png" alt="">
+				</div>
+				<div class="fwxq_bz_bt"></div>
+				<div class="fwxq_tabs dis_flex aic ju_b">
+					<div class="dis_flex aic" :class="tab_cur==0?'cur':''" @click="tab_fuc(0)">服务介绍</div>
+					<div class="dis_flex aic" :class="tab_cur==1?'cur':''" @click="tab_fuc(1)">服务案例</div>
+					<div class="dis_flex aic" :class="tab_cur==2?'cur':''" @click="tab_fuc(2)">答疑解惑</div>
+					<div class="dis_flex aic" :class="tab_cur==3?'cur':''" @click="tab_fuc(3)">用户评价</div>
+				</div>
+				<div class="index_hx"></div>
+				<div v-if="tab_cur==0" class="xq_fwb_box xq_fwb_box1">
+					<img src="../images/fw_js.jpg" alt="">
+					<img src="../images/fw_lc.jpg" alt="">
+					<img src="../images/fw_js.jpg" alt="">
+					<img src="../images/fw_lc.jpg" alt="">
+				</div>
+				<!-- 服务案例 -->
+				<div v-if="tab_cur==1" class="web_fw_list dis_flex jiazai_box" style="flex-wrap: wrap;padding-top: .3rem;">
+					<a href="fwal_xq.html" class="fwal_li" v-for="item in 20">
+						<div class="fwal_box">
+							<div class="div_img1 fwal_img">
+								<div style="background-image: url(../images/fw_bg_1.png);"></div>
+							</div>
+							<div class="fwal_msg dis_flex">
+								<div class="oh2">父亲要将已购公房过户给女儿，怎么办怎么办怎么办怎么办怎么办...</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<!-- 答疑解惑 -->
+				<div  v-if="tab_cur==2" class="index_box_p03 jiazai_box">
+					<div class="dis_flex_c dyjh_li" href="dyjh_xq.html" v-for="item in 20">
+						<div class=" dyjh_li_d1 dis_flex aifs">
+							<!-- <div class="dy_w dis_flex aic ju_c">问</div> -->
+							<div class="dy_w dis_flex aic ju_c" style="margin-top: .05rem;"><img src="../images/images/wen.png" alt=""></div>
+							<div class="oh2 flex_1 fwb">北京的二手房交易流程是什么？二都？二都？二都？二都？二都...</div>
+						</div>
+						<div class="dy_gwhf_box">
+							<div class="oh2 dy_gwhf_text">审核买方购房资质，网签，网上审税，上税审税，上审税，上税审税，上税审税，上税审税，上税税..</div>
+							<div class="dis_flex aic dy_gwhf_user">
+								<div class="dy_gwhf_user_tx div_img1">
+									<div style="background-image: url(../images/user_tx.png);"></div>
+								</div>
+								<div class="flex_1 dy_gwhf_user_name">李顾问</div>
+								<a class=" dy_gwhf_user_tel" href="tel:18300000000">
+									<img src="../images/images/index_tel.png" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<!-- 用户评价 -->
+				<div  v-if="tab_cur==3" class="index_box_p03 jiazai_box">
+					<div class="pingjia_li dis_flex" v-for="item in 10">
+						<div class="pj_tx" style="background-image: url(../images/tx.png);"></div>
+						<div class="flex_1">
+							<div class="pj_name">洗净哎</div>
+							<div class="pj_name pj_name1">
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								非常满意
+							</div>
+							<div class="pj_name pj_name2">小伙子特别能干，真的很好，辛苦了</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
+				<div style="background-image: url(../images/images/go_top.png);"></div>
+			</a>
+			<div class="xq_b_box dis_flex aic ju_a">
+				<a class="dis_flex aic ju_c" href="tel:18300000000">电话咨询</a>
+				<a class="dis_flex aic ju_c" style="background: #FF7272;" href="fwlb_details_pay.html">立即购买</a>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			$(function() {
+				var mySwiper = new Swiper('.swiper_xq', {
+					autoplay: true, //可选选项，自动滑动,
+					loop: true,
+					effect: 'fade',
+					pagination: {
+						el: '.swiper-pagination',
+					},
+				})
+
+
+
+				$('.gotop_btn').hide(); //隐藏go to top按钮
+
+				$('.flex-con').scroll(function() {
+					console.log($(this).scrollTop());
+
+					//当window的scrolltop距离大于1时，go to 
+					if ($(this).scrollTop() > 100) {
+						// console.log()
+						$('.gotop_btn').show();
+					} else {
+						$('.gotop_btn').hide();
+					}
+					if ($(this).scrollTop() > 10) {
+						// console.log()
+						$('.dh_top').css('background','rgba(0,0,0,.5)');
+						$('.dh_icon_btn').css('background','rgba(0,0,0,0)');
+					} else {
+						$('.dh_top').css('background','rgba(0,0,0,0)');
+						$('.dh_icon_btn').css('background','rgba(0,0,0,.25)');
+					}
+				});
+
+				$('.gotop_btn').click(function() {
+					$('.flex-con').animate({
+						scrollTop: 0
+					}, 300);
+					return false;
+				});
+
+
+
+			});
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					
+					tab_cur:0
+				},
+				created: function() {},
+				methods: {}
+			});
+			function tab_fuc(num){
+				if(vm.tab_cur==num) return
+				vm.tab_cur=num
+			}
+		</script>
+	</body>
+
+</html>

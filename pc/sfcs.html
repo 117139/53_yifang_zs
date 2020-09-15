@@ -438,6 +438,12 @@
 					}
 					vm.prev_zhuanyi=num
 				}
+				if(type==5){//zflx
+					if(vm.is_only==num){
+						return
+					}
+					vm.is_only=num
+				}
 				//jcfs
 				if(type==6){
 					if(vm.jcfs==num){

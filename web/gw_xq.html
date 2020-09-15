@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>服务详情页</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+			.dh_icon_btn,
+			.dh_icon_btn:hover,
+			.dh_icon_btn:focus {
+				width: .5rem;
+				height: .5rem;
+				/* background: rgba(0,0,0,.25); */
+				border-radius: 50%;
+				color: #fff;
+			}
+
+			.dh_icon_btn i {
+
+				font-size: .28rem;
+			}
+
+			.dh_icon_btn+.dh_icon_btn {
+				margin-right: .1rem;
+			}
+
+			.dh_top {
+				background: rgba(0, 0, 0, 0);
+				border-bottom: 0;
+			}
+
+			.dh_top_name {
+				color: transparent;
+			}
+
+			.xq_b_box {
+				position: fixed;
+				z-index: 300;
+				bottom: 0;
+				width: 100%;
+				height: 1rem;
+				background: #FFFFFF;
+				border: 1px solid #EDEDED;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box" style="height: 0;">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn dh_icon_btn  dis_flex aic ju_c" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name"></div>
+						<dvi class="dh_top_l dh_top_r dis_flex" style="flex-direction: row-reverse;"></dvi>
+					</div>
+				</div>
+				<div class="gwxq_t_bg div_img1">
+					<div style="background-image: url(../images/images/gw_tbg_02.jpg);"></div>
+				</div>
+				<div class="gwxq_msg dis_flex ju_b">
+					<div class="gwxq_tximg div_img1">
+						<div style="background-image: url(../images/user_tx.png);"></div>
+					</div>
+					<div class="gwxq_msg_l">
+						<div class="gw_idx_name">李天</div>
+						<div class="dis_flex gw_bq">
+							<div>买卖服务</div>
+							<div>买卖服务</div>
+							<div>买卖服务</div>
+						</div>
+						<div class="gw_idx_tel">电话：400-58435135转12</div>
+						<div class="gw_idx_hp">已为2654人服务 <span style="margin-left: 0.2rem;">好评率：100%</span></div>
+					</div>
+					<div class="gwxq_msg_r dis_flex_c aic">
+						<div class="gwxq_pj dis_flex aic ju_c" @click="tk_show=true">去评价</div>
+						<a href="tel:18300000000" class="gwxq_tel dis_flex"><img src="../images/images/index_tel.png" alt=""></a>
+					</div>
+				</div>
+				<div class="index_hx"></div>
+				<div class="fwxq_tabs dis_flex aic ju_b">
+					<div class="dis_flex aic" :class="tab_cur==0?'cur':''" @click="tab_fuc(0)">评价</div>
+					<div class="dis_flex aic" :class="tab_cur==1?'cur':''" @click="tab_fuc(1)">动态</div>
+					<div class="dis_flex aic" :class="tab_cur==2?'cur':''" @click="tab_fuc(2)">问答</div>
+					<div class="dis_flex aic" :class="tab_cur==3?'cur':''" @click="tab_fuc(3)">成就</div>
+				</div>
+				<!-- <div class="index_hx"></div> -->
+
+				<!-- 用户评价 -->
+				<div v-if="tab_cur==0" class="xq_fwlb_box jiazai_box">
+					<div class="pingjia_li dis_flex" v-for="item in 10">
+						<div class="pj_tx" style="background-image: url(../images/tx.png);"></div>
+						<div class="flex_1">
+							<div class="pj_name">洗净哎</div>
+							<div class="pj_name pj_name1">
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								非常满意
+							</div>
+							<div class="pj_name pj_name2">小伙子特别能干，真的很好，辛苦了</div>
+						</div>
+					</div>
+				</div>
+				<!-- 服务案例 -->
+				<div v-if="tab_cur==1" class="xq_fwlb_box jiazai_box">
+					<div class="pingjia_li dis_flex" v-for="item in 10">
+						<div class="pj_tx" style="background-image: url(../images/tx.png);"></div>
+						<div class="flex_1">
+							<div class="pj_name">洗净哎</div>
+							<div class="pj_name">今天的客户特别好玩，顺利帮助这位客户成功过户</div>
+							<div class="pj_name_time">2020-06-05</div>
+						</div>
+					</div>
+				</div>
+				<!-- 问答 -->
+				<div  v-if="tab_cur==2" class="index_box_p03 jiazai_box">
+					<a class="dis_flex_c dyjh_li" href="dyjh_xq.html" v-for="item in 3">
+						<div class=" dyjh_li_d1 dis_flex aic">
+							<!-- <div class="dy_w dis_flex aic ju_c">问</div> -->
+							<div class="dy_w dis_flex aic ju_c"><img src="../images/images/wen.png" alt=""></div>
+							<div class="oh1 flex_1">北京的二手房交易流程是什么？二都？二都？二都？二都？二都...</div>
+						</div>
+						<div class=" dyjh_li_d2 dis_flex aic">
+							<!-- <div class="dy_w dy_d dis_flex aic ju_c">答</div> -->
+							<div class="dy_w dy_d dis_flex aic ju_c"><img src="../images/images/da.png" alt=""></div>
+							<div class="oh1 flex_1">审核买方购房资质，网签，网上审税，上税上税上税上税上税上税..</div>
+						</div>
+				
+						<div class="dis_flex ju_b aic dy_d3">
+							<div class="dy_d3_time">2020-05-09</div>
+						</div>
+					</a>
+					<a @click="tk_show=true" class="my_tw dis_flex aic ju_c" href="###">我要提问<i class="iconfont icon-next-m"></i></a>
+				</div>
+				<!-- 成就 -->
+				<div v-if="tab_cur==3" class="div_img1 gwxq_cj">
+					<div style="background-image: url(../images/images/gw_cjbg_03.jpg);">
+						<div class="dis_flex_c aic w100">
+							<div class="pj_name pj_name1">
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+								<i class="iconfont icon-wujiaoxingxingxingshoucangdianji"></i>
+							</div>
+							<div class="gw_cj_d1 tac">100.00%<br>满意度</div>
+							<div class="gw_cj_d3 dis_flex aic">
+								<div class="gwd31">好评(<span>100%</span>)</div>
+								<div class="gwd32">
+									<div class="gwd32_b" style="width: 100%;"></div>
+								</div>
+							</div>
+							<div class="gw_cj_d3 dis_flex aic">
+								<div class="gwd31">中评(<span class="c9">暂无</span>)</div>
+								<div class="gwd32">
+									<div class="gwd32_b" style="width: 0%;"></div>
+								</div>
+							</div>
+							<div class="gw_cj_d3 dis_flex aic">
+								<div class="gwd31">差评(<span class="c9">暂无</span>)</div>
+								<div class="gwd32">
+									<div class="gwd32_b" style="width: 0%;"></div>
+								</div>
+							</div>
+							<div class="gw_cj_d4">1365</div>
+							<div class="gw_cj_d5">历史办理过户（单子）</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="web_tk dis_flex_c" :class="tk_show?'tk_show':''">
+				<div class="flex_1" @click="tk_show=false"></div>
+				<div class="web_tk_box" >
+					<div class="web_tk_box_p">
+						<div class="tk_tit dis_flex ju_b">
+							<div class="tk_t_text">评价TA</div>
+							<div class="tk_no div_img1" @click="tk_show=false">
+								<div style="background-image: url(../images/guanbi.png);"></div>
+							</div>
+						</div>
+						
+						<div class="gwxq_pj_dx dis_flex aic">
+							<span>发表评价:</span>
+							<div class="dis_flex aic ju_c">
+								<i class="iconfont" :class="pjx>0?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=1"></i></div>
+							<div class="dis_flex aic ju_c">
+								<i class="iconfont" :class="pjx>1?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=2"></i></div>
+							<div class="dis_flex aic ju_c">
+								<i class="iconfont" :class="pjx>2?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=3"></i></div>
+							<div class="dis_flex aic ju_c">
+								<i class="iconfont" :class="pjx>3?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=4"></i></div>
+							<div class="dis_flex aic ju_c">
+								<i class="iconfont" :class="pjx>4?'icon-wujiaoxingxingxingshoucangdianji':'icon-wujiaoxin'" @click="pjx=5"></i></div>
+							<b>({{pjx}})</b>
+						</div>
+						<div class="tk_srk">
+							<textarea placeholder="请输入您的评价" maxlength="600" v-model="tw_content"></textarea>
+							<!-- <div class="dis_flex aic ju_b">
+								<div></div>
+								<div class="tk_srk_num">{{tw_content.length}}/100</div>
+							</div> -->
+						</div>
+						<div class="dis_flex ju_b">
+							<div></div>
+							<div class="tk_pjsub_btn dis_flex aic ju_c" @click="tk_show=sub_pj(tw_content)">发表</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
+				<div style="background-image: url(../images/images/go_top.png);"></div>
+			</a>
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap">
+					<li tapmode="hover" class="flex-con active" @click="caidan_show=!caidan_show">菜单导航
+						<div v-show="caidan_show" class="caidan_list dis_flex_c aic ju_a">
+							<a href="index.html">返回首页</a>
+							<a href="fwal.html">服务案例</a>
+							<a href="jyzs.html">交易知识</a>
+							<a href="rdxw.html">热点新闻</a>
+						</div>
+					</li>
+					<a tapmode="hover" class="flex-con" href="fwlb.html">服务项目</a>
+					<a tapmode="hover" class="flex-con" href="sfcs.html">税费测算</a>
+					<a tapmode="hover" class="flex-con" href="tel:18300000000">一键拨号</a>
+				</ul>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					tk_show:false,
+					pjx:0,
+					tw_content:'',
+					tab_cur: 0
+				},
+				created: function() {},
+				methods: {}
+			});
+
+			function tab_fuc(num) {
+				if (vm.tab_cur == num) return
+				vm.tab_cur = num
+			}
+			function sub_pj(str){
+				layer.msg('提交成功')
+				console.log(str)
+				return false
+			}
+			function jiazai_fuc(jiazai_loading){
+				// 加载
+				set_loading(true)
+				console.log('list加载')
+				setTimeout(function (){
+					set_loading(false)
+				},2000)
+			}
+		</script>
+	</body>
+
+</html>

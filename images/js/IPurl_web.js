@@ -283,6 +283,6 @@ function dh_back_new(){
 //提问
 function sub_tw(str){
 	layer.msg('提交成功')
-	return false
 	console.log(str)
+	return false
 }

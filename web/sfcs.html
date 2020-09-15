@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>税费测算</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name">税费测算</div>
+						<dvi class="dh_top_l dh_top_r"></dvi>
+					</div>
+				</div>
+				<div class="sfcs_box" style="background-image: url(../images/images/sfcs_tbg_02.jpg);">
+					<div class="sfcs_main">
+						<div class="sfcs_top">个人不动产转让税费计算器</div>
+						<div class="sfcs_tabs dis_flex ju_b">
+							<div :class="tab_cur==0?'cur':''" @click="tab_cur=0">买卖</div>
+							<div :class="tab_cur==1?'cur':''" @click="tab_cur=1">继承</div>
+							<div :class="tab_cur==2?'cur':''" @click="tab_cur=2">赠与</div>
+						</div>
+						<div class="sfcs_list">
+							<div class="sfcs_li dis_flex aic">
+								<div class="w100 dis_flex aic ju_b" @click="showPicker = true">
+									<div class="sfcs_li_name">选择不动产类别：</div>
+									<div class="flex_1" v-if="budongchang" v-html="budongchang"></div>
+									<div class="flex_1 c9" v-else>选择不动产类别</div>
+									<i class="iconfont icon-next-m"></i>
+									
+									<input type="hidden" name="budongchang" v-model="budongchang">
+								</div>
+							</div>
+							<div class="sfcs_li dis_flex aic">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">住宅类型：</div>
+									<div class="dis_flex aic">
+										<div class="select_li select_li1 cur">普通住宅</div> 
+										<!-- <input type="hidden" name="pay_type" value="pay_type"> -->
+									</div>
+								</div>
+							</div>
+							<div class="sfcs_li dis_flex aic">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">住宅面积：</div>
+									
+									<input class="flex_1" type="number" name="zzmj" v-model="zzmj" placeholder="请输入住宅建筑面积">
+									<div class="sfcs_li_name">m²</div>
+								</div>
+							</div>
+							<div class="sfcs_li dis_flex aic">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">住宅市场价格：</div>
+									
+									<input class="flex_1" type="number" name="zzscjg" v-model="zzscjg" placeholder="请输入不动产总价">
+									<div class="sfcs_li_name">万元</div>
+								</div>
+							</div>
+							<div  v-if="tab_cur==0" class="sfcs_li dis_flex aic">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">上一手交易途径：</div>
+									<div class="dis_flex aic">
+										<div class="select_li select_li1" :class="prev_zhuanyi==0?'cur':''" @click="rd_fuc(4,0)">买卖</div> 
+										<div class="select_li select_li1" :class="prev_zhuanyi==1?'cur':''" @click="rd_fuc(4,1)" style="margin-left: .3rem;">继承</div> 
+										<div class="select_li select_li1" :class="prev_zhuanyi==2?'cur':''" @click="rd_fuc(4,2)" style="margin-left: .3rem;">赠与</div> 
+										<input type="hidden" name="prev_zhuanyi" value="prev_zhuanyi">
+									</div>
+								</div>
+							</div>
+							<div v-if="tab_cur==0" class="sfcs_li dis_flex_c ">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">上一手交易价格：</div>
+									
+									<input class=" sfcs_li_int" type="number" name="prev_pri" v-model="prev_pri" placeholder="请输入上一手交易价格">
+									<div class="sfcs_li_name">万元</div>
+								</div>
+								<div class="sr_tip">请输入上一首交易总价，如上一手交易为继承,赠与，或者交易总价无法查明的，填写0</div>
+							</div>
+							<div v-if="tab_cur==0" class="sfcs_li dis_flex_c">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">卖房持有年数：</div>
+									
+									<input class=" sfcs_li_int" type="number" name="prev_pri" v-model="prev_pri" placeholder="请输入卖房持有年数">
+									<div class="sfcs_li_name">年</div>
+								</div>
+								<div class="sr_tip">请输入卖房持有不动产的年数，取整数，如：3.7年填入3</div>
+							</div>
+							
+							<div v-if="tab_cur==0&&budongchang==0" class="sfcs_li dis_flex aic">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">是否买房家庭唯一住址：</div>
+									<div class="dis_flex aic">
+										<div class="select_li select_li1" :class="prev_zhuanyi==0?'cur':''" @click="rd_fuc(4,0)">是</div> 
+										<div class="select_li select_li1" :class="prev_zhuanyi==1?'cur':''" @click="rd_fuc(4,1)" style="margin-left: .6rem;">否</div> 
+										<input type="hidden" name="prev_zhuanyi" value="prev_zhuanyi">
+									</div>
+								</div>
+							</div>
+							
+							<div v-if="tab_cur==0&&budongchang==0" class="sfcs_li dis_flex_c">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">买房家庭已有住宅套数：</div>
+									
+									<input class=" sfcs_li_int" type="number" name="prev_pri" v-model="prev_pri" placeholder="请输入买房家庭已有住宅套数">
+									<div class="sfcs_li_name">套</div>
+								</div>
+								<div class="sr_tip">输入买方家庭已有的住宅套数（买房家庭成员包括本人，配偶和未成年子女</div>
+							</div>
+							
+							
+							
+							
+							<div class="sfcs_li dis_flex aic">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">手机号：</div>
+									
+									<input class="flex_1" type="number" name="js_tel" v-model="js_tel" placeholder="请输入手机号">
+								</div>
+							</div>
+							<div class="sfcs_li dis_flex aic">
+								<div class="w100 dis_flex aic ju_b">
+									<div class="sfcs_li_name">验证码：</div>
+									
+									<input class="flex_1" type="number" name="jy_code" v-model="jy_code" placeholder="请输入验证码">
+									<div  v-if="yzm_type==0" class="js_code dis_flex aic ju_c"  @click="getCode">获取验证码</div>
+									<div  v-if="yzm_type==1" class="js_code dis_flex aic ju_c">{{yztime}}s</div>
+								</div>
+							</div>
+							<div class="sfcs_jsbtn dis_flex aic ju_c">开始计算</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<van-popup v-model="showPicker" position="bottom">
+				<van-picker show-toolbar :columns="columns" @cancel="showPicker = false" @confirm="onConfirm" />
+			</van-popup>
+			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
+				<div style="background-image: url(../images/images/go_top.png);"></div>
+			</a>
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap">
+					<li tapmode="hover" class="flex-con active" @click="caidan_show=!caidan_show">菜单导航
+						<div v-show="caidan_show" class="caidan_list dis_flex_c aic ju_a">
+							<a href="index.html">返回首页</a>
+							<a href="fwal.html">服务案例</a>
+							<a href="jyzs.html">交易知识</a>
+							<a href="rdxw.html">热点新闻</a>
+						</div>
+					</li>
+					<a tapmode="hover" class="flex-con" href="fwlb.html">服务项目</a>
+					<a tapmode="hover" class="flex-con" href="sfcs.html">税费测算</a>
+					<a tapmode="hover" class="flex-con" href="tel:18300000000">一键拨号</a>
+				</ul>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					tab_cur: 0,
+					showPicker: false,
+					columns: [{
+							values: [
+								'内容1',
+								'内容2',
+								'内容3',
+								'内容4',
+								'内容5'
+							],
+							defaultIndex: 0
+						}
+
+					],
+					budongchang: '',
+					zflx:0,     //住房类型：：
+					zzmj:'',     //住宅面积：
+					zzscjg:'',     //住宅市场价格：
+					bdc_pri:'',     //不动产市场价格：
+					prev_zhuanyi:0,   //上一首交易途径：
+					prev_pri:'',     //上一首交易价格：
+					to_year:'',      //卖房持有年数：
+					is_only:0,      //是否买房家庭唯一住址：
+					jy_num:'',       //买方家庭已有住宅套数：
+					
+					
+					jcfs:0,       //继承方式
+					zygx:0,       //赠与双方关系：
+					js_tel:'',
+					jy_code:'',
+					
+					yzm_type :0,
+					yztime:0,
+				},
+				created: function() {},
+				methods: {
+
+					onConfirm: function(value) { //户口
+						console.log(value[0])
+						this.budongchang = value[0];
+						this.showPicker = false;
+					},
+				}
+			});
+			
+			
+			function rd_fuc(type,num){
+				if(type==1){
+					if(vm.zhuanyi==num){
+						return
+					}
+					vm.zhuanyi=num
+					 reset_data()
+				}
+				if(type==2){
+					if(vm.budongchang==num){
+						return
+					}
+					vm.budongchang=num
+				}
+				if(type==3){//zflx
+					if(vm.zflx==num){
+						return
+					}
+					vm.zflx=num
+				}
+				//prev_zhuanyi
+				if(type==4){//zflx
+					if(vm.prev_zhuanyi==num){
+						return
+					}
+					vm.prev_zhuanyi=num
+				}
+				if(type==5){//zflx
+					if(vm.is_only==num){
+						return
+					}
+					vm.is_only=num
+				}
+				//jcfs
+				if(type==6){
+					if(vm.jcfs==num){
+						return
+					}
+					vm.jcfs=num
+				}
+				if(type==7){
+					if(vm.zygx==num){
+						return
+					}
+					vm.zygx=num
+				}
+			}
+			function getCode() {
+			
+				if (vm.js_tel == '' || !(/^1\d{10}$/.test(vm.js_tel))) {
+					alert('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			function jisuan(){
+				
+				var datas={
+					tab_cur:vm.tab_cur,
+					budongchang:vm.budongchang,
+					zzmj:vm.zzmj,     //住宅面积：
+					zzscjg:vm.zzscjg,     //住宅市场价格
+					prev_zhuanyi:vm.prev_zhuanyi,//上一首交易途径：
+					prev_pri:vm.prev_pri,   //上一首交易价格：
+					to_year:vm.to_year,   //卖房持有年数：
+					is_only:vm.is_only,
+					js_tel:vm.js_tel,
+					jy_code:vm.jy_code,  //验证码：
+				}
+				if(vm.tab_cur==0&&vm.budongchang!=0){
+					datas={
+						tab_cur:vm.tab_cur,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						prev_zhuanyi:vm.prev_zhuanyi,//上一首交易途径：
+						prev_pri:vm.prev_pri,   //上一首交易价格：
+						to_year:vm.to_year,   //卖房持有年数：
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				if(vm.tab_cur==1){
+					datas={
+						tab_cur:vm.tab_cur,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						jcfs:vm.jcfs,
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				if(vm.tab_cur==2){
+					datas={
+						tab_cur:vm.tab_cur,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						zygx:vm.zygx,
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				console.log(datas)
+				if(vm.jisuan_jieguo==2) return
+				//打开弹框
+				vm.js_zf=true
+				
+				//显示内容
+				vm.jisuan_jieguo=2
+				
+			}
+		</script>
+	</body>
+
+</html>

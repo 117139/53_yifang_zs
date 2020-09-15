@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>提交服务申请</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name">提交服务申请</div>
+						<dvi class="dh_top_l dh_top_r"></dvi>
+					</div>
+				</div>
+				<div class="gw_list">
+					<div class="fw_xq_tit dis_flex ju_b">
+						<div class="flex_1 fw_xq_tit_name">买卖过户</div>
+						<div class="dis_flex fwxq_pri">
+							<div>价格：</div>
+							<div class="dis_flex aib">
+								<div class="fwxq_p1">￥</div>
+								<div class="fwxq_p2">800.00</div>
+								<!-- <div class="fwxq_p3">起</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="fwxq_tip " style="margin-bottom: .45rem;">为买卖双方提供房产交易全流程服务</div>
+					<div class="index_hx"></div>
+					<div class="index_hx"></div>
+					<div class="box_tit">服务分类</div>
+					<div class="order_fw_type order_fw_type1 dis_flex">
+						<div :class="fw_cur==0?'cur':''" @click="order_tab_fuc(0,0)">无公证赠与</div>
+						<div :class="fw_cur==1?'cur':''" @click="order_tab_fuc(0,1)">公证赠与</div>
+						<div :class="fw_cur==2?'cur':''" @click="order_tab_fuc(0,2)">港澳台和外都赠与</div>
+						<div :class="fw_cur==3?'cur':''" @click="order_tab_fuc(0,3)">港澳台和外都赠与</div>
+						<div :class="fw_cur==4?'cur':''" @click="order_tab_fuc(0,4)">无公证赠与</div>
+						<div :class="fw_cur==5?'cur':''" @click="order_tab_fuc(0,5)">公证赠与</div>
+						<div :class="fw_cur==6?'cur':''" @click="order_tab_fuc(0,6)">公证赠与</div>
+					</div>
+					<div class="order_tip">公证赠与是指公证机关根据当事人的申请对赠与财产给与公证的 法律程序。</div>
+					<div class="index_hx"></div>
+					<div class="box_tit">房源信息</div>
+					<div class="order_fyxx1 dis_flex">
+						<div></div>
+					</div>
+					<div class="order_fyxx_box">
+						<div class="order_fyxx_li dis_flex aic" @click="showPicker_qy=true">
+							<div class="order_fyxx_li_name">房源区域：</div>
+							<div class="flex_1" v-if="qy_str" v-html="qy_str"></div>
+							<div class="flex_1 c6" v-else>请选择房源区域</div>
+							<i class="iconfont icon-next-m"></i>
+							<input type="hidden" name="qy_str" v-model="qy_str">
+						</div>
+						<div class="order_fyxx_li dis_flex aic">
+							<div class="order_fyxx_li_name">小区名称：</div>
+							<input class="flex_1" type="text" name="xq_name" v-model="xq_name" placeholder="请填写房源的详细地址">
+						</div>
+						<div class="order_fyxx_li dis_flex aic">
+							<div class="order_fyxx_li_name">物业地址：</div>
+							<input class="flex_1" type="text" name="wy_add" v-model="wy_add" placeholder="请填写小区名称">
+						</div>
+					</div>
+	
+					<div class="index_hx"></div>
+					<div class="box_tit">费用信息</div>
+					<div class="order_fyxx dis_flex">服务价格：<span style="color: #FF1010;">8500.00元</span></div>
+					<div class="order_fyxx dis_flex ju_b aic" style="padding-top: 0;padding-bottom: .1rem;">付款信息：
+						<div class="dis_flex aic">
+							<div class="select_li select_li1" :class="pay_type==0?'cur':''" @click="pay_type=0">定金支付</div>
+							<div class="select_li select_li1" style="margin-left: .4rem;" :class="pay_type==1?'cur':''" @click="pay_type=1">全款支付</div>
+							<input type="hidden" name="pay_type" v-model="pay_type">
+						</div>
+					</div>
+					<div class="order_fyxx order_fyxx_fktype dis_flex aic">
+						<div>定金</div>
+						<div style="color: #FF6E6E;">4000.00元</div>
+					</div>
+					<div class="order_fyxx order_fyxx_fktype dis_flex aic">
+						<div>全款</div>
+						<div style="color: #FF6E6E;">8500.00元</div>
+					</div>
+					<div class="index_hx"></div>
+					<div class="pay_xyli">
+						<div class="select_li select_li2 fz14 " :class="xy_type==1?'cur':''" @click="order_tab_fuc('ty')">
+							我已阅读并同意《<a href="my_yhxy.html" style="color: #3677F1;">易房助手服务协议</a>》
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
+				<div style="background-image: url(../images/images/go_top.png);"></div>
+			</a> -->
+			<div class="web_tk dis_flex_c aic" :class="tk_show?'tk_show':''">
+				<div class="flex_1 w100" @click="tk_show=false"></div>
+				<div class="web_tk_box web_tk_xzgw">
+					<div class="web_tk_box_p ">
+						<div class="tk_tit  dis_flex ju_b">
+							<div class="tk_no tk_no1 div_img1" @click="tk_show=false">
+								<div style="background-image: url(../images/guanbi.png);"></div>
+							</div>
+							<div class="tk_box_tit">选择顾问</div>
+							<a class="tk_box_tit_r" href="###" @click="pay_sub_fuc(0)">直接下单</a>
+						</div>
+						<div class="tk_pay_box scroll_none">
+							<div class="gw_li dis_flex aic" v-for="(item,index) in 20">
+								<a href="gw_xq.html" class="dis_flex flex_1">
+									<div class="div_img1 gw_index_tx">
+										<div style="background-image: url(../images/user_tx.png);"></div>
+									</div>
+									<div class="flex_1">
+										<div class="gw_idx_name">李天</div>
+										<div class="dis_flex gw_bq">
+											<div>买卖服务</div>
+											<div>买卖服务</div>
+											<div>买卖服务</div>
+										</div>
+										<div class="gw_idx_tel m0">电话：400-58435135转12</div>
+									</div>
+								</a>
+								<div v-if="xz_gw==index" class="gw_xz cpointer"><img src="../images/duihao.png" alt=""></div>
+								<div v-if="xz_gw!=index" class="gw_xz cpointer" @click="xz_gw=index"><img src="../images/duihao1.png" alt=""></div>
+							</div>
+						</div>
+						<a href="###" class="xzgw_xd_btn dis_flex aic ju_c" @click="pay_sub_fuc(1)">选择完成创建订单</a>
+					</div>
+				</div>
+				<div class="flex_1 w100" @click="tk_show=false"></div>
+			</div>
+			<van-popup v-model="showPicker_qy" position="bottom">
+				<van-picker show-toolbar :columns="qy_list" @cancel="showPicker_qy = false" @confirm="onConfirm_qy" />
+			</van-popup>
+			<div class="xq_b_box dis_flex aic ju_b boxsiz" style="padding: 0 .3rem;">
+				<div class="dis_flex aib" style="color: #FF0A0A;">
+					<div style="font-size: .24rem;">￥</div>
+					<div style="font-size: .4rem;">8500.00</div>
+					<div style="font-size: .24rem;">元</div>
+				</div>
+				<a class="dis_flex aic ju_c"  href="###" @click="tk_show=true">立即支付</a>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					fw_cur:0,
+					showPicker_qy:false,
+					qy_list: [{
+							values: [
+								'顾问1',
+								'顾问2',
+								'顾问3',
+								'顾问4',
+								'顾问5'
+							],
+							defaultIndex: 0
+						}
+					
+					],
+					qy_str:'',
+					xq_name:'',
+					wy_add:'',
+					pay_type:0,
+					xy_type:0,
+					tk_show:false,
+					xz_gw:0
+				},
+				created: function() {},
+				methods: {
+					onConfirm_qy: function(value) { //户口
+						console.log(value[0])
+						this.qy_str = value[0];
+						this.showPicker_qy = false;
+					},
+				}
+			});
+			function order_tab_fuc(type,type1){
+				if(type==0){
+					if(vm.fw_cur==type1) return
+					vm.fw_cur=type1
+				}
+				if(type=='ty'){
+					// if(vm.xy_type==num){
+					// 	return
+					// }
+					vm.xy_type=!vm.xy_type
+				}
+			}
+			function pay_sub_fuc(num){
+				
+				if(num==1){
+					console.log(vm.fw_cur)
+					console.log(vm.qy_str)
+					console.log(vm.xq_name)
+					console.log(vm.wy_add)
+					console.log(vm.pay_type)
+					console.log(vm.xz_gw)
+				}else{
+					console.log(vm.fw_cur)
+					console.log(vm.qy_str)
+					console.log(vm.xq_name)
+					console.log(vm.wy_add)
+					console.log(vm.pay_type)
+				}
+				jump('fwlb_details_pay2.html?s=1123123')
+			}
+		</script>
+	</body>
+
+</html>

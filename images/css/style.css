@@ -2667,6 +2667,10 @@ input[type="number"] {
 	height: 41px;
 	border-radius: 50%;
 	margin-right: 28px;
+	
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .pj_name {

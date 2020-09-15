@@ -93,7 +93,9 @@
 										<div class="fwlb_msg_d1">居间服务</div>
 										<div class="fwlb_msg_d2">为买卖双方提供房产交易全流程服务</div>
 										<div class="fwlb_msg_d3">价格：<b>￥</b><span>800.00</span></div>
-										<div class="fwlb_msg_d3 dis_flex aic">保障：<img src="../images/duihao.png" alt=""><div class="fz16 c3">加载服务保险服务</div></div>
+										<div class="fwlb_msg_d3 dis_flex aic cpointer" @click="bz_type=!bz_type">
+											保障：<img v-if="bz_type==1" src="../images/duihao.png" alt=""><img v-if="bz_type==0" src="../images/duihao1.png" alt=""><div class="fz16 c3">加载服务保险服务</div>
+										</div>
 										<a href="fwlb_details_pay.html" class="fwlb_msg_d4 dis_flex aic ju_c">立即购买</a>
 									</div>
 								</div>
@@ -354,7 +356,7 @@
 					fw_cur: 0, //服务详情
 					ss_type: 0,
 					content: '',
-					
+					bz_type:0,
 					js_zf:false,
 					share_tk:false,
 				},
