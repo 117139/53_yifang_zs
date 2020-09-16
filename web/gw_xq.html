@@ -271,7 +271,28 @@
 		<script>
 			var vm;
 			
-
+			$(function (){
+				
+				$('.flex-con').scroll(function() {
+					console.log($(this).scrollTop());
+				
+					//当window的scrolltop距离大于1时，go to 
+					if ($(this).scrollTop() > 100) {
+						// console.log()
+						$('.gotop_btn').show();
+					} else {
+						$('.gotop_btn').hide();
+					}
+					if ($(this).scrollTop() > 10) {
+						// console.log()
+						$('.dh_top').css('background','#fff');
+						$('.dh_icon_btn').css('color','#333');
+					} else {
+						$('.dh_top').css('background','rgba(0,0,0,0)');
+						$('.dh_icon_btn').css('color','#fff');
+					}
+				});
+			})
 			vm = new Vue({
 				el: "#wrap",
 				data: {

@@ -79,7 +79,7 @@
 						</dvi>
 						<div class="dh_top_name">服务详情页</div>
 						<dvi class="dh_top_l dh_top_r dis_flex" style="flex-direction: row-reverse;">
-							<div class="dh_icon_btn dis_flex aic ju_c"><i class="iconfont icon-fenxiang2-copy-copy"></i></div>
+							<div @click="tk_show_share=true" class="dh_icon_btn dis_flex aic ju_c"><i class="iconfont icon-fenxiang2-copy-copy"></i></div>
 							<a class="dh_icon_btn dis_flex aic ju_c" href="index.html"><i class="iconfont icon-home"></i></a>
 						</dvi>
 					</div>
@@ -106,10 +106,11 @@
 					</div>
 				</div>
 				<div class="fwxq_tip">为买卖双方提供房产交易全流程服务</div>
-				<div class="dis_flex fwxq_bz aic">
+				<div class="dis_flex fwxq_bz aic" @click="bz_type=!bz_type">
 					<img class="fwxq_bz_i1" src="../images/images/fwxq_bz.png" alt="">
 					<div class="flex_1 fwxq_bz_i2">保障：加载服务保险服务</div>
-					<img class="fwxq_bz_i3" src="../images/duihao.png" alt="">
+					<img v-if="bz_type==0" class="fwxq_bz_i3" src="../images/duihao1.png" alt="">
+					<img v-if="bz_type==1" class="fwxq_bz_i3" src="../images/duihao.png" alt="">
 				</div>
 				<div class="fwxq_bz_bt"></div>
 				<div class="fwxq_tabs dis_flex aic ju_b">
@@ -183,6 +184,26 @@
 			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
 				<div style="background-image: url(../images/images/go_top.png);"></div>
 			</a>
+			<!-- 分享 -->
+			<div class="web_tk dis_flex_c aic" :class="tk_show_share?'tk_show':''">
+				<div class="flex_1 w100" @click="tk_show_share=false"></div>
+				<div class="web_tk_box tk_share_tk" style="background-image: url(../images/images/my_share_t_bg_03.jpg);">
+					<div class="web_tk_box_p web_tk_box_p_share">
+						<div class="tk_tit  dis_flex ju_b">
+							<div></div>
+							<div class="tk_no div_img1" @click="tk_show_share=false">
+								<div style="background-image: url(../images/guanbi.png);"></div>
+							</div>
+						</div>
+						<div class="tk_share_box dis_flex_c aic">
+							<img class="tk_fz_img" src="../images/share_copy_03.jpg" alt="">
+							<div class="tk_fz_tip">分享易房助手<br>邀请朋友一起来</div>
+							<div class="tk_fz_tip2">点击复制链接分享</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex_1 w100" @click="tk_show_share=false"></div>
+			</div>
 			<div class="xq_b_box dis_flex aic ju_a">
 				<a class="dis_flex aic ju_c" href="tel:18300000000">电话咨询</a>
 				<a class="dis_flex aic ju_c" style="background: #FF7272;" href="fwlb_details_pay.html">立即购买</a>
@@ -204,7 +225,26 @@
 					},
 				})
 
-
+				// 复制
+				// var clipboard = new ClipboardJS('.shake_tk_copy');
+				var clipboard = new ClipboardJS('.tk_share_box', {
+				  text: function () {
+				    return 'http://www.baidu.com'
+				  }
+				});
+				clipboard.on('success', function(e) {
+					layer.msg('复制成功')
+				    console.info('Action:', e.action);
+				    console.info('Text:', e.text);
+				    console.info('Trigger:', e.trigger);
+				
+				    e.clearSelection();
+				});
+				
+				clipboard.on('error', function(e) {
+				    console.error('Action:', e.action);
+				    console.error('Trigger:', e.trigger);
+				});
 
 				$('.gotop_btn').hide(); //隐藏go to top按钮
 
@@ -243,7 +283,8 @@
 				el: "#wrap",
 				data: {
 					caidan_show: false, //菜单
-					
+					tk_show_share:false,
+					bz_type:1,
 					tab_cur:0
 				},
 				created: function() {},
@@ -252,6 +293,14 @@
 			function tab_fuc(num){
 				if(vm.tab_cur==num) return
 				vm.tab_cur=num
+			}
+			function jiazai_fuc(jiazai_loading){
+				// 加载
+				set_loading(true)
+				console.log('list加载')
+				setTimeout(function (){
+					set_loading(false)
+				},2000)
 			}
 		</script>
 	</body>

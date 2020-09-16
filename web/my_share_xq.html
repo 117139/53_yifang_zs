@@ -66,11 +66,11 @@
 							<div class="fwb" style="color: #656565;">立杏子</div>
 							<div class="d1_time">注册时间：2020-09-06 </div>
 						</div>
-						<div class="my_share_sr dis_flex">推荐收入：<span class="tar" >61074</span></div>
+						<div class="my_share_sr dis_flex aic">推荐收入：<span class="tar" >61074</span></div>
 					</a>
 				</div>
 				<div class="share_box">
-					<div class="my_share_tit dis_flex aic">通过您的链接/二维码分享带来的客户如下：</div>
+					<!-- <div class="my_share_tit dis_flex aic">通过您的链接/二维码分享带来的客户如下：</div> -->
 					<div class="my_share_px dis_flex aic">
 						<div class="s_s_name flex_1">张伞的一级粉丝</div>
 						排序：
@@ -82,7 +82,7 @@
 						<div :class="list_cur==1?'cur':''" @click="set_cur(1)">二级粉丝</div>
 					</div> -->
 					<div class="my_share_list ">
-						<div class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 5">
+						<div class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 25">
 							<div class="share_tx" style="background-image: url(../images/user_tx.png);"></div>
 							<div class="mysz_li_d1 flex_1">
 								<div class="fwb" style="color: #656565;">立杏子</div>
@@ -142,7 +142,7 @@
 			$(function (){
 				// 复制
 				// var clipboard = new ClipboardJS('.shake_tk_copy');
-				var clipboard = new ClipboardJS('.web_tk_box_p_share', {
+				var clipboard = new ClipboardJS('.tk_share_box', {
 				  text: function () {
 				    return 'http://www.baidu.com'
 				  }

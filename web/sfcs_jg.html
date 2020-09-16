@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no" />
+		<title>计算结果</title>
+		<meta name="Keywords" content="易房助手">
+		<meta name="Description" content="易房助手">
+		<link href="../images/js/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../images/css/swiper.min.css">
+		<link href="../images/css/reset.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick.css" rel="stylesheet" type="text/css">
+		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
+		<!-- <link href="../images/css/style.css" rel="stylesheet" type="text/css"> -->
+		<link href="../images/css/style_web.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" type="text/css" href="../images/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../images/css/vantIndex.css" />
+
+
+
+		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
+		<script src="../images/js/clipboard.minbd62.js"></script>
+		<script src="../images/js/vue.min.js"></script>
+		<script src="../images/js/swiper.min.js"></script>
+		<script src="../images/js/slick.js"></script>
+		<script src="../images/js/IPurl_web.js"></script>
+		<script src="../images/js/vant.js"></script>
+
+		<style>
+			html,
+			body,
+			.flex-con {
+				background: #fff;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="wrap flex-wrap flex-vertical">
+			<div class="flex-con">
+				<div class="dh_top_box">
+					<div class="dh_top dis_flex">
+						<dvi class="dh_top_l">
+							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
+						</dvi>
+						<div class="dh_top_name">计算结果</div>
+						<dvi class="dh_top_l dh_top_r"></dvi>
+					</div>
+				</div>
+				<div class="sfcs_box" style="background-image: url(../images/images/sfcs_tbg_02.jpg);">
+					<div class="sfcs_main">
+						<div class="sfcs_top">计算依据</div>
+						<div class="jsyj_box">
+							<div  class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">选择不动产类别：</div>
+								<div class="jsyj_lid2">住宅(含住宅公寓）</div>
+							</div>
+							<div v-if="tab_cur==0&&type1==0" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">住宅类型：</div>
+								<div class="jsyj_lid2">普通住宅</div>
+							</div>
+							<div v-if="tab_cur==0&&type1==0" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">住宅面积：</div>
+								<div class="jsyj_lid2">102.36m²</div>
+							</div>
+							<div v-if="tab_cur==0&&type1==0" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">住宅市场价格：</div>
+								<div class="jsyj_lid2">300.02万元</div>
+							</div>
+							<div v-if="tab_cur==0&&type1==1 || tab_cur==1|| tab_cur==2" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">不动产市场价格：</div>
+								<div class="jsyj_lid2">300.02万元</div>
+							</div>
+							<div v-if="tab_cur==0" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">上一手交易途径：</div>
+								<div class="jsyj_lid2">买卖</div>
+							</div>
+							<div v-if="tab_cur==0" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">上一手交易价格：</div>
+								<div class="jsyj_lid2">300.02万元</div>
+							</div>
+							<div v-if="tab_cur==0" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">卖房持有年数：</div>
+								<div class="jsyj_lid2">5年</div>
+							</div>
+							<div v-if="tab_cur==0" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">是否买房家庭唯一住址：</div>
+								<div class="jsyj_lid2">是</div>
+							</div>
+							<div v-if="tab_cur==0" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">买房家庭已有住宅套数：</div>
+								<div class="jsyj_lid2">6套</div>
+							</div>
+							<div v-if="tab_cur==1" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">继承方式：</div>
+								<div class="jsyj_lid2">法定继承</div>
+							</div>
+							<div v-if="tab_cur==2" class="jsyj_li dis_flex">
+								<div class="jsyj_lid1">赠与双方关系：</div>
+								<div class="jsyj_lid2">无偿赠与父母，子女，祖父母，孙子女，外孙子女，兄弟姐妹，对其承担直接抚养或赡养义务的扶养人或者赡养人</div>
+							</div>
+						</div>
+						
+						<div class="sfcs_top">计算结果</div>
+						<div  v-if="!jisuan_jieguo" class="jsyj_box jsyj_box_mh dis_flex_c aic" style="background-image: url(../images/images/sfcs_mh_03.jpg);">
+							<div class="jsjg_jg1">交易双方应纳税总额为：</div>
+							<div class="jsjg_jg2 dis_flex aib"><div>168421353</div>元</div>
+							<div class="jsjg_jg3 dis_flex aic ju_c" @click="js_zf=true">点击查看交易双方应纳税详情</div>
+						</div>
+						
+						<div v-if="jisuan_jieguo" class="w100">
+							<div class="jsyj_box dis_flex_c aic">
+								<div class="jsjg_jg1">交易双方应纳税总额为：</div>
+								<div class="jsjg_jg2 dis_flex aib"><div>168421353</div>元</div>
+								<div class="jsjg_jg3 dis_flex aic ju_c" @click="js_zf=true">点击查看交易双方应纳税详情</div>
+							</div>
+							<div class="sfcs_top">转让方应纳税</div>
+							<div class="jsyj_box jsyj_box1">
+								<div  class="jsyj_li dis_flex">
+									<div class="jsyj_lid1">个人所得税：</div>
+									<div class="jsyj_lid2">168421353元</div>
+								</div>
+								<div  class="jsyj_li dis_flex">
+									<div class="jsyj_lid1">增值税及附加：</div>
+									<div class="jsyj_lid2">168421353元</div>
+								</div>
+								<div  class="jsyj_li dis_flex">
+									<div class="jsyj_lid1">土地增值税：</div>
+									<div class="jsyj_lid2">168421353元</div>
+								</div>
+								<div  class="jsyj_li dis_flex">
+									<div class="jsyj_lid1">印花税：</div>
+									<div class="jsyj_lid2">168421353元</div>
+								</div>
+							</div>
+							<div class="sfcs_top">承受方应纳税</div>
+							<div class="jsyj_box jsyj_box1">
+								<div  class="jsyj_li dis_flex">
+									<div class="jsyj_lid1">契税：</div>
+									<div class="jsyj_lid2">168421353元</div>
+								</div>
+								<div  class="jsyj_li dis_flex">
+									<div class="jsyj_lid1">印花税：</div>
+									<div class="jsyj_lid2">168421353元</div>
+								</div>
+							</div>
+							<div class="sfcs_top">推荐顾问</div>
+							<div class="gw_li dis_flex" style="padding-top: .08rem;">
+								<a href="gw_xq.html" class="dis_flex flex_1">
+									<div class="div_img1 gw_index_tx">
+										<div style="background-image: url(../images/user_tx.png);"></div>
+									</div>
+									<div class="flex_1">
+										<div class="gw_idx_name">李天</div>
+										<div class="dis_flex gw_bq">
+											<div>买卖服务</div>
+											<div>买卖服务</div>
+											<div>买卖服务</div>
+											<div>买卖服务</div>
+										</div>
+										<div class="gw_idx_tel">电话：400-58435135转12</div>
+										<div class="gw_idx_hp">已为2654人服务 <span style="margin-left: .2rem;">好评率：100%</span></div>
+									</div>
+								</a>
+								<a class="div_img1 gw_tel" href="tel:10010">
+									<div style="background-image: url(../images/images/index_tel.png);"></div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="web_tk dis_flex_c" :class="js_zf?'tk_show':''">
+				<div class="flex_1" @click="js_zf=false"></div>
+				<div class="web_tk_box" >
+					<div class="web_tk_box_p">
+						<div class="tk_tit tk_pay_tit dis_flex ju_b">
+							<div class="tk_pay_text">支付</div>
+							<div class="tk_no div_img1" @click="js_zf=false">
+								<div style="background-image: url(../images/guanbi.png);"></div>
+							</div>
+						</div>
+						<div class="pay_tk_tip">
+							税费测算费用业务/支付完成即可查看<span style="color: #6880F5;">交易双方应纳税详情</span>
+						</div>
+						<div class="dis_flex aic ju_b">
+							<div class="paytk_pri_text">应付金额:</div>
+							<div class="cFF3838 paytk_pri dis_flex aib"><div>12</div>元</div>
+						</div>
+						<div class="pay_tk_xztit">选择支付方式</div>
+						<div class="paytk_li dis_flex aic" @click="paytk_type=0">
+							<div class="paytk_icon dis_flex aic ju_c"><i class="iconfont icon-umidd17" style="color: #02A9F1;"></i></div>
+							<div class="flex_1 paytk_name">支付宝支付</div>
+							<div class="paytk_xz" :class="paytk_type==0?'cur':''"></div>
+						</div>
+						<div class="paytk_li dis_flex aic" @click="paytk_type=1">
+							<div class="paytk_icon dis_flex aic ju_c"><i class="iconfont icon-weixinzhifu" style="color:#09BB07;"></i></div>
+							<div class="flex_1 paytk_name">微信支付</div>
+							<div class="paytk_xz"  :class="paytk_type==1?'cur':''"></div>
+						</div>
+						<div class="dis_flex ju_b" style="margin-top: .5rem;">
+							<div></div>
+							<div class="tk_tw_btn dis_flex aic ju_c" @click="jisuan()">开始计算</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div id="footer" class="border-t">
+				<ul class="flex-wrap">
+					<li tapmode="hover" class="flex-con active" @click="caidan_show=!caidan_show">菜单导航
+						<div v-show="caidan_show" class="caidan_list dis_flex_c aic ju_a">
+							<a href="index.html">返回首页</a>
+							<a href="fwal.html">服务案例</a>
+							<a href="jyzs.html">交易知识</a>
+							<a href="rdxw.html">热点新闻</a>
+						</div>
+					</li>
+					<a tapmode="hover" class="flex-con" href="fwlb.html">服务项目</a>
+					<a tapmode="hover" class="flex-con" href="sfcs.html">税费测算</a>
+					<a tapmode="hover" class="flex-con" href="tel:18300000000">一键拨号</a>
+				</ul>
+			</div>
+		</div>
+		<!--  <script src="./script/vconsole.min.js"></script>
+<script>
+ 
+</script> -->
+		<script>
+			var vm;
+			$(function (){
+				vm.tab_cur=getNowCanshu().type
+				vm.type1=getNowCanshu().type1
+			})
+
+			vm = new Vue({
+				el: "#wrap",
+				data: {
+					caidan_show: false, //菜单
+					tab_cur: 0,
+				
+					type1: '',
+					
+					
+					
+					js_zf:false,
+					// js_zf:true,
+					paytk_type:0,
+					jisuan_jieguo:false,
+				},
+				created: function() {},
+				methods: {
+
+					onConfirm: function(value) { //户口
+						console.log(value[0])
+						this.budongchang = value[0];
+						reset_data()
+						this.showPicker = false;
+					},
+				}
+			});
+			
+			
+			function rd_fuc(type,num){
+				if(type==1){
+					console.log(vm.tab_cur,num)
+					if(vm.tab_cur==num){
+						return
+					}
+					vm.tab_cur=num
+					 reset_data()
+				}
+				if(type==2){
+					if(vm.budongchang==num){
+						return
+					}
+					vm.budongchang=num
+				}
+				if(type==3){//zflx
+					if(vm.zflx==num){
+						return
+					}
+					vm.zflx=num
+				}
+				//prev_zhuanyi
+				if(type==4){//zflx
+					if(vm.prev_zhuanyi==num){
+						return
+					}
+					vm.prev_zhuanyi=num
+				}
+				if(type==5){//zflx
+					if(vm.is_only==num){
+						return
+					}
+					vm.is_only=num
+				}
+				//jcfs
+				if(type==6){
+					if(vm.jcfs==num){
+						return
+					}
+					vm.jcfs=num
+				}
+				if(type==7){
+					if(vm.zygx==num){
+						return
+					}
+					vm.zygx=num
+				}
+			}
+			function getCode() {
+			
+				if (vm.js_tel == '' || !(/^1\d{10}$/.test(vm.js_tel))) {
+					alert('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			function jisuan(){
+				
+				var datas={
+					tab_cur:vm.tab_cur,
+					budongchang:vm.budongchang,
+					zzmj:vm.zzmj,     //住宅面积：
+					zzscjg:vm.zzscjg,     //住宅市场价格
+					prev_zhuanyi:vm.prev_zhuanyi,//上一首交易途径：
+					prev_pri:vm.prev_pri,   //上一首交易价格：
+					to_year:vm.to_year,   //卖房持有年数：
+					jy_num:vm.jy_num,
+					is_only:vm.is_only,
+					js_tel:vm.js_tel,
+					jy_code:vm.jy_code,  //验证码：
+				}
+				if(vm.tab_cur==0&&vm.budongchang!='住宅(含住宅公寓)'){
+					datas={
+						tab_cur:vm.tab_cur,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						prev_zhuanyi:vm.prev_zhuanyi,//上一首交易途径：
+						prev_pri:vm.prev_pri,   //上一首交易价格：
+						to_year:vm.to_year,   //卖房持有年数：
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				if(vm.tab_cur==1){
+					datas={
+						tab_cur:vm.tab_cur,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						jcfs:vm.jcfs,
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				if(vm.tab_cur==2){
+					datas={
+						tab_cur:vm.tab_cur,
+						budongchang:vm.budongchang,
+						
+						bdc_pri:vm.bdc_pri,
+						zygx:vm.zygx,
+						js_tel:vm.js_tel,
+						jy_code:vm.jy_code,  //验证码：
+					}
+				}
+				console.log(datas)
+				console.log(vm.paytk_type)
+				// if(vm.jisuan_jieguo==2) return
+				//关闭弹框
+				vm.js_zf=false
+				
+				//显示内容
+				vm.jisuan_jieguo=true
+				
+			}
+			
+			function reset_data(){
+				// vm.zhuanyi= 0 //转移方式
+				// 转移方式-买卖 0
+				// vm.budongchang= 0 //不动产类别：
+				vm.zflx=0     //住房类型：：
+				vm.zzmj=''     //住宅面积：
+				vm.zzscjg=''     //住宅市场价格：
+				vm.bdc_pri=''     //不动产市场价格：
+				vm.prev_zhuanyi=0   //上一首交易途径：
+				vm.prev_pri=''     //上一首交易价格：
+				vm.to_year=''      //卖房持有年数：
+				vm.is_only=0      //是否买房家庭唯一住址：
+				vm.jy_num=''       //买方家庭已有住宅套数：
+				
+				
+				vm.jcfs=0       //继承方式
+				vm.zygx=0       //赠与双方关系：
+				vm.js_tel=''
+				vm.jy_code=''
+				
+				vm.yzm_type =0
+				vm.yztime=0
+				
+				vm.jsjg_show=false
+				vm.jisuan_jieguo=1
+			}
+		</script>
+	</body>
+
+</html>

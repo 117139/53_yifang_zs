@@ -71,7 +71,7 @@
 						<div :class="list_cur==1?'cur':''" @click="set_cur(1)">二级粉丝</div>
 					</div>
 					<div class="my_share_list ">
-						<a href="my_share_xq.html" class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 5">
+						<a href="my_share_xq.html" class="dis_flex ju_b aic mysz_li" v-for="(item,index) in 25">
 							<div class="share_tx" style="background-image: url(../images/user_tx.png);"></div>
 							<div class="mysz_li_d1 flex_1">
 								<div class="fwb" style="color: #656565;">立杏子</div>
@@ -131,7 +131,7 @@
 			$(function (){
 				// 复制
 				// var clipboard = new ClipboardJS('.shake_tk_copy');
-				var clipboard = new ClipboardJS('.web_tk_box_p_share', {
+				var clipboard = new ClipboardJS('.tk_share_box', {
 				  text: function () {
 				    return 'http://www.baidu.com'
 				  }

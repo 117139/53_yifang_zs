@@ -36,7 +36,7 @@
 			.flex-con {
 				background: #fff;
 			}
-			.mytw_btn{
+			.mytw_btn,.mytw_btn:hover,.mytw_btn:focus{
 				font-size: .26rem;
 			}
 		</style>
@@ -46,7 +46,7 @@
 		<div id="wrap" class="wrap flex-wrap flex-vertical">
 			<div class="flex-con">
 				<div class="dh_top_box">
-					<div class="dh_top dis_flex">
+					<div class="dh_top dis_flex" style="border-bottom: 0;">
 						<dvi class="dh_top_l">
 							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
 						</dvi>
@@ -91,6 +91,7 @@
 						<div v-if="login_type==0" @click="login_type=1">账号密码登录</div>
 						<div v-if="login_type==1" @click="login_type=0">验证码登录</div>
 					</div>
+					<div class="lgoin_xy_tip">登录代表您已同意易房助手<a href="my_yhxy.html">《用户协议》</<></a></div>
 				</form>
 				
 			</div>
@@ -184,7 +185,23 @@
 						return
 					}
 				}
-				
+				if(vm.login_type==0||vm.login_type==1){
+					layer.msg('登录成功')
+					jump('my.html')
+					// jump('index.html')
+				}
+				vm.tel=''
+				vm.code=''
+				vm.pwd=''
+				vm.pwd1=''
+				if(vm.login_type==2){
+					layer.msg('操作成功')
+					vm.login_type=1
+				}
+				if(vm.login_type==3){
+					layer.msg('注册成功')
+					vm.login_type=1
+				}
 			}
 		</script>
 	</body>
