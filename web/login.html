@@ -44,8 +44,8 @@
 
 	<body>
 		<div id="wrap" class="wrap flex-wrap flex-vertical">
-			<div class="flex-con">
-				<div class="dh_top_box">
+			<div class=" dis_flex_c flex" style="padding-bottom: 0!important;min-height: 100vh;">
+				<div class="dh_top_box flex_0">
 					<div class="dh_top dis_flex" style="border-bottom: 0;">
 						<dvi class="dh_top_l">
 							<div class="dh_back_btn" onclick="dh_back()"><i class="iconfont icon-prev"></i></div>
@@ -57,8 +57,8 @@
 						</dvi>
 					</div>
 				</div>
-				<form class="login_box">
-					<div v-if="login_type==0||login_type==1" class="login_box_tit">登录易房助手，体验更多功能</div>
+				<form class="login_box  flex_0">
+					<div v-if="login_type==0||login_type==1" class="login_box_tit flex_0">登录易房助手，体验更多功能</div>
 					<div v-if="login_type==2" class="login_box_tit">找回密码</div>
 					<div v-if="login_type==3" class="login_box_tit">注册易房助手，体验更多功能</div>
 					<!--  验证码登录 注册 找回密码 -->
@@ -93,9 +93,9 @@
 					</div>
 					
 				</form>
-				
+				<div class="flex_1" style="min-height: 1rem;"></div>
+				<div class="lgoin_xy_tip">登录代表您已同意易房助手<a href="my_yhxy.html">《用户协议》</<></a></div>
 			</div>
-			<div class="lgoin_xy_tip">登录代表您已同意易房助手<a href="my_yhxy.html">《用户协议》</<></a></div>
 			
 		</div>
 		<!--  <script src="./script/vconsole.min.js"></script>

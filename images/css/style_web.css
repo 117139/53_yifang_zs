@@ -1400,7 +1400,7 @@ a:hover{
 	box-sizing: border-box;
 }
 .login_box_tit{
-	padding: .6rem .2rem 1.7rem;
+	padding: .88rem .2rem 1.7rem;
 	font-size: .48rem;
 	font-family: PingFang;
 	font-weight: bold;
@@ -2859,8 +2859,9 @@ input+.sfcs_li_name{
 	min-height: 7rem;
 }
 .lgoin_xy_tip{
-	position: fixed;
-	bottom: .2rem;
+	/* position: fixed; */
+	/* margin-top: 2rem; */
+	padding-bottom: .2rem;
 	left: 0;
 	text-align: center;
 	font-size: .26rem;
@@ -2869,7 +2870,6 @@ input+.sfcs_li_name{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	margin-top: .5rem;
 	color: #999;
 }
 .lgoin_xy_tip a,.lgoin_xy_tip a:hover,.lgoin_xy_tip a:focus{
