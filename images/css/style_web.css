@@ -498,7 +498,7 @@ img {
 	/* display: none; */
 }
 .caidan_list a{
-	font-size: .26rem;
+	font-size: .28rem;
 	color: #030303;
 }
 .web_fw_list{
@@ -534,7 +534,7 @@ img {
 	box-sizing: border-box;
 	background-repeat: no-repeat;
 	background-position: bottom right;
-	background-size: auto .6rem;
+	background-size: auto .78rem;
 }
 .fw_d1{
 	font-size: .32rem;
@@ -946,7 +946,7 @@ img {
 	height: 2.75rem;
 
 	margin: .11rem;
-	/* padding: 93px 13px 10px; */
+	/* padding: .93rem .13rem .10rem; */
 	position: relative;
 	display: flex;
 }
@@ -964,7 +964,7 @@ img {
 .fwlb_fw_li_msg {
 	position: absolute;
 	z-index: 2;
-	top: 11px;
+	top: 1rem;
 	left: .16rem;
 	right: .16rem;
 	height: 1.75rem;

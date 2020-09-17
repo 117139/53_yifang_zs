@@ -87,7 +87,7 @@
 						</div>
 						<div class="sub_li_name">4.补充其他详细需求（非必填）</div>
 						<div class="other_cont">
-							<textarea name="other_cont" v-model="other_cont"></textarea>
+							<textarea name="other_cont" v-model="other_cont" placeholder="请输入内容"></textarea>
 						</div>
 						<div class="sub_li_name">5.留下您的联系方式以便顾问联系您</div>
 						<div class="other_cont">
@@ -140,7 +140,8 @@
 				<van-popup v-model="showPicker1" position="bottom">
 					<van-picker show-toolbar :columns="columns1" @cancel="showPicker1 = false" @confirm="onConfirm1" />
 				</van-popup>
-				<a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">保存</a>
+				<!-- <a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">提交</a> -->
+				<div class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">提交</div>
 				
 			</div>
 			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
@@ -204,7 +205,7 @@
 						}
 					
 					],
-					gw_str:'',
+					gw_str:'顾问1',
 					
 					c_name: '',
 					c_tel:'',
@@ -231,8 +232,8 @@
 						}
 					
 					],
-					xq_inr:'',
-					xq_time:'',
+					xq_inr:'内容1',
+					xq_time:'1天',
 				},
 				created: function() {},
 				methods: {
@@ -282,7 +283,10 @@
 				var us = $('.login_box').serializeObject();
 				  console.log(us)
 				if(vm.tj_type==0){
-					
+					if(!vm.lxfs){
+						layer.msg('请填写联系方式')
+						return
+					}
 				}
 				if(vm.tj_type==1){
 					if(!vm.c_name){
@@ -302,7 +306,10 @@
 						return
 					}
 				}
-				
+				layer.msg('操作成功')
+				setTimeout(function (){
+					jump('index.html')
+				},1000)
 			}
 		</script>
 	</body>

@@ -62,7 +62,8 @@
 					</form>
 					
 				</div>
-				<a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">保存</a>
+				<!-- <a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">保存</a> -->
+				<div class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">保存</div>
 				
 			</div>
 			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
@@ -142,6 +143,9 @@
 					return
 				}
 				layer.msg('操作成功')
+				setTimeout(function (){
+					dh_back_new()
+				},1000)
 			}
 		</script>
 	</body>

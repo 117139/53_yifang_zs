@@ -91,7 +91,8 @@
 				<van-popup v-model="showPicker1" position="bottom">
 					<van-picker show-toolbar :columns="columns1" @cancel="showPicker1 = false" @confirm="onConfirm1" />
 				</van-popup>
-				<a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">保存</a>
+				<!-- <a class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">保存</a> -->
+				<div class="logout_btn dis_flex aic ju_c" href="###" style="margin-top: 2rem;" @click="set_fuc">提交</div>
 				
 			</div>
 			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
@@ -215,7 +216,10 @@
 					layer.msg('请选择需求时间')
 					return
 				}
-				
+				layer.msg('操作成功')
+				setTimeout(function (){
+					dh_back_new()
+				},1000)
 			}
 		</script>
 	</body>

@@ -276,6 +276,7 @@ function dh_back(){
 }
 function dh_back_new(){
 	history.go(-1)
+	// window.location.href = document.referrer;
 }
 
 // var tk_show=false

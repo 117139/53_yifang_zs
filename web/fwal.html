@@ -112,14 +112,17 @@
 			function set_cur(num){
 				if(vm.list_cur==num) return
 				vm.list_cur=num
+				layer.msg('加载中')
+				jiazai_fuc()
 			}
 			function jiazai_fuc(jiazai_loading){
 				// 加载
 				set_loading(true)
 				console.log('list加载')
 				setTimeout(function (){
+					layer.closeAll()
 					set_loading(false)
-				},2000)
+				},1000)
 			}
 		</script>
 	</body>
