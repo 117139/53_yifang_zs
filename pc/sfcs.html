@@ -16,6 +16,7 @@
 		<link href="../images/css/slick-theme.css" rel="stylesheet" type="text/css">
 		<link href="../images/css/style.css" rel="stylesheet" type="text/css">
 		<script src="../images/js/jquery.min.js"></script>
+		<script src="../images/js/layer/layer.js"></script>
 		<script src="../images/js/vue.min.js"></script>
 		<script src="../images/js/swiper.min.js"></script>
 		<script src="../images/js/slick.js"></script>
@@ -459,9 +460,52 @@
 				}
 			}
 			function getCode() {
-			
+				if(vm.zhuanyi==0&&vm.budongchang==0){
+					if(!vm.zzmj){
+						layer.msg('请输入住宅面积')
+						return
+					}
+					if(!vm.zzscjg){
+						layer.msg('请输入住宅市场价格')
+						return
+					}
+					if(!vm.prev_pri){
+						layer.msg('请输入上一手交易价格')
+						return
+					}
+					if(!vm.to_year){
+						layer.msg('请输入卖方持有年数')
+						return
+					}
+					if(!vm.jy_num){
+						layer.msg('请输入卖方家庭已有住宅套数')
+						return
+					}
+				}
+				if(vm.zhuanyi==0&&vm.budongchang!=0){
+				
+					if(!vm.bdc_pri){
+						layer.msg('请输入不动产价格')
+						return
+					}
+					if(!vm.prev_pri){
+						layer.msg('请输入上一手交易价格')
+						return
+					}
+					if(!vm.to_year){
+						layer.msg('请输入卖方持有年数')
+						return
+					}
+				}
+				if(vm.zhuanyi!=0){
+				
+					if(!vm.bdc_pri){
+						layer.msg('请输入不动产价格')
+						return
+					}
+				}
 				if (vm.js_tel == '' || !(/^1\d{10}$/.test(vm.js_tel))) {
-					alert('手机号有误')
+					layer.msg('手机号有误')
 					return
 				}
 				codetime()
@@ -484,7 +528,58 @@
 				}, 1000);
 			}
 			function jisuan(){
+				if(vm.zhuanyi==0&&vm.budongchang==0){
+					if(!vm.zzmj){
+						layer.msg('请输入住宅面积')
+						return
+					}
+					if(!vm.zzscjg){
+						layer.msg('请输入住宅市场价格')
+						return
+					}
+					if(!vm.prev_pri){
+						layer.msg('请输入上一手交易价格')
+						return
+					}
+					if(!vm.to_year){
+						layer.msg('请输入卖方持有年数')
+						return
+					}
+					if(!vm.jy_num){
+						layer.msg('请输入卖方家庭已有住宅套数')
+						return
+					}
+				}
+				if(vm.zhuanyi==0&&vm.budongchang!=0){
 				
+					if(!vm.bdc_pri){
+						layer.msg('请输入不动产价格')
+						return
+					}
+					if(!vm.prev_pri){
+						layer.msg('请输入上一手交易价格')
+						return
+					}
+					if(!vm.to_year){
+						layer.msg('请输入卖方持有年数')
+						return
+					}
+				}
+				if(vm.zhuanyi!=0){
+				
+					if(!vm.bdc_pri){
+						layer.msg('请输入不动产价格')
+						return
+					}
+				}
+				if (vm.js_tel == '' || !(/^1\d{10}$/.test(vm.js_tel))) {
+					layer.msg('手机号有误')
+					return
+				}
+				if(!vm.jy_code){
+					layer.msg('请输入验证码')
+					return
+				}
 				var datas={
 					zhuanyi:vm.zhuanyi,
 					budongchang:vm.budongchang,

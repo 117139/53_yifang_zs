@@ -65,7 +65,7 @@
 								<div class="w100 dis_flex aic ju_b" @click="showPicker = true">
 									<div class="sfcs_li_name">选择不动产类别：</div>
 									<div class="flex_1" v-if="budongchang" v-html="budongchang"></div>
-									<div class="flex_1 c9" v-else>选择不动产类别</div>
+									<div class="flex_1 c9" v-else>请选择</div>
 									<i class="iconfont icon-next-m"></i>
 									
 									<input type="hidden" name="budongchang" v-model="budongchang">
@@ -92,7 +92,7 @@
 								<div class="w100 dis_flex aic ju_b">
 									<div class="sfcs_li_name">住宅市场价格：</div>
 									
-									<input class="flex_1" type="number" name="zzscjg" v-model="zzscjg" placeholder="请输入不动产总价">
+									<input class="flex_1" type="number" name="zzscjg" v-model="zzscjg" placeholder="请输入住宅市场价格">
 									<div class="sfcs_li_name">万元</div>
 								</div>
 							</div>
@@ -209,7 +209,7 @@
 									<div  v-if="yzm_type==1" class="js_code dis_flex aic ju_c">{{yztime}}s</div>
 								</div>
 							</div>
-							<div class="sfcs_jsbtn dis_flex aic ju_c" @click="js_zf=true">开始计算</div>
+							<div class="sfcs_jsbtn dis_flex aic ju_c" @click="tk_open()">开始计算</div>
 						</div>
 					</div>
 				</div>
@@ -292,11 +292,11 @@
 								'商铺/门面',
 								'写字楼(含商服类公寓）'
 							],
-							defaultIndex: 0
+							defaultIndex: ''
 						}
 
 					],
-					budongchang: '住宅(含住宅公寓)',
+					budongchang: '',
 					zflx:0,     //住房类型：：
 					zzmj:'',     //住宅面积：
 					zzscjg:'',     //住宅市场价格：
@@ -332,7 +332,66 @@
 					},
 				}
 			});
-			
+			function tk_open(){
+				
+				if(!vm.budongchang){
+					layer.msg('请选择不动产类别')
+					return
+				}
+				if(vm.tab_cur==0&&vm.budongchang=='住宅(含住宅公寓)'){
+					if(!vm.zzmj){
+						layer.msg('请输入住宅面积')
+						return
+					}
+					if(!vm.zzscjg){
+						layer.msg('请输入住宅市场价格')
+						return
+					}
+					if(!vm.prev_pri){
+						layer.msg('请输入上一手交易价格')
+						return
+					}
+					if(!vm.to_year){
+						layer.msg('请输入卖方持有年数')
+						return
+					}
+					if(!vm.jy_num){
+						layer.msg('请输入卖方家庭已有住宅套数')
+						return
+					}
+				}
+				if(vm.tab_cur==0&&vm.budongchang!='住宅(含住宅公寓)'){
+				
+					if(!vm.bdc_pri){
+						layer.msg('请输入不动产价格')
+						return
+					}
+					if(!vm.prev_pri){
+						layer.msg('请输入上一手交易价格')
+						return
+					}
+					if(!vm.to_year){
+						layer.msg('请输入卖方持有年数')
+						return
+					}
+				}
+				if(vm.tab_cur!=0){
+				
+					if(!vm.bdc_pri){
+						layer.msg('请输入不动产价格')
+						return
+					}
+				}
+				if (vm.js_tel == '' || !(/^1\d{10}$/.test(vm.js_tel))) {
+					layer.msg('手机号有误')
+					return
+				}
+				if(!vm.jy_code){
+					layer.msg('请输入验证码')
+					return
+				}
+				vm.js_zf=true
+			}
 			
 			function rd_fuc(type,num){
 				if(type==1){
@@ -383,9 +442,57 @@
 				}
 			}
 			function getCode() {
-			
+				if(!vm.budongchang){
+					layer.msg('请选择不动产类别')
+					return
+				}
+				if(vm.tab_cur==0&&vm.budongchang=='住宅(含住宅公寓)'){
+					if(!vm.zzmj){
+						layer.msg('请输入住宅面积')
+						return
+					}
+					if(!vm.zzscjg){
+						layer.msg('请输入住宅市场价格')
+						return
+					}
+					if(!vm.prev_pri){
+						layer.msg('请输入上一手交易价格')
+						return
+					}
+					if(!vm.to_year){
+						layer.msg('请输入卖方持有年数')
+						return
+					}
+					console.log(vm.jy_num)
+					if(!vm.jy_num){
+						layer.msg('请输入卖方家庭已有住宅套数')
+						return
+					}
+				}
+				if(vm.tab_cur==0&&vm.budongchang!='住宅(含住宅公寓)'){
+				
+					if(!vm.bdc_pri){
+						layer.msg('请输入不动产价格')
+						return
+					}
+					if(!vm.prev_pri){
+						layer.msg('请输入上一手交易价格')
+						return
+					}
+					if(!vm.to_year){
+						layer.msg('请输入卖方持有年数')
+						return
+					}
+				}
+				if(vm.tab_cur!=0){
+				
+					if(!vm.bdc_pri){
+						layer.msg('请输入不动产价格')
+						return
+					}
+				}
 				if (vm.js_tel == '' || !(/^1\d{10}$/.test(vm.js_tel))) {
-					alert('手机号有误')
+					layer.msg('手机号有误')
 					return
 				}
 				codetime()

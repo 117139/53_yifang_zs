@@ -127,8 +127,8 @@
 					<img src="../images/fw_lc.jpg" alt="">
 				</div>
 				<!-- 服务案例 -->
-				<div v-if="tab_cur==1" class="web_fw_list dis_flex jiazai_box" style="flex-wrap: wrap;padding-top: .3rem;">
-					<a href="fwal_xq.html" class="fwal_li" v-for="item in 20">
+				<div v-if="tab_cur==1" class="web_fw_list dis_flex " style="flex-wrap: wrap;padding-top: .3rem;">
+					<a href="fwal_xq.html" class="fwal_li" v-for="item in 4">
 						<div class="fwal_box">
 							<div class="div_img1 fwal_img">
 								<div style="background-image: url(../images/fw_bg_1.png);"></div>
@@ -140,8 +140,8 @@
 					</a>
 				</div>
 				<!-- 答疑解惑 -->
-				<div  v-if="tab_cur==2" class="index_box_p03 jiazai_box">
-					<div class="dis_flex_c dyjh_li" href="dyjh_xq.html" v-for="item in 20">
+				<div  v-if="tab_cur==2" class="index_box_p03 ">
+					<div class="dis_flex_c dyjh_li" href="dyjh_xq.html" v-for="item in 3">
 						<div class=" dyjh_li_d1 dis_flex aifs">
 							<!-- <div class="dy_w dis_flex aic ju_c">问</div> -->
 							<div class="dy_w dis_flex aic ju_c" style="margin-top: .05rem;"><img src="../images/images/wen.png" alt=""></div>
@@ -284,7 +284,7 @@
 				data: {
 					caidan_show: false, //菜单
 					tk_show_share:false,
-					bz_type:1,
+					bz_type:0,
 					tab_cur:0
 				},
 				created: function() {},

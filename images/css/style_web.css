@@ -2875,3 +2875,12 @@ input+.sfcs_li_name{
 .lgoin_xy_tip a,.lgoin_xy_tip a:hover,.lgoin_xy_tip a:focus{
 	color:#3678F2;
 }
+.login_code{
+	color: #3677F1;
+	width: 1.8rem;
+	height: .6rem;
+}
+.login_code1{
+	background: #eee;
+	border-radius: .06rem;
+}
