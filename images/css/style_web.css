@@ -672,6 +672,7 @@ img {
 	border-radius: .04rem .04rem 0 0;
 }
 .fwal_msg{
+	height: 1.18rem;
 	font-size: .32rem;
 	color: #333;
 	padding: .15rem;

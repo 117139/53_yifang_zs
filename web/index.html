@@ -312,19 +312,19 @@
 						<img src="../images/images/web_cnicon.png" alt="" style="width: .34rem;height: .38rem;">服务承诺</a>
 				</div>
 				<div class="cn_list">
-					<div class="fwcn_li" style="background-image: url(&quot;../images/index_img_03.jpg&quot;);">
+					<div class="fwcn_li" style="background-image: url('../images/index_img_03.jpg');">
 						<div class="fwcn_li_d1">佣金透明</div>
 						<div class="fwcn_li_d1 fwcn_li_d2">拒绝追加</div>
 					</div>
-					<div class="fwcn_li" style="background-image: url(&quot;../images/index_img_05.jpg&quot;);">
+					<div class="fwcn_li" style="background-image: url('../images/index_img_05.jpg');">
 						<div class="fwcn_li_d1">真是房源</div>
 						<div class="fwcn_li_d1 fwcn_li_d2">不吃差价</div>
 					</div>
-					<div class="fwcn_li" style="background-image: url(&quot;../images/index_img_07.jpg&quot;);">
+					<div class="fwcn_li" style="background-image: url('../images/index_img_07.jpg');">
 						<div class="fwcn_li_d1">资金托管</div>
 						<div class="fwcn_li_d1 fwcn_li_d2">安全保障</div>
 					</div>
-					<div class="fwcn_li" style="background-image: url(&quot;../images/index_img_09.jpg&quot;);">
+					<div class="fwcn_li" style="background-image: url('../images/index_img_09.jpg');">
 						<div class="fwcn_li_d1">交易不成</div>
 						<div class="fwcn_li_d1 fwcn_li_d2">佣金全退</div>
 					</div>
@@ -381,7 +381,9 @@
 			<!-- /提问弹框/ -->
 			<div class="web_tk dis_flex_c" :class="tk_show?'tk_show':''">
 				<div class="flex_1" @click="tk_show=false"></div>
-				<div class="web_tk_box" style="height: 5.13rem;">
+				
+				<!-- // 修改部分☟☟☟☟☟☟↓↓↓↓↓↓↓↓↓↓ -->
+				<div class="web_tk_box" style="height: 7.23rem;">
 					<div class="web_tk_box_p">
 						<div class="tk_tit dis_flex ju_b">
 							<div class="tk_t_text">我要提问</div>
@@ -396,9 +398,20 @@
 								<div class="tk_srk_num">{{tw_content.length}}/100</div>
 							</div>
 						</div>
-						<div class="tk_tw_btn dis_flex aic ju_c" @click="tk_show=sub_tw(tw_content)">发布提问</div>
+						
+						<div class="login_li dis_flex aic" >
+							<input class="flex_1" type="number" name="tel" placeholder="请输入手机号"  v-model="tel">
+						</div>
+						<div class="login_li dis_flex aic">
+							<input class="flex_1" type="number" name="code" placeholder="请输入验证码"  v-model="code">
+							<div v-if="yzm_type==0" class="login_code dis_flex aic ju_c" @click="getCode">获取验证码</div>
+							<div v-if="yzm_type==1" class="login_code login_code1 dis_flex aic ju_c">{{yztime}}s</div>
+						</div>
+						<div class="tk_tw_btn dis_flex aic ju_c" style="margin-top: 10px;" @click="tk_show=sub_tw(tw_content)">发布提问</div>
 					</div>
 				</div>
+				
+				<!-- // 修改部分☝☝☝☝☝☝↑↑↑↑↑↑↑↑↑↑↑ -->
 			</div>
 			<a class="div_img1 gotop_btn" href="javascript:window.scrollTo(0,0);">
 				<div style="background-image: url(../images/images/go_top.png);"></div>
@@ -440,18 +453,52 @@
 
 
 			});
-
+			
+			
+			
+			// 修改部分☟☟☟☟☟☟↓↓↓↓↓↓↓↓↓↓
 			vm = new Vue({
 				el: "#wrap",
 				data: {
 					caidan_show: false, //菜单
 					
 					tk_show:'',
-					tw_content:''
+					tw_content:'',
+					tel:'',
+					code:'',
+					yzm_type :0,
+					yztime:0
 				},
 				created: function() {},
 				methods: {}
 			});
+			
+			function getCode() {
+			
+				if (vm.tel == '' || !(/^1\d{10}$/.test(vm.tel))) {
+					layer.msg('手机号有误')
+					return
+				}
+				codetime()
+				
+			}
+			function codetime() {
+				
+				let time = 60
+				let st = setInterval(function() {
+					if (time == 0) {
+						vm.yzm_type = 0
+						clearInterval(st);
+					} else {
+						let news = time--;
+						// console.log(news)
+						vm.yzm_type = 1
+						vm.yztime = news
+			
+					}
+				}, 1000);
+			}
+			// 修改部分☝☝☝☝☝☝↑↑↑↑↑↑↑↑↑↑↑
 		</script>
 	</body>
 

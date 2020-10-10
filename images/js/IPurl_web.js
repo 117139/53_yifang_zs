@@ -245,9 +245,13 @@ $(function() {
 				var scrollHeight = $('.jiazai_box').height();
 				var windowHeight = $(this).height();
 				console.log(scrollTop + windowHeight - scrollHeight)
-				if (scrollTop + windowHeight>= scrollHeight) {
+				console.log("jiazai_box scrollHeight----->"+scrollHeight);
+				console.log("windowHeight-------->"+windowHeight);
+				console.log("scrollTop------>"+scrollTop);
+				if (scrollTop + windowHeight+20>= scrollHeight) {
 					// 此处是滚动条到底部时候触发的事件，在这里写要加载的数据，或者是拉动滚动条的操作
 					console.log("弹弹弹");
+					console.log(jiazai_loading);
 					if (jiazai_loading == true) {
 						return
 					}

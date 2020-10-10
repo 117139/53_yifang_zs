@@ -88,6 +88,44 @@
 				</div>
 				<a class="dis_flex aic ju_c"  href="###" @click="pay_fuc">立即支付</a>
 			</div>
+			
+			<!-- // 修改部分☟☟☟☟☟☟↓↓↓↓↓↓↓↓↓↓ -->
+			<div class="web_tk dis_flex_c" :class="js_zf?'tk_show':''">
+				<div class="flex_1" @click="js_zf=false"></div>
+				<div class="web_tk_box" >
+					<div class="web_tk_box_p">
+						<div class="tk_tit tk_pay_tit dis_flex ju_b">
+							<div class="tk_pay_text">支付</div>
+							<div class="tk_no div_img1" @click="js_zf=false">
+								<div style="background-image: url(../images/guanbi.png);"></div>
+							</div>
+						</div>
+						<!-- <div class="pay_tk_tip">
+							税费测算费用业务/支付完成即可查看<span style="color: #6880F5;">税费总额</span>
+						</div> -->
+						<div class="dis_flex aic ju_b">
+							<div class="paytk_pri_text">应付金额:</div>
+							<div class="cFF3838 paytk_pri dis_flex aib"><div>12</div>元</div>
+						</div>
+						<div class="pay_tk_xztit">选择支付方式</div>
+						<div class="paytk_li dis_flex aic" @click="paytk_type=0">
+							<div class="paytk_icon dis_flex aic ju_c"><i class="iconfont icon-umidd17" style="color: #02A9F1;"></i></div>
+							<div class="flex_1 paytk_name">支付宝支付</div>
+							<div class="paytk_xz" :class="paytk_type==0?'cur':''"></div>
+						</div>
+						<div class="paytk_li dis_flex aic" @click="paytk_type=1">
+							<div class="paytk_icon dis_flex aic ju_c"><i class="iconfont icon-weixinzhifu" style="color:#09BB07;"></i></div>
+							<div class="flex_1 paytk_name">微信支付</div>
+							<div class="paytk_xz"  :class="paytk_type==1?'cur':''"></div>
+						</div>
+						<div class="dis_flex ju_b" style="margin-top: .5rem;">
+							<div></div>
+							<div class="tk_tw_btn dis_flex aic ju_c" @click="pay_pay()">立即支付</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 修改部分☝☝☝☝☝☝↑↑↑↑↑↑↑↑↑↑↑ -->
 		</div>
 		<!--  <script src="./script/vconsole.min.js"></script>
 <script>
@@ -131,21 +169,26 @@
 
 
 			});
-
+			// 修改部分☟☟☟☟☟☟↓↓↓↓↓↓↓↓↓↓
 			vm = new Vue({
 				el: "#wrap",
 				data: {
 					caidan_show: false, //菜单
-					
-
+					js_zf:false,
+					paytk_type:0
 				},
 				created: function() {},
 				methods: {}
 			});
 			function pay_fuc(){
 				//支付
+				vm.js_zf=true
+				
+			}
+			function pay_pay(){
 				jump('fwlb_details_pay3.html')
 			}
+			//修改部分☝☝☝☝☝☝↑↑↑↑↑↑↑↑↑↑↑
 		</script>
 	</body>
 
